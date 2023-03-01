@@ -1,0 +1,2434 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.sections.SectionVBActivity">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="form"
+            type="edu.aku.dmu.hf_vaccination.models.FormVB" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/app_bg_effect"
+        android:orientation="vertical">
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@null"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/CustomToolbarTheme"
+            app:popupTheme="@style/CustomPopupTheme"
+            app:subtitleTextAppearance="@style/Toolbar.SubtitleText"
+            app:title="@string/vb_mainheading"
+            app:titleTextAppearance="@style/Toolbar.TitleText" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/GrpName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/all_round_corners"
+                    android:stretchColumns="2">
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_column="1"
+                            android:background="@color/white"
+                            android:text="@string/vb02"
+                            android:textColor="@color/colorPrimaryDark" />
+
+                        <TextView
+                            android:id="@+id/cardNo"
+                            android:background="@drawable/all_round_corners"
+                            android:text="xxx"
+                            android:textAlignment="center"
+                            android:textColor="@color/gray" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_column="1"
+                            android:background="@color/white"
+                            android:text="@string/vb04a"
+                            android:textColor="@color/colorPrimaryDark" />
+
+                        <TextView
+                            android:id="@+id/pName"
+                            android:background="@drawable/all_round_corners"
+                            android:text="xxx"
+                            android:textAlignment="center"
+                            android:textColor="@color/gray" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_column="1"
+                            android:background="@color/white"
+                            android:text="@string/vb0401"
+                            android:textColor="@color/colorPrimaryDark" />
+
+                        <TextView
+                            android:id="@+id/hName"
+                            android:background="@drawable/all_round_corners"
+                            android:text="xxx"
+                            android:textAlignment="center"
+                            android:textColor="@color/gray" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_column="1"
+                            android:background="@color/white"
+                            android:text="@string/dob"
+                            android:textColor="@color/colorPrimaryDark" />
+
+                        <TextView
+                            android:id="@+id/dob"
+                            android:background="@drawable/all_round_corners"
+                            android:text="xxx"
+                            android:textAlignment="center"
+                            android:textColor="@color/gray" />
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/wraVACINFO"
+                        android:visibility="gone"
+                        tools:visibility="gone">
+
+                        <TextView
+                            android:layout_column="1"
+                            android:background="@color/white"
+                            android:text="پچھلے ٹیکہ کی معلومات"
+                            android:textColor="@color/black" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/white"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/vacStatus"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@color/white"
+                                android:text="NA"
+                                android:textAlignment="center"
+                                android:textColor="@color/gray" />
+
+                            <TextView
+                                android:id="@+id/vacDate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@color/white"
+                                android:text="dd/mm/yyyy"
+                                android:textAlignment="center"
+                                android:textColor="@color/gray" />
+                        </LinearLayout>
+                    </TableRow>
+
+                    <!--<TableRow>
+
+                        <TextView
+                            android:layout_column="1"
+                            android:background="@color/white"
+                            android:text="پچھلے ٹیکہ کی تاریخ"
+                            android:textColor="@color/black" />
+                    </TableRow>-->
+                </TableLayout>
+
+
+                <!-- vb08c  Radio   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVvb08c"
+                    style="@style/cardView"
+                    android:visibility="visible"
+                    tools:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_vb08c" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/vb08c" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/vb08ccheck"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:tag="0">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:tag="0"
+                                android:visibility="gone">
+
+                                <TextView
+                                    style="@style/sub_labels"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical|center_horizontal"
+                                    android:text="I"
+                                    android:visibility="invisible" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        style="@style/sub_labels"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1.5"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text="I"
+                                        android:visibility="invisible" />
+
+
+                                    <TextView
+                                        style="@style/sub_labels"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text="0" />
+
+                                    <TextView
+                                        style="@style/sub_labels"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text="I" />
+
+                                    <TextView
+                                        style="@style/sub_labels"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text="II" />
+
+                                    <TextView
+                                        style="@style/sub_labels"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text="III" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal">
+
+                                    <CheckBox
+                                        android:id="@+id/vb08ca98"
+                                        android:layout_width="@dimen/_85sdp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginTop="0dp"
+                                        android:background="@drawable/bcg"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:onClick="@{()->form.setVb08ca(``) + form.setVb08cadt(``) + vb08ca.clearCheck()}" />
+
+                                    <LinearLayout
+                                        android:id="@+id/fldGrpVB08ca"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+
+                                        <RadioGroup
+                                            android:id="@+id/vb08ca"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal"
+                                            android:paddingBottom="0dp">
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <RadioButton
+                                                android:id="@+id/vb08caa"
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="2"
+                                                android:background="@null"
+                                                android:checked="@{form.vb08ca.equals(`1`)}"
+                                                android:enabled="@{vb08ca98.checked ? true : false}"
+                                                android:onClick="@{()->form.setVb08ca(`1`)}" />
+
+                                            <ImageView
+                                                android:id="@+id/vb08caatick"
+                                                android:layout_width="0.5dp"
+                                                android:layout_height="20dp"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="2"
+                                                android:background="@drawable/tick_mark"
+                                                android:visibility="gone" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <RadioButton
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="2"
+                                                android:background="@null"
+                                                android:visibility="invisible" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <RadioButton
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="2"
+                                                android:background="@null"
+                                                android:text=""
+                                                android:visibility="invisible" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <RadioButton
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="2"
+                                                android:background="@null"
+                                                android:visibility="invisible" />
+
+                                        </RadioGroup>
+
+                                        <LinearLayout
+                                            android:id="@+id/vb08call"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="20dp"
+                                            android:layout_marginTop="0dp"
+                                            android:orientation="horizontal"
+                                            android:padding="0dp"
+                                            android:paddingTop="0dp">
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <TextView
+                                                android:id="@+id/vb08caatxt"
+                                                style="@style/badges"
+                                                android:layout_width="0dp"
+                                                android:layout_height="18dp"
+                                                android:layout_weight="2"
+                                                android:fontFamily="@font/roboto"
+                                                android:includeFontPadding="false"
+                                                android:lineSpacingExtra="0dp"
+                                                android:text=""
+                                                android:textSize="@dimen/_6sdp"
+                                                android:visibility="invisible" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <TextView
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_vertical"
+                                                android:layout_weight="2"
+                                                android:background="@color/lightPink"
+                                                android:gravity="center"
+                                                android:text="abc"
+                                                android:textColor="@color/redLight"
+                                                android:textSize="@dimen/_7sdp"
+                                                android:visibility="invisible" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <TextView
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_vertical"
+                                                android:layout_weight="2"
+                                                android:background="@color/lightPink"
+                                                android:gravity="center"
+                                                android:text="abc"
+                                                android:textColor="@color/redLight"
+                                                android:textSize="@dimen/_7sdp"
+                                                android:visibility="invisible" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <TextView
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_vertical"
+                                                android:layout_weight="2"
+                                                android:background="@color/lightPink"
+                                                android:gravity="center"
+                                                android:text="abc"
+                                                android:textColor="@color/redLight"
+                                                android:textSize="@dimen/_7sdp"
+                                                android:visibility="invisible" />
+
+
+                                        </LinearLayout>
+
+                                        <io.blackbox_vision.datetimepickeredittext.view.DatePickerEditText
+                                            android:id="@+id/vb08cadt"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/all_round_corners"
+                                            android:enabled="@{vb08ca98.checked &amp;&amp; !form.vb08ca.equals(``) ? true : false}"
+                                            android:gravity="center"
+                                            android:hint="YYYY-MM-DD"
+                                            android:text="@={form.vb08cadt}"
+                                            app:dateFormat="yyyy-MM-dd"
+                                            app:maxDate="CR_DATE"
+                                            app:theme="@style/DatePickerEditTextDialogTheme" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/grayLight" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal">
+
+                                    <CheckBox
+                                        android:id="@+id/vb08cb98"
+                                        android:layout_width="@dimen/_85sdp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginTop="0dp"
+                                        android:background="@drawable/opv"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:onClick="@{()->form.setVb08cb(``) + form.setVb08cbdt(``) + vb08cb.clearCheck()}" />
+
+                                    <LinearLayout
+                                        android:id="@+id/fldGrpVB08cb"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+
+
+                                        <RadioGroup
+                                            android:id="@+id/vb08cb"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal">
+
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <RadioButton
+                                                android:id="@+id/vb08cba"
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="2"
+                                                android:background="@null"
+                                                android:checked="@{form.vb08cb01.equals(`1`)}"
+                                                android:enabled="@{vb08cb98.checked ? true : false}"
+                                                android:onClick="@{()->form.setVb08cb01(`1`)}" />
+
+                                            <ImageView
+                                                android:id="@+id/vb08cbatick"
+                                                android:layout_width="0.5dp"
+                                                android:layout_height="20dp"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="2"
+                                                android:background="@drawable/tick_mark"
+                                                android:visibility="gone" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+
+                                            <RadioButton
+                                                android:id="@+id/vb08cbb"
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="2"
+                                                android:background="@null"
+                                                android:checked="@{form.vb08cb02.equals(`2`)}"
+                                                android:enabled="@{vb08cb98.checked ? true : false}"
+                                                android:onClick="@{()->form.setVb08cb02(`2`)}" />
+
+                                            <ImageView
+                                                android:id="@+id/vb08cbbtick"
+                                                android:layout_width="0.5dp"
+                                                android:layout_height="20dp"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="2"
+                                                android:background="@drawable/tick_mark"
+                                                android:visibility="gone" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <RadioButton
+                                                android:id="@+id/vb08cbc"
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="2"
+                                                android:background="@null"
+                                                android:checked="@{form.vb08cb03.equals(`3`)}"
+                                                android:enabled="@{vb08cb98.checked ? true : false}"
+                                                android:onClick="@{()->form.setVb08cb03(`3`)}" />
+
+                                            <ImageView
+                                                android:id="@+id/vb08cbctick"
+                                                android:layout_width="0.5dp"
+                                                android:layout_height="20dp"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="2"
+                                                android:background="@drawable/tick_mark"
+                                                android:visibility="gone" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <RadioButton
+                                                android:id="@+id/vb08cbd"
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="2"
+                                                android:background="@null"
+                                                android:checked="@{form.vb08cb04.equals(`4`)}"
+                                                android:enabled="@{vb08cb98.checked ? true : false}"
+                                                android:onClick="@{()->form.setVb08cb04(`4`)}" />
+
+                                            <ImageView
+                                                android:id="@+id/vb08cbdtick"
+                                                android:layout_width="0.5dp"
+                                                android:layout_height="20dp"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="2"
+                                                android:background="@drawable/tick_mark"
+                                                android:visibility="gone" />
+
+                                        </RadioGroup>
+
+                                        <LinearLayout
+                                            android:id="@+id/vb08cbll"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="20dp"
+                                            android:layout_marginTop="0dp"
+                                            android:orientation="horizontal"
+                                            android:padding="0dp"
+                                            android:paddingTop="0dp">
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <TextView
+                                                android:id="@+id/vb08cbatxt"
+                                                style="@style/badges"
+                                                android:layout_width="0dp"
+                                                android:layout_height="18dp"
+                                                android:layout_weight="2"
+                                                android:fontFamily="@font/roboto"
+                                                android:includeFontPadding="false"
+                                                android:lineSpacingExtra="0dp"
+                                                android:text=""
+                                                android:textSize="@dimen/_6sdp"
+                                                android:visibility="invisible" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <TextView
+                                                android:id="@+id/vb08cbbtxt"
+                                                style="@style/badges"
+                                                android:layout_width="0dp"
+                                                android:layout_height="18dp"
+                                                android:layout_weight="2"
+                                                android:fontFamily="@font/roboto"
+                                                android:includeFontPadding="false"
+                                                android:lineSpacingExtra="0dp"
+                                                android:text=""
+                                                android:textSize="@dimen/_6sdp"
+                                                android:visibility="invisible" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <TextView
+                                                android:id="@+id/vb08cbctxt"
+                                                style="@style/badges"
+                                                android:layout_width="0dp"
+                                                android:layout_height="18dp"
+                                                android:layout_weight="2"
+                                                android:fontFamily="@font/roboto"
+                                                android:includeFontPadding="false"
+                                                android:lineSpacingExtra="0dp"
+                                                android:text=""
+                                                android:textSize="@dimen/_6sdp"
+                                                android:visibility="invisible" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <TextView
+                                                android:id="@+id/vb08cbdtxt"
+                                                style="@style/badges"
+                                                android:layout_width="0dp"
+                                                android:layout_height="18dp"
+                                                android:layout_weight="2"
+                                                android:fontFamily="@font/roboto"
+                                                android:includeFontPadding="false"
+                                                android:lineSpacingExtra="0dp"
+                                                android:text=""
+                                                android:textSize="@dimen/_6sdp"
+                                                android:visibility="invisible" />
+
+
+                                        </LinearLayout>
+
+                                        <io.blackbox_vision.datetimepickeredittext.view.DatePickerEditText
+                                            android:id="@+id/vb08cbdt"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/all_round_corners"
+                                            android:enabled="@{vb08cb98.checked &amp;&amp; !form.vb08cb01.equals(``) || !form.vb08cb02.equals(``) || !form.vb08cb03.equals(``) || !form.vb08cb04.equals(``) ? true : false}"
+                                            android:gravity="center"
+                                            android:hint="YYYY-MM-DD"
+                                            android:text="@={form.vb08cbdt}"
+                                            app:dateFormat="yyyy-MM-dd"
+                                            app:maxDate="CR_DATE"
+                                            app:theme="@style/DatePickerEditTextDialogTheme" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/grayLight" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal">
+
+                                    <CheckBox
+                                        android:id="@+id/vb08cc98"
+                                        android:layout_width="@dimen/_85sdp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginTop="0dp"
+                                        android:background="@drawable/hepb"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:onClick="@{()->form.setVb08cc(``) + form.setVb08ccdt(``) + vb08cc.clearCheck()}" />
+
+                                    <LinearLayout
+                                        android:id="@+id/fldGrpVB08cc"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+
+                                        <RadioGroup
+                                            android:id="@+id/vb08cc"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal">
+
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <RadioButton
+                                                android:id="@+id/vb08cca"
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="2"
+                                                android:background="@null"
+                                                android:checked="@{form.vb08cc.equals(`1`)}"
+                                                android:enabled="@{vb08cc98.checked ? true : false}"
+                                                android:onClick="@{()->form.setVb08cc(`1`)}" />
+
+                                            <ImageView
+                                                android:id="@+id/vb08ccatick"
+                                                android:layout_width="0.5dp"
+                                                android:layout_height="20dp"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="2"
+                                                android:background="@drawable/tick_mark"
+                                                android:visibility="gone" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <RadioButton
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="2"
+                                                android:background="@null"
+                                                android:visibility="invisible" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <RadioButton
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="2"
+                                                android:background="@null"
+                                                android:visibility="invisible" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <RadioButton
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="2"
+                                                android:background="@null"
+                                                android:visibility="invisible" />
+
+                                        </RadioGroup>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="20dp"
+                                            android:layout_marginTop="0dp"
+                                            android:orientation="horizontal"
+                                            android:padding="0dp"
+                                            android:paddingTop="0dp">
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <TextView
+                                                android:id="@+id/vb08ccatxt"
+                                                style="@style/badges"
+                                                android:layout_width="0dp"
+                                                android:layout_height="18dp"
+                                                android:layout_weight="2"
+                                                android:fontFamily="@font/roboto"
+                                                android:includeFontPadding="false"
+                                                android:lineSpacingExtra="0dp"
+                                                android:text=""
+                                                android:textSize="@dimen/_6sdp"
+                                                android:visibility="invisible" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <TextView
+                                                style="@style/badges"
+                                                android:layout_width="0dp"
+                                                android:layout_height="18dp"
+                                                android:layout_weight="2"
+                                                android:fontFamily="@font/roboto"
+                                                android:includeFontPadding="false"
+                                                android:lineSpacingExtra="0dp"
+                                                android:text="2022-08-20"
+                                                android:textSize="@dimen/_6sdp"
+                                                android:visibility="invisible" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <TextView
+
+                                                style="@style/badges"
+                                                android:layout_width="0dp"
+                                                android:layout_height="18dp"
+                                                android:layout_weight="2"
+                                                android:fontFamily="@font/roboto"
+                                                android:includeFontPadding="false"
+                                                android:lineSpacingExtra="0dp"
+                                                android:text="2022-08-20"
+                                                android:textColor="@color/colorPrimaryDark"
+                                                android:textSize="@dimen/_6sdp"
+                                                android:visibility="invisible" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <TextView
+                                                style="@style/badges"
+                                                android:layout_width="0dp"
+                                                android:layout_height="18dp"
+                                                android:layout_weight="2"
+                                                android:fontFamily="@font/roboto"
+                                                android:includeFontPadding="false"
+                                                android:lineSpacingExtra="0dp"
+                                                android:text="2022-08-20"
+                                                android:textColor="@color/redLight"
+                                                android:textSize="@dimen/_6sdp"
+                                                android:visibility="invisible" />
+
+
+                                        </LinearLayout>
+
+
+                                        <io.blackbox_vision.datetimepickeredittext.view.DatePickerEditText
+                                            android:id="@+id/vb08ccdt"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/all_round_corners"
+                                            android:enabled="@{vb08cc98.checked &amp;&amp; !form.vb08cc.equals(``) ? true : false}"
+                                            android:gravity="center"
+                                            android:hint="YYYY-MM-DD"
+                                            android:text="@={form.vb08ccdt}"
+                                            app:dateFormat="yyyy-MM-dd"
+                                            app:maxDate="CR_DATE"
+                                            app:theme="@style/DatePickerEditTextDialogTheme" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/grayLight" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal">
+
+                                    <CheckBox
+                                        android:id="@+id/vb08cd98"
+                                        android:layout_width="@dimen/_85sdp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginTop="0dp"
+                                        android:background="@drawable/penta"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:onClick="@{()->form.setVb08cd(``) + form.setVb08cddt(``) + vb08cd.clearCheck()}" />
+
+                                    <LinearLayout
+                                        android:id="@+id/fldGrpVB08cd"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+
+                                        <RadioGroup
+                                            android:id="@+id/vb08cd"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal">
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <RadioButton
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="2"
+                                                android:background="@null"
+                                                android:visibility="invisible" />
+
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <RadioButton
+                                                android:id="@+id/vb08cda"
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="2"
+                                                android:background="@null"
+                                                android:checked="@{form.vb08cd01.equals(`1`)}"
+                                                android:enabled="@{vb08cd98.checked ? true : false}"
+                                                android:onClick="@{()->form.setVb08cd01(`1`)}" />
+
+                                            <ImageView
+                                                android:id="@+id/vb08cdatick"
+                                                android:layout_width="0.5dp"
+                                                android:layout_height="20dp"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="2"
+                                                android:background="@drawable/tick_mark"
+                                                android:visibility="gone" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <RadioButton
+                                                android:id="@+id/vb08cdb"
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="2"
+                                                android:background="@null"
+                                                android:checked="@{form.vb08cd02.equals(`2`)}"
+                                                android:enabled="@{vb08cd98.checked ? true : false}"
+                                                android:onClick="@{()->form.setVb08cd02(`2`)}" />
+
+                                            <ImageView
+                                                android:id="@+id/vb08cdbtick"
+                                                android:layout_width="0.5dp"
+                                                android:layout_height="20dp"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="2"
+                                                android:background="@drawable/tick_mark"
+                                                android:visibility="gone" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <RadioButton
+                                                android:id="@+id/vb08cdc"
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="2"
+                                                android:background="@null"
+                                                android:checked="@{form.vb08cd03.equals(`3`)}"
+                                                android:enabled="@{vb08cd98.checked ? true : false}"
+                                                android:onClick="@{()->form.setVb08cd03(`3`)}" />
+
+                                            <ImageView
+                                                android:id="@+id/vb08cdctick"
+                                                android:layout_width="0.5dp"
+                                                android:layout_height="20dp"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="2"
+                                                android:background="@drawable/tick_mark"
+                                                android:visibility="gone" />
+
+                                        </RadioGroup>
+
+                                        <LinearLayout
+                                            android:id="@+id/vb08cdll"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="20dp"
+                                            android:layout_marginTop="0dp"
+                                            android:orientation="horizontal"
+                                            android:padding="0dp"
+                                            android:paddingTop="0dp">
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <TextView
+                                                style="@style/badges"
+                                                android:layout_width="0dp"
+                                                android:layout_height="18dp"
+                                                android:layout_weight="2"
+                                                android:fontFamily="@font/roboto"
+                                                android:includeFontPadding="false"
+                                                android:lineSpacingExtra="0dp"
+                                                android:text=""
+                                                android:textColor="@color/redLight"
+                                                android:textSize="@dimen/_6sdp"
+                                                android:visibility="invisible" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <TextView
+                                                android:id="@+id/vb08cdatxt"
+                                                style="@style/badges"
+                                                android:layout_width="0dp"
+                                                android:layout_height="18dp"
+                                                android:layout_weight="2"
+                                                android:fontFamily="@font/roboto"
+                                                android:includeFontPadding="false"
+                                                android:lineSpacingExtra="0dp"
+                                                android:text=""
+                                                android:textSize="@dimen/_6sdp"
+                                                android:visibility="invisible" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <TextView
+                                                android:id="@+id/vb08cdbtxt"
+                                                style="@style/badges"
+                                                android:layout_width="0dp"
+                                                android:layout_height="18dp"
+                                                android:layout_weight="2"
+                                                android:fontFamily="@font/roboto"
+                                                android:includeFontPadding="false"
+                                                android:lineSpacingExtra="0dp"
+                                                android:text=""
+                                                android:textSize="@dimen/_6sdp"
+                                                android:visibility="invisible" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <TextView
+                                                android:id="@+id/vb08cdctxt"
+                                                style="@style/badges"
+                                                android:layout_width="0dp"
+                                                android:layout_height="18dp"
+                                                android:layout_weight="2"
+                                                android:fontFamily="@font/roboto"
+                                                android:includeFontPadding="false"
+                                                android:lineSpacingExtra="0dp"
+                                                android:text=""
+                                                android:textSize="@dimen/_6sdp"
+                                                android:visibility="invisible" />
+
+
+                                        </LinearLayout>
+
+                                        <io.blackbox_vision.datetimepickeredittext.view.DatePickerEditText
+                                            android:id="@+id/vb08cddt"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/all_round_corners"
+                                            android:enabled="@{vb08cd98.checked &amp;&amp; !form.vb08cd01.equals(``) || !form.vb08cd02.equals(``) || !form.vb08cd03.equals(``) ? true : false}"
+                                            android:gravity="center"
+                                            android:hint="YYYY-MM-DD"
+                                            android:text="@={form.vb08cddt}"
+                                            app:dateFormat="yyyy-MM-dd"
+                                            app:maxDate="CR_DATE"
+                                            app:theme="@style/DatePickerEditTextDialogTheme" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/grayLight" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal">
+
+                                    <CheckBox
+                                        android:id="@+id/vb08ce98"
+                                        android:layout_width="@dimen/_85sdp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginTop="0dp"
+                                        android:background="@drawable/pcv"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:onClick="@{()->form.setVb08ce(``) + form.setVb08cedt(``) + vb08ce.clearCheck()}" />
+
+                                    <LinearLayout
+                                        android:id="@+id/fldGrpVB08ce"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+
+                                        <RadioGroup
+                                            android:id="@+id/vb08ce"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal">
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <RadioButton
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="2"
+                                                android:background="@null"
+                                                android:visibility="invisible" />
+
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <RadioButton
+                                                android:id="@+id/vb08cea"
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="2"
+                                                android:background="@null"
+                                                android:checked="@{form.vb08ce01.equals(`1`)}"
+                                                android:enabled="@{vb08ce98.checked ? true : false}"
+                                                android:onClick="@{()->form.setVb08ce01(`1`)}" />
+
+                                            <ImageView
+                                                android:id="@+id/vb08ceatick"
+                                                android:layout_width="0.5dp"
+                                                android:layout_height="20dp"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="2"
+                                                android:background="@drawable/tick_mark"
+                                                android:visibility="gone" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <RadioButton
+                                                android:id="@+id/vb08ceb"
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="2"
+                                                android:background="@null"
+                                                android:checked="@{form.vb08ce02.equals(`2`)}"
+                                                android:enabled="@{vb08ce98.checked ? true : false}"
+                                                android:onClick="@{()->form.setVb08ce02(`2`)}" />
+
+                                            <ImageView
+                                                android:id="@+id/vb08cebtick"
+                                                android:layout_width="0.5dp"
+                                                android:layout_height="20dp"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="2"
+                                                android:background="@drawable/tick_mark"
+                                                android:visibility="gone" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <RadioButton
+                                                android:id="@+id/vb08cec"
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="2"
+                                                android:background="@null"
+                                                android:checked="@{form.vb08ce03.equals(`3`)}"
+                                                android:enabled="@{vb08ce98.checked ? true : false}"
+                                                android:onClick="@{()->form.setVb08ce03(`3`)}" />
+
+                                            <ImageView
+                                                android:id="@+id/vb08cectick"
+                                                android:layout_width="0.5dp"
+                                                android:layout_height="20dp"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="2"
+                                                android:background="@drawable/tick_mark"
+                                                android:visibility="gone" />
+
+                                        </RadioGroup>
+
+                                        <LinearLayout
+                                            android:id="@+id/vb08cell"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="20dp"
+                                            android:layout_marginTop="0dp"
+                                            android:orientation="horizontal"
+                                            android:padding="0dp"
+                                            android:paddingTop="0dp">
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <TextView
+                                                style="@style/badges"
+                                                android:layout_width="0dp"
+                                                android:layout_height="18dp"
+                                                android:layout_weight="2"
+                                                android:fontFamily="@font/roboto"
+                                                android:includeFontPadding="false"
+                                                android:lineSpacingExtra="0dp"
+                                                android:text=""
+                                                android:textColor="@color/redLight"
+                                                android:textSize="@dimen/_6sdp"
+                                                android:visibility="invisible" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <TextView
+                                                android:id="@+id/vb08ceatxt"
+                                                style="@style/badges"
+                                                android:layout_width="0dp"
+                                                android:layout_height="18dp"
+                                                android:layout_weight="2"
+                                                android:fontFamily="@font/roboto"
+                                                android:includeFontPadding="false"
+                                                android:lineSpacingExtra="0dp"
+                                                android:text=""
+                                                android:textSize="@dimen/_6sdp"
+                                                android:visibility="invisible" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <TextView
+                                                android:id="@+id/vb08cebtxt"
+                                                style="@style/badges"
+                                                android:layout_width="0dp"
+                                                android:layout_height="18dp"
+                                                android:layout_weight="2"
+                                                android:fontFamily="@font/roboto"
+                                                android:includeFontPadding="false"
+                                                android:lineSpacingExtra="0dp"
+                                                android:text=""
+                                                android:textSize="@dimen/_6sdp"
+                                                android:visibility="invisible" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <TextView
+                                                android:id="@+id/vb08cectxt"
+                                                style="@style/badges"
+                                                android:layout_width="0dp"
+                                                android:layout_height="18dp"
+                                                android:layout_weight="2"
+                                                android:fontFamily="@font/roboto"
+                                                android:includeFontPadding="false"
+                                                android:lineSpacingExtra="0dp"
+                                                android:text=""
+                                                android:textSize="@dimen/_6sdp"
+                                                android:visibility="invisible" />
+
+
+                                        </LinearLayout>
+
+                                        <io.blackbox_vision.datetimepickeredittext.view.DatePickerEditText
+                                            android:id="@+id/vb08cedt"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/all_round_corners"
+                                            android:enabled="@{vb08ce98.checked &amp;&amp; !form.vb08ce01.equals(``) || !form.vb08ce03.equals(``) || !form.vb08ce03.equals(``) ? true : false}"
+                                            android:gravity="center"
+                                            android:hint="YYYY-MM-DD"
+                                            android:text="@={form.vb08cedt}"
+                                            app:dateFormat="yyyy-MM-dd"
+                                            app:maxDate="CR_DATE"
+                                            app:theme="@style/DatePickerEditTextDialogTheme" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/grayLight" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal">
+
+                                    <CheckBox
+                                        android:id="@+id/vb08cf98"
+                                        android:layout_width="@dimen/_85sdp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginTop="0dp"
+                                        android:background="@drawable/rota"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:onClick="@{()->form.setVb08cf(``) + form.setVb08cfdt(``) + vb08cf.clearCheck()}" />
+
+                                    <LinearLayout
+                                        android:id="@+id/fldGrpVB08cf"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+
+                                        <RadioGroup
+                                            android:id="@+id/vb08cf"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal">
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <RadioButton
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="2"
+                                                android:background="@null"
+                                                android:visibility="invisible" />
+
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <RadioButton
+                                                android:id="@+id/vb08cfa"
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="2"
+                                                android:background="@null"
+                                                android:checked="@{form.vb08cf01.equals(`1`)}"
+                                                android:enabled="@{vb08cf98.checked ? true : false}"
+                                                android:onClick="@{()->form.setVb08cf01(`1`)}" />
+
+                                            <ImageView
+                                                android:id="@+id/vb08cfatick"
+                                                android:layout_width="0.5dp"
+                                                android:layout_height="20dp"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="2"
+                                                android:background="@drawable/tick_mark"
+                                                android:visibility="gone" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <RadioButton
+                                                android:id="@+id/vb08cfb"
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="2"
+                                                android:background="@null"
+                                                android:checked="@{form.vb08cf02.equals(`2`)}"
+                                                android:enabled="@{vb08cf98.checked ? true : false}"
+                                                android:onClick="@{()->form.setVb08cf02(`2`)}" />
+
+                                            <ImageView
+                                                android:id="@+id/vb08cfbtick"
+                                                android:layout_width="0.5dp"
+                                                android:layout_height="20dp"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="2"
+                                                android:background="@drawable/tick_mark"
+                                                android:visibility="gone" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <RadioButton
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="2"
+                                                android:background="@null"
+                                                android:visibility="invisible" />
+
+                                        </RadioGroup>
+
+                                        <LinearLayout
+                                            android:id="@+id/vb08cfll"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="20dp"
+                                            android:layout_marginTop="0dp"
+                                            android:orientation="horizontal"
+                                            android:padding="0dp"
+                                            android:paddingTop="0dp">
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <TextView
+                                                style="@style/badges"
+                                                android:layout_width="0dp"
+                                                android:layout_height="18dp"
+                                                android:layout_weight="2"
+                                                android:fontFamily="@font/roboto"
+                                                android:includeFontPadding="false"
+                                                android:lineSpacingExtra="0dp"
+                                                android:text=""
+                                                android:textColor="@color/redLight"
+                                                android:textSize="@dimen/_6sdp"
+                                                android:visibility="invisible" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <TextView
+                                                android:id="@+id/vb08cfatxt"
+                                                style="@style/badges"
+                                                android:layout_width="0dp"
+                                                android:layout_height="18dp"
+                                                android:layout_weight="2"
+                                                android:fontFamily="@font/roboto"
+                                                android:includeFontPadding="false"
+                                                android:lineSpacingExtra="0dp"
+                                                android:text=""
+                                                android:textSize="@dimen/_6sdp"
+                                                android:visibility="invisible" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <TextView
+                                                android:id="@+id/vb08cfbtxt"
+                                                style="@style/badges"
+                                                android:layout_width="0dp"
+                                                android:layout_height="18dp"
+                                                android:layout_weight="2"
+                                                android:fontFamily="@font/roboto"
+                                                android:includeFontPadding="false"
+                                                android:lineSpacingExtra="0dp"
+                                                android:text=""
+                                                android:textSize="@dimen/_6sdp"
+                                                android:visibility="invisible" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <TextView
+                                                style="@style/badges"
+                                                android:layout_width="0dp"
+                                                android:layout_height="18dp"
+                                                android:layout_weight="2"
+                                                android:fontFamily="@font/roboto"
+                                                android:includeFontPadding="false"
+                                                android:lineSpacingExtra="0dp"
+                                                android:text=""
+                                                android:textSize="@dimen/_6sdp"
+                                                android:visibility="invisible" />
+
+
+                                        </LinearLayout>
+
+                                        <io.blackbox_vision.datetimepickeredittext.view.DatePickerEditText
+                                            android:id="@+id/vb08cfdt"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/all_round_corners"
+                                            android:enabled="@{vb08cf98.checked &amp;&amp; !form.vb08cf01.equals(``) || !form.vb08cf02.equals(``) ? true : false}"
+                                            android:gravity="center"
+                                            android:hint="YYYY-MM-DD"
+                                            android:text="@={form.vb08cfdt}"
+                                            app:dateFormat="yyyy-MM-dd"
+                                            app:maxDate="CR_DATE"
+                                            app:theme="@style/DatePickerEditTextDialogTheme" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/grayLight" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal">
+
+                                    <CheckBox
+                                        android:id="@+id/vb08cg98"
+                                        android:layout_width="@dimen/_85sdp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginTop="0dp"
+                                        android:background="@drawable/ipv"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:onClick="@{()->form.setVb08cg(``) + form.setVb08cgdt(``) + vb08cg.clearCheck()}" />
+
+                                    <LinearLayout
+                                        android:id="@+id/fldGrpVB08cg"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+
+                                        <RadioGroup
+                                            android:id="@+id/vb08cg"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal">
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <RadioButton
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="2"
+                                                android:background="@null"
+                                                android:visibility="invisible" />
+
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <RadioButton
+                                                android:id="@+id/vb08cga"
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="2"
+                                                android:background="@null"
+                                                android:checked="@{form.vb08cg01.equals(`1`)}"
+                                                android:enabled="@{vb08cg98.checked ? true : false}"
+                                                android:onClick="@{()->form.setVb08cg01(`1`)}" />
+
+                                            <ImageView
+                                                android:id="@+id/vb08cgatick"
+                                                android:layout_width="0.5dp"
+                                                android:layout_height="20dp"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="2"
+                                                android:background="@drawable/tick_mark"
+                                                android:visibility="gone" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <RadioButton
+                                                android:id="@+id/vb08cgb"
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="2"
+                                                android:background="@null"
+                                                android:checked="@{form.vb08cg02.equals(`2`)}"
+                                                android:enabled="@{vb08cg98.checked ? true : false}"
+                                                android:onClick="@{()->form.setVb08cg02(`2`)}" />
+
+                                            <ImageView
+                                                android:id="@+id/vb08cgbtick"
+                                                android:layout_width="0.5dp"
+                                                android:layout_height="20dp"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="2"
+                                                android:background="@drawable/tick_mark"
+                                                android:visibility="gone" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <RadioButton
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="2"
+                                                android:background="@null"
+                                                android:visibility="invisible" />
+
+                                        </RadioGroup>
+
+                                        <LinearLayout
+                                            android:id="@+id/vb08cgll"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="20dp"
+                                            android:layout_marginTop="0dp"
+                                            android:orientation="horizontal"
+                                            android:padding="0dp"
+                                            android:paddingTop="0dp">
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <TextView
+                                                style="@style/badges"
+                                                android:layout_width="0dp"
+                                                android:layout_height="18dp"
+                                                android:layout_weight="2"
+                                                android:fontFamily="@font/roboto"
+                                                android:includeFontPadding="false"
+                                                android:lineSpacingExtra="0dp"
+                                                android:text=""
+                                                android:textSize="@dimen/_6sdp"
+                                                android:visibility="invisible" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <TextView
+                                                android:id="@+id/vb08cgatxt"
+                                                style="@style/badges"
+                                                android:layout_width="0dp"
+                                                android:layout_height="18dp"
+                                                android:layout_weight="2"
+                                                android:fontFamily="@font/roboto"
+                                                android:includeFontPadding="false"
+                                                android:lineSpacingExtra="0dp"
+                                                android:text=""
+                                                android:textSize="@dimen/_6sdp"
+                                                android:visibility="invisible" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <TextView
+                                                android:id="@+id/vb08cgbtxt"
+                                                style="@style/badges"
+                                                android:layout_width="0dp"
+                                                android:layout_height="18dp"
+                                                android:layout_weight="2"
+                                                android:fontFamily="@font/roboto"
+                                                android:includeFontPadding="false"
+                                                android:lineSpacingExtra="0dp"
+                                                android:text=""
+                                                android:textSize="@dimen/_6sdp"
+                                                android:visibility="invisible" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <TextView
+                                                style="@style/badges"
+                                                android:layout_width="0dp"
+                                                android:layout_height="18dp"
+                                                android:layout_weight="2"
+                                                android:fontFamily="@font/roboto"
+                                                android:includeFontPadding="false"
+                                                android:lineSpacingExtra="0dp"
+                                                android:text=""
+                                                android:textSize="@dimen/_6sdp"
+                                                android:visibility="invisible" />
+
+
+                                        </LinearLayout>
+
+                                        <io.blackbox_vision.datetimepickeredittext.view.DatePickerEditText
+                                            android:id="@+id/vb08cgdt"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/all_round_corners"
+                                            android:enabled="@{vb08cg98.checked &amp;&amp; !form.vb08cg01.equals(``) || !form.vb08cg02.equals(``) ? true : false}"
+                                            android:gravity="center"
+                                            android:hint="YYYY-MM-DD"
+                                            android:text="@={form.vb08cgdt}"
+                                            app:dateFormat="yyyy-MM-dd"
+                                            app:maxDate="CR_DATE"
+                                            app:theme="@style/DatePickerEditTextDialogTheme" />
+
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/grayLight" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal">
+
+                                    <CheckBox
+                                        android:id="@+id/vb08ch98"
+                                        android:layout_width="@dimen/_85sdp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginTop="0dp"
+                                        android:background="@drawable/measles"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:onClick="@{()->form.setVb08ch(``) + form.setVb08chdt(``) + vb08ch.clearCheck()}" />
+
+                                    <LinearLayout
+                                        android:id="@+id/fldGrpVB08ch"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+
+                                        <RadioGroup
+                                            android:id="@+id/vb08ch"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal">
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <RadioButton
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="2"
+                                                android:background="@null"
+                                                android:visibility="invisible" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <RadioButton
+                                                android:id="@+id/vb08cha"
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="2"
+                                                android:background="@null"
+                                                android:checked="@{form.vb08ch01.equals(`1`)}"
+                                                android:enabled="@{vb08ch98.checked ? true : false}"
+                                                android:onClick="@{()->form.setVb08ch01(`1`)}" />
+
+                                            <ImageView
+                                                android:id="@+id/vb08chatick"
+                                                android:layout_width="0.5dp"
+                                                android:layout_height="20dp"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="2"
+                                                android:background="@drawable/tick_mark"
+                                                android:visibility="gone" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <RadioButton
+                                                android:id="@+id/vb08chb"
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="2"
+                                                android:background="@null"
+                                                android:checked="@{form.vb08ch02.equals(`2`)}"
+                                                android:enabled="@{vb08ch98.checked ? true : false}"
+                                                android:onClick="@{()->form.setVb08ch02(`2`)}" />
+
+                                            <ImageView
+                                                android:id="@+id/vb08chbtick"
+                                                android:layout_width="0.5dp"
+                                                android:layout_height="20dp"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="2"
+                                                android:background="@drawable/tick_mark"
+                                                android:visibility="gone" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <RadioButton
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="2"
+                                                android:background="@null"
+                                                android:visibility="invisible" />
+
+                                        </RadioGroup>
+
+                                        <LinearLayout
+                                            android:id="@+id/vb08chll"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="20dp"
+                                            android:layout_marginTop="0dp"
+                                            android:orientation="horizontal"
+                                            android:padding="0dp"
+                                            android:paddingTop="0dp">
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <TextView
+                                                style="@style/badges"
+                                                android:layout_width="0dp"
+                                                android:layout_height="18dp"
+                                                android:layout_weight="2"
+                                                android:fontFamily="@font/roboto"
+                                                android:includeFontPadding="false"
+                                                android:lineSpacingExtra="0dp"
+                                                android:text=""
+                                                android:textColor="@color/redLight"
+                                                android:textSize="@dimen/_6sdp"
+                                                android:visibility="invisible" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <TextView
+                                                android:id="@+id/vb08chatxt"
+                                                style="@style/badges"
+                                                android:layout_width="0dp"
+                                                android:layout_height="18dp"
+                                                android:layout_weight="2"
+                                                android:fontFamily="@font/roboto"
+                                                android:includeFontPadding="false"
+                                                android:lineSpacingExtra="0dp"
+                                                android:text=""
+                                                android:textSize="@dimen/_6sdp"
+                                                android:visibility="invisible" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <TextView
+                                                android:id="@+id/vb08chbtxt"
+                                                style="@style/badges"
+                                                android:layout_width="0dp"
+                                                android:layout_height="18dp"
+                                                android:layout_weight="2"
+                                                android:fontFamily="@font/roboto"
+                                                android:includeFontPadding="false"
+                                                android:lineSpacingExtra="0dp"
+                                                android:text=""
+                                                android:textSize="@dimen/_6sdp"
+                                                android:visibility="invisible" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <TextView
+                                                style="@style/badges"
+                                                android:layout_width="0dp"
+                                                android:layout_height="18dp"
+                                                android:layout_weight="2"
+                                                android:fontFamily="@font/roboto"
+                                                android:includeFontPadding="false"
+                                                android:lineSpacingExtra="0dp"
+                                                android:text=""
+                                                android:textSize="@dimen/_6sdp"
+                                                android:visibility="invisible" />
+
+
+                                        </LinearLayout>
+
+                                        <io.blackbox_vision.datetimepickeredittext.view.DatePickerEditText
+                                            android:id="@+id/vb08chdt"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/all_round_corners"
+                                            android:enabled="@{vb08ch98.checked &amp;&amp; !form.vb08ch01.equals(``) || !form.vb08ch02.equals(``) ? true : false}"
+                                            android:gravity="center"
+                                            android:hint="YYYY-MM-DD"
+                                            android:text="@={form.vb08chdt}"
+                                            app:dateFormat="yyyy-MM-dd"
+                                            app:maxDate="CR_DATE"
+                                            app:theme="@style/DatePickerEditTextDialogTheme" />
+
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/grayLight" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal">
+
+                                    <CheckBox
+                                        android:id="@+id/vb08ci98"
+                                        android:layout_width="@dimen/_85sdp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginTop="0dp"
+                                        android:background="@drawable/typhoid"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:onClick="@{()->form.setVb08ci(``) + form.setVb08cidt(``) + vb08ci.clearCheck()}" />
+
+                                    <LinearLayout
+                                        android:id="@+id/fldGrpVB08ci"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+
+                                        <RadioGroup
+                                            android:id="@+id/vb08ci"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal">
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <RadioButton
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="2"
+                                                android:background="@null"
+                                                android:visibility="invisible" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <RadioButton
+                                                android:id="@+id/vb08cia"
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="2"
+                                                android:background="@null"
+                                                android:checked="@{form.vb08ci.equals(`1`)}"
+                                                android:enabled="@{vb08ci98.checked ? true : false}"
+                                                android:onClick="@{()->form.setVb08ci(`1`)}" />
+
+                                            <ImageView
+                                                android:id="@+id/vb08ciatick"
+                                                android:layout_width="0.5dp"
+                                                android:layout_height="20dp"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="2"
+                                                android:background="@drawable/tick_mark"
+                                                android:visibility="gone" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <RadioButton
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="2"
+                                                android:background="@null"
+                                                android:visibility="invisible" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <RadioButton
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="2"
+                                                android:background="@null"
+                                                android:visibility="invisible" />
+
+                                        </RadioGroup>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="20dp"
+                                            android:layout_marginTop="0dp"
+                                            android:orientation="horizontal"
+                                            android:padding="0dp"
+                                            android:paddingTop="0dp">
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <TextView
+                                                style="@style/badges"
+                                                android:layout_width="0dp"
+                                                android:layout_height="18dp"
+                                                android:layout_weight="2"
+                                                android:fontFamily="@font/roboto"
+                                                android:includeFontPadding="false"
+                                                android:lineSpacingExtra="0dp"
+                                                android:text=""
+                                                android:textColor="@color/redLight"
+                                                android:textSize="@dimen/_6sdp"
+                                                android:visibility="invisible" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <TextView
+                                                android:id="@+id/vb08ciatxt"
+                                                style="@style/badges"
+                                                android:layout_width="0dp"
+                                                android:layout_height="18dp"
+                                                android:layout_weight="2"
+                                                android:fontFamily="@font/roboto"
+                                                android:includeFontPadding="false"
+                                                android:lineSpacingExtra="0dp"
+                                                android:text=""
+                                                android:textColor="@color/redLight"
+                                                android:textSize="@dimen/_6sdp"
+                                                android:visibility="invisible" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <TextView
+                                                style="@style/badges"
+                                                android:layout_width="0dp"
+                                                android:layout_height="18dp"
+                                                android:layout_weight="2"
+                                                android:fontFamily="@font/roboto"
+                                                android:includeFontPadding="false"
+                                                android:lineSpacingExtra="0dp"
+                                                android:text=""
+                                                android:textColor="@color/redLight"
+                                                android:textSize="@dimen/_6sdp"
+                                                android:visibility="invisible" />
+
+                                            <View
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal|center_vertical"
+                                                android:layout_weight="0.2" />
+
+                                            <TextView
+                                                style="@style/badges"
+                                                android:layout_width="0dp"
+                                                android:layout_height="18dp"
+                                                android:layout_weight="2"
+                                                android:fontFamily="@font/roboto"
+                                                android:includeFontPadding="false"
+                                                android:lineSpacingExtra="0dp"
+                                                android:text=""
+                                                android:textSize="@dimen/_6sdp"
+                                                android:visibility="invisible" />
+
+
+                                        </LinearLayout>
+
+                                        <io.blackbox_vision.datetimepickeredittext.view.DatePickerEditText
+                                            android:id="@+id/vb08cidt"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/all_round_corners"
+                                            android:enabled="@{vb08ci98.checked &amp;&amp; !form.vb08ci.equals(``) ? true : false}"
+                                            android:gravity="center"
+                                            android:hint="YYYY-MM-DD"
+                                            android:text="@={form.vb08cidt}"
+                                            app:dateFormat="yyyy-MM-dd"
+                                            app:maxDate="CR_DATE"
+                                            app:theme="@style/DatePickerEditTextDialogTheme" />
+
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
+                <!-- Take Photo   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVtakePhoto"
+                    style="@style/cardView"
+                    android:visibility="visible"
+                    tools:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@null"
+                                android:gravity="start|center_vertical"
+                                android:text="Vaccination Card Photo" />
+
+                            <ImageView
+                                android:layout_width="5dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                app:srcCompat="@drawable/app_icon" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:layoutDirection="ltr"
+                            android:orientation="horizontal">
+
+                            <Button
+                                android:id="@+id/frontPhoto"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="15dp"
+                                android:background="@drawable/button_shape_gray"
+                                android:backgroundTint="@color/colorAccent"
+                                android:drawableStart="@drawable/ic_camera"
+                                android:onClick="takePhoto"
+                                android:paddingStart="12dp"
+                                android:paddingEnd="12dp"
+                                android:text="Take Front Photo"
+                                android:textSize="10sp" />
+
+                            <Button
+                                android:id="@+id/backPhoto"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="15dp"
+                                android:background="@drawable/button_shape_gray"
+                                android:backgroundTint="@color/colorAccent"
+                                android:drawableStart="@drawable/ic_camera"
+                                android:onClick="takePhoto"
+                                android:paddingStart="12dp"
+                                android:paddingEnd="12dp"
+                                android:text="Take Back Photo"
+                                android:textSize="10sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:layoutDirection="ltr"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/frontFileName"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@null"
+                                android:enabled="false"
+                                android:minHeight="48dp"
+                                android:text="@={form.frontfilename}"
+                                android:textColor="#7f7f7f7f"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/backFileName"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@null"
+                                android:enabled="false"
+                                android:minHeight="48dp"
+                                android:text="@={form.backfilename}"
+                                android:textColor="#7f7f7f7f"
+                                android:textSize="14sp" />
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:background="@null"
+                                android:gravity="start|center_vertical"
+                                android:text="Child Photo" />
+
+                            <ImageView
+                                android:layout_width="5dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                app:srcCompat="@drawable/childvaccine" />
+
+                        </LinearLayout>
+
+
+                        <Button
+                            android:id="@+id/childPhoto"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginBottom="15dp"
+                            android:background="@drawable/button_shape_gray"
+                            android:backgroundTint="@color/colorAccent"
+                            android:drawableStart="@drawable/ic_camera"
+                            android:onClick="takePhoto"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="12dp"
+                            android:text="Take Child Photo"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:id="@+id/childFileName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:enabled="false"
+                            android:gravity="center"
+                            android:minHeight="48dp"
+                            android:text="@={form.childfilename}"
+                            android:textColor="#7f7f7f7f"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <!--EndButton LinearLayout-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="24dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_End"
+                        android:layout_width="130dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="12dp"
+                        android:background="@drawable/all_round_corners"
+                        android:backgroundTint="@color/redOverlay"
+                        android:elevation="20dp"
+                        android:onClick="btnEnd"
+                        android:text="@string/cancel"
+                        android:textColor="@color/white"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/btn_Continue"
+                        android:layout_width="130dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="12dp"
+                        android:background="@drawable/all_round_corners"
+                        android:backgroundTint="@color/greenOverlay"
+                        android:elevation="20dp"
+                        android:onClick="btnContinue"
+                        android:text="@string/btnSave"
+                        android:textColor="@color/white" />
+
+                </LinearLayout>
+                <!--EndButton LinearLayout-->
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</layout>

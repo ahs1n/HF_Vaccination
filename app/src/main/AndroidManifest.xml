@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="edu.aku.dmu.hf_vaccination">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- Needed only if your app targets Android 5.0 (API level 21) or higher. -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- Needed only if your app targets Android 5.0 (API level 21) or higher. -->
+    <uses-feature android:name="android.hardware.location.gps" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- TakePhoto Permissions -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:name="edu.aku.dmu.hf_vaccination.core.MainApp"
+        android:allowBackup="true"
+        android:icon="@drawable/app_icon"
+        android:immersive="true"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@drawable/app_icon"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.main"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name="edu.aku.dmu.hf_vaccination.DailySummaryActivity"
+            android:exported="false" />
+        <activity
+            android:name="edu.aku.dmu.hf_vaccination.ui.sections.MemberInfoActivity"
+            android:exported="true" />
+        <activity
+            android:name="edu.aku.dmu.hf_vaccination.ui.LoginActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.splashscreen"
+            android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="edu.aku.dmu.hf_vaccination.ui.CreateLocationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeEnglish1"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="edu.aku.dmu.hf_vaccination.database.AndroidManager"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.main" />
+        <activity
+            android:name="edu.aku.dmu.hf_vaccination.ui.sections.SectionVAActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeUrdu"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="edu.aku.dmu.hf_vaccination.ui.TakePhoto"
+            android:hardwareAccelerated="true"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="edu.aku.dmu.hf_vaccination.ui.sections.SectionVBActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeUrdu"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="edu.aku.dmu.hf_vaccination.ui.sections.SectionVB_womanActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeUrdu"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="edu.aku.dmu.hf_vaccination.ui.lists.RegisteredChildListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.main"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="edu.aku.dmu.hf_vaccination.ui.lists.RegisteredWomenListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.main"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="edu.aku.dmu.hf_vaccination.ui.lists.VaccinatedChildListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.main"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="edu.aku.dmu.hf_vaccination.ui.lists.VaccinatedWomenListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.main"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="edu.aku.dmu.hf_vaccination.ui.SyncActivity"
+            android:exported="false"
+            android:parentActivityName="edu.aku.dmu.hf_vaccination.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.main" />
+        <activity
+            android:name="edu.aku.dmu.hf_vaccination.MainActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <meta-data
+            android:name="YEK_REVRES"
+            android:value="cQfTjWmZq4t7w!z%C*F-JaNdRgUkXp2r5u8x/A?D(G+KbPeShVmYq3t6v9ySBNE)" />
+        <meta-data
+            android:name="YEK_TRATS"
+            android:value="7" />
+
+        <activity
+            android:name="edu.aku.dmu.hf_vaccination.ui.LockActivity"
+            android:exported="true" />
+        <activity
+            android:name="edu.aku.dmu.hf_vaccination.ui.ChangePasswordActivity"
+            android:exported="true"
+            android:theme="@style/Theme.main"
+            android:windowSoftInputMode="adjustResize" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="edu.aku.dmu.hf_vaccination.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+
+</manifest>

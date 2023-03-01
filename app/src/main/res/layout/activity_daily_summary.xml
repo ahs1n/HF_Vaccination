@@ -1,0 +1,1236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".DailySummaryActivity">
+
+    <data>
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cardview_light_background"
+        android:layoutDirection="ltr"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            android:layoutDirection="ltr"
+            android:textAlignment="center"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:menu="@menu/item_menu"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:subtitleTextColor="@color/white"
+            app:title="@string/records_summary"
+            app:titleTextColor="@color/white" />
+
+        <LinearLayout
+            android:id="@+id/filterCG"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/all_round_corners_stroke"
+            android:foregroundGravity="center"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/_15sdp"
+            android:paddingTop="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_15sdp"
+            android:paddingBottom="@dimen/_10sdp">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/todaysChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:dropDownSelector="@android:color/transparent"
+                android:text="@string/today"
+                android:textAppearance="@style/Theme.HP_Vaccination.ChipText"
+                android:textColor="@color/text_selector"
+                android:textSize="@dimen/_9sdp"
+                android:theme="@style/Theme.MaterialComponents.Light"
+                app:checkedIconVisible="false"
+                app:chipBackgroundColor="@color/chip_selector"
+                app:chipCornerRadius="@dimen/_50sdp"
+                app:chipMinHeight="@dimen/_23sdp"
+                app:closeIconVisible="false"
+                app:shapeAppearanceOverlay="@null" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/byDateChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:dropDownSelector="@android:color/transparent"
+                android:text="@string/by_date"
+                android:textAppearance="@style/Theme.HP_Vaccination.ChipText"
+                android:textColor="@color/text_selector"
+                android:textSize="@dimen/_9sdp"
+                android:theme="@style/Theme.MaterialComponents.Light"
+                app:checkedIconVisible="false"
+                app:chipBackgroundColor="@color/chip_selector"
+                app:chipCornerRadius="@dimen/_50sdp"
+                app:chipMinHeight="@dimen/_23sdp"
+                app:closeIconVisible="false"
+                app:shapeAppearanceOverlay="@null" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/filterTitleTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center"
+            android:text="@string/todays_vaccinations"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp">
+
+            <GridLayout
+                android:id="@+id/optionsGrid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/totalChildCV"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:elevation="@dimen/_3sdp"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="@dimen/_1sdp"
+                    app:cardCornerRadius="@dimen/_5sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:background="@color/green"
+                            android:gravity="center"
+                            android:padding="@dimen/_2sdp"
+                            android:text="@string/total_child_vaccinated"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_11sdp" />
+
+                        <TextView
+                            android:id="@+id/totalChildAnt"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_summary_ant"
+                            android:gravity="center"
+                            android:padding="@dimen/_2sdp"
+                            android:text="0"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_9sdp" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/totalCV"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:elevation="@dimen/_3sdp"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="@dimen/_1sdp"
+                    app:cardCornerRadius="@dimen/_5sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:background="@color/green"
+                            android:gravity="center"
+                            android:padding="@dimen/_2sdp"
+                            android:text="@string/todays_total"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_11sdp" />
+
+                        <TextView
+                            android:id="@+id/totalAnt"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_summary_ant"
+                            android:gravity="center"
+                            android:padding="@dimen/_2sdp"
+                            android:text="0"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_9sdp" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/bcgCV"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:elevation="@dimen/_3sdp"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="@dimen/_1sdp"
+                    app:cardCornerRadius="@dimen/_5sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:background="@color/colorPrimary"
+                            android:gravity="center"
+                            android:padding="@dimen/_2sdp"
+                            android:text="@string/cr_bcg"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_11sdp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_summary_ant_title"
+                            android:gravity="center"
+                            android:padding="@dimen/_2sdp"
+                            android:text="0"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_9sdp" />
+
+                        <TextView
+                            android:id="@+id/bcgAnt"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_summary_ant"
+                            android:gravity="center"
+                            android:padding="@dimen/_2sdp"
+                            android:text="-"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_9sdp" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/opvCV"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:elevation="@dimen/_3sdp"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="@dimen/_1sdp"
+                    app:cardCornerRadius="@dimen/_5sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:background="@color/colorPrimary"
+                            android:gravity="center"
+                            android:padding="@dimen/_2sdp"
+                            android:text="@string/cr_opv"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_11sdp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_summary_ant_title"
+                                android:gravity="center"
+                                android:padding="@dimen/_2sdp"
+                                android:text="0"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_summary_ant_title"
+                                android:gravity="center"
+                                android:padding="@dimen/_2sdp"
+                                android:text="I"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_summary_ant_title"
+                                android:gravity="center"
+                                android:padding="@dimen/_2sdp"
+                                android:text="II"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_summary_ant_title"
+                                android:gravity="center"
+                                android:padding="@dimen/_2sdp"
+                                android:text="III"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_10sdp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/opvAnt0"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_summary_ant"
+                                android:gravity="center"
+                                android:padding="@dimen/_2sdp"
+                                android:text="-"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <TextView
+                                android:id="@+id/opvAnt1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_summary_ant"
+                                android:gravity="center"
+                                android:padding="@dimen/_2sdp"
+                                android:text="-"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <TextView
+                                android:id="@+id/opvAnt2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_summary_ant"
+                                android:gravity="center"
+                                android:padding="@dimen/_2sdp"
+                                android:text="-"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <TextView
+                                android:id="@+id/opvAnt3"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_summary_ant"
+                                android:gravity="center"
+                                android:padding="@dimen/_2sdp"
+                                android:text="-"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_9sdp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/hepBCV"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:elevation="@dimen/_3sdp"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="@dimen/_1sdp"
+                    app:cardCornerRadius="@dimen/_5sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:background="@color/colorPrimary"
+                            android:gravity="center"
+                            android:padding="@dimen/_2sdp"
+                            android:text="@string/cr_hep_b"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_11sdp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_summary_ant_title"
+                            android:gravity="center"
+                            android:padding="@dimen/_2sdp"
+                            android:text="0"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_9sdp" />
+
+                        <TextView
+                            android:id="@+id/hepBAnt"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_summary_ant"
+                            android:gravity="center"
+                            android:padding="@dimen/_2sdp"
+                            android:text="-"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_9sdp" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/pentaCV"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:elevation="@dimen/_3sdp"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="@dimen/_1sdp"
+                    app:cardCornerRadius="@dimen/_5sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:background="@color/colorPrimary"
+                            android:gravity="center"
+                            android:padding="@dimen/_2sdp"
+                            android:text="@string/cr_penta"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_11sdp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_summary_ant_title"
+                                android:gravity="center"
+                                android:padding="@dimen/_2sdp"
+                                android:text="I"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_summary_ant_title"
+                                android:gravity="center"
+                                android:padding="@dimen/_2sdp"
+                                android:text="II"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_summary_ant_title"
+                                android:gravity="center"
+                                android:padding="@dimen/_2sdp"
+                                android:text="III"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_9sdp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/pentaAnt1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_summary_ant"
+                                android:gravity="center"
+                                android:padding="@dimen/_2sdp"
+                                android:text="-"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <TextView
+                                android:id="@+id/pentaAnt2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_summary_ant"
+                                android:gravity="center"
+                                android:padding="@dimen/_2sdp"
+                                android:text="-"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <TextView
+                                android:id="@+id/pentaAnt3"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_summary_ant"
+                                android:gravity="center"
+                                android:padding="@dimen/_2sdp"
+                                android:text="-"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_9sdp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/pcvCV"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:elevation="@dimen/_3sdp"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="@dimen/_1sdp"
+                    app:cardCornerRadius="@dimen/_5sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:background="@color/colorPrimary"
+                            android:gravity="center"
+                            android:padding="@dimen/_2sdp"
+                            android:text="@string/cr_pcv"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_11sdp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_summary_ant_title"
+                                android:gravity="center"
+                                android:padding="@dimen/_2sdp"
+                                android:text="I"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_summary_ant_title"
+                                android:gravity="center"
+                                android:padding="@dimen/_2sdp"
+                                android:text="II"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_summary_ant_title"
+                                android:gravity="center"
+                                android:padding="@dimen/_2sdp"
+                                android:text="III"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_9sdp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/pcvAnt1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_summary_ant"
+                                android:gravity="center"
+                                android:padding="@dimen/_2sdp"
+                                android:text="-"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <TextView
+                                android:id="@+id/pcvAnt2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_summary_ant"
+                                android:gravity="center"
+                                android:padding="@dimen/_2sdp"
+                                android:text="-"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <TextView
+                                android:id="@+id/pcvAnt3"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_summary_ant"
+                                android:gravity="center"
+                                android:padding="@dimen/_2sdp"
+                                android:text="-"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_9sdp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/rotaCV"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:elevation="@dimen/_3sdp"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="@dimen/_1sdp"
+                    app:cardCornerRadius="@dimen/_5sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:background="@color/colorPrimary"
+                            android:gravity="center"
+                            android:padding="@dimen/_2sdp"
+                            android:text="@string/cr_rota"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_11sdp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_summary_ant_title"
+                                android:gravity="center"
+                                android:padding="@dimen/_2sdp"
+                                android:text="I"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_summary_ant_title"
+                                android:gravity="center"
+                                android:padding="@dimen/_2sdp"
+                                android:text="II"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_9sdp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/rotaAnt1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_summary_ant"
+                                android:gravity="center"
+                                android:padding="@dimen/_2sdp"
+                                android:text="-"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <TextView
+                                android:id="@+id/rotaAnt2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_summary_ant"
+                                android:gravity="center"
+                                android:padding="@dimen/_2sdp"
+                                android:text="-"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_9sdp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/ipvCV"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:elevation="@dimen/_3sdp"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="@dimen/_1sdp"
+                    app:cardCornerRadius="@dimen/_5sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:background="@color/colorPrimary"
+                            android:gravity="center"
+                            android:padding="@dimen/_2sdp"
+                            android:text="@string/cr_ipv"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_11sdp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_summary_ant_title"
+                                android:gravity="center"
+                                android:padding="@dimen/_2sdp"
+                                android:text="I"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_summary_ant_title"
+                                android:gravity="center"
+                                android:padding="@dimen/_2sdp"
+                                android:text="II"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_9sdp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/ipvAnt1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_summary_ant"
+                                android:gravity="center"
+                                android:padding="@dimen/_2sdp"
+                                android:text="-"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <TextView
+                                android:id="@+id/ipvAnt2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_summary_ant"
+                                android:gravity="center"
+                                android:padding="@dimen/_2sdp"
+                                android:text="-"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_9sdp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/measlesCV"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:elevation="@dimen/_3sdp"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="@dimen/_1sdp"
+                    app:cardCornerRadius="@dimen/_5sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:background="@color/colorPrimary"
+                            android:gravity="center"
+                            android:padding="@dimen/_2sdp"
+                            android:text="@string/cr_measles"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_11sdp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_summary_ant_title"
+                                android:gravity="center"
+                                android:padding="@dimen/_2sdp"
+                                android:text="I"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_summary_ant_title"
+                                android:gravity="center"
+                                android:padding="@dimen/_2sdp"
+                                android:text="II"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_9sdp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/measlesAnt1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_summary_ant"
+                                android:gravity="center"
+                                android:padding="@dimen/_2sdp"
+                                android:text="-"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_9sdp" />
+
+                            <TextView
+                                android:id="@+id/measlesAnt2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_summary_ant"
+                                android:gravity="center"
+                                android:padding="@dimen/_2sdp"
+                                android:text="-"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_9sdp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/typhoidCV"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:elevation="@dimen/_3sdp"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="@dimen/_1sdp"
+                    app:cardCornerRadius="@dimen/_5sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:background="@color/colorPrimary"
+                            android:gravity="center"
+                            android:padding="@dimen/_2sdp"
+                            android:text="@string/cr_typhoid"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_11sdp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_summary_ant_title"
+                            android:gravity="center"
+                            android:padding="@dimen/_2sdp"
+                            android:text="I"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_9sdp" />
+
+                        <TextView
+                            android:id="@+id/typhoidAnt"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_summary_ant"
+                            android:gravity="center"
+                            android:padding="@dimen/_2sdp"
+                            android:text="-"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_9sdp" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </GridLayout>
+
+        </ScrollView>
+
+
+        <!--<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@+id/filterTitleTV"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@drawable/all_round_corners"
+            android:stretchColumns="5">
+
+            <TableRow
+                style="@style/labels"
+                android:padding="6dp">
+
+                <TextView
+                    android:id="@+id/vaccName"
+                    android:layout_column="0"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12sdp"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:text="Vaccine Name" />
+
+                <TextView
+                    android:layout_column="1"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/_12sdp"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:text="0" />
+
+                <TextView
+                    android:layout_column="2"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/_12sdp"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:text="I" />
+
+                <TextView
+                    android:layout_column="3"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/_12sdp"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:text="II" />
+
+                <TextView
+                    android:layout_column="4"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/_12sdp"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:text="III" />
+
+
+            </TableRow>
+
+
+            <TableRow
+                style="@style/labels"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/_5sdp">
+
+                <TextView
+                    android:layout_column="0"
+                    android:background="@color/white"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="BCG"
+                    android:textColor="@color/colorPrimaryDark" />
+
+
+                <TextView
+                    android:id="@+id/bcg0"
+                    android:layout_column="1"
+                    android:background="@color/white"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <TextView
+                    android:layout_column="2"
+                    android:background="@color/white"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <TextView
+                    android:layout_column="3"
+                    android:background="@color/white"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <TextView
+                    android:layout_column="4"
+                    android:background="@color/white"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/colorPrimaryDark" />
+
+
+            </TableRow>
+
+            <TableRow
+                style="@style/labels"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/_5sdp">
+
+                <TextView
+                    android:layout_column="0"
+                    android:background="@color/white"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="OPV"
+                    android:textColor="@color/colorPrimaryDark" />
+
+
+                <TextView
+                    android:id="@+id/opv0"
+                    android:layout_column="1"
+                    android:background="@color/white"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <TextView
+                    android:id="@+id/opv1"
+                    android:layout_column="2"
+                    android:background="@color/white"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <TextView
+                    android:id="@+id/opv2"
+                    android:layout_column="3"
+                    android:background="@color/white"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <TextView
+                    android:id="@+id/opv3"
+                    android:layout_column="4"
+                    android:background="@color/white"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/colorPrimaryDark" />
+
+
+            </TableRow>
+
+            <TableRow
+                style="@style/labels"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/_5sdp">
+
+                <TextView
+                    android:layout_column="0"
+                    android:background="@color/white"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Penta"
+                    android:textColor="@color/colorPrimaryDark" />
+
+
+                <TextView
+                    android:layout_column="1"
+                    android:background="@color/white"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <TextView
+                    android:id="@+id/penta1"
+                    android:layout_column="2"
+                    android:background="@color/white"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <TextView
+                    android:id="@+id/penta2"
+                    android:layout_column="3"
+                    android:background="@color/white"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <TextView
+                    android:id="@+id/penta3"
+                    android:layout_column="4"
+                    android:background="@color/white"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/colorPrimaryDark" />
+
+
+            </TableRow>
+
+
+
+
+
+        </TableLayout>-->
+
+
+    </LinearLayout>
+</layout>

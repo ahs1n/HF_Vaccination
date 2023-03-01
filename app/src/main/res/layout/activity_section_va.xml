@@ -1,0 +1,618 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="form"
+            type="edu.aku.dmu.hf_vaccination.models.FormVA" />
+
+        <variable
+            name="callback"
+            type="edu.aku.dmu.hf_vaccination.ui.sections.SectionVAActivity" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/app_bg_effect"
+        android:orientation="vertical">
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@null"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/CustomToolbarTheme"
+            app:popupTheme="@style/CustomPopupTheme"
+            app:subtitleTextAppearance="@style/Toolbar.SubtitleText"
+            app:title="@string/va_mainheading"
+            app:titleTextAppearance="@style/Toolbar.TitleText" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/GrpName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- va  Title   -->
+                <TextView
+                    style="@style/sub_labels"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/va" />
+
+                <!-- va01  Title   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVva01"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_va01" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/va01" />
+
+                        </LinearLayout>
+
+                        <io.blackbox_vision.datetimepickeredittext.view.DatePickerEditText
+                            android:id="@+id/va01"
+                            style="@style/textInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="0dp"
+                            android:datePickerMode="spinner"
+                            android:gravity="center"
+                            android:hint="YYYY-MM-DD"
+                            android:text="@={form.va01}"
+                            app:dateFormat="yyyy-MM-dd"
+                            app:maxDate="CR_DATE"
+                            app:theme="@style/DatePickerEditTextDialogTheme" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- va02  Input   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVva02"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_va02" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/va02" />
+
+                        </LinearLayout>
+
+                        <androidx.appcompat.widget.AppCompatSpinner
+                            android:id="@+id/va02"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="@string/va02" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- va02a  Input   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVva02a"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_va02a" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/va02a" />
+
+                        </LinearLayout>
+
+                        <androidx.appcompat.widget.AppCompatSpinner
+                            android:id="@+id/va02a"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="@string/va02a" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- va03  Input   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVva03"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_va03" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/va03" />
+
+                        </LinearLayout>
+
+                        <EditText
+                            android:id="@+id/va03"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz"
+                            android:enabled="false"
+                            android:gravity="center"
+                            android:hint="@string/va03"
+                            android:text="@={form.va03}"
+                            android:textColor="@color/redOverlay" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- va04  Input-Numeric   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVva04"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_va04" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/va04" />
+
+                        </LinearLayout>
+
+                        <com.edittextpicker.aliazaz.EditTextPicker
+                            android:id="@+id/va04"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/va04"
+                            android:inputType="number"
+                            android:maxLength="5"
+                            android:onTextChanged="@{callback::previousPage}"
+                            android:text="@={form.va04}"
+                            app:maxValue="99999"
+                            app:minValue="1"
+                            app:type="range" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- va05  CheckBox   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVva05"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_va05" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/va05" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:id="@+id/va05check"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:tag="0">
+
+                                <CheckBox
+                                    android:id="@+id/va05a"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="55sp"
+                                    android:checked="@{form.va05a.equals(`1`)}"
+                                    android:onClick="@{()->form.setVa05a(form.va05a.equals(`1`)?``:`1`)}"
+                                    android:text="@string/va05a" />
+
+                                <CheckBox
+                                    android:id="@+id/va05b"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="55sp"
+                                    android:checked="@{form.va05b.equals(`1`)}"
+                                    android:onClick="@{()->form.setVa05b(form.va05b.equals(`1`)?``:`1`)}"
+                                    android:text="@string/va05b" />
+
+                                <CheckBox
+                                    android:id="@+id/va05c"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="55sp"
+                                    android:checked="@{form.va05c.equals(`1`)}"
+                                    android:onClick="@{()->form.setVa05c(form.va05c.equals(`1`)?``:`1`)}"
+                                    android:text="@string/va05c" />
+
+                                <CheckBox
+                                    android:id="@+id/va05d"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="55sp"
+                                    android:checked="@{form.va05d.equals(`1`)}"
+                                    android:onClick="@{()->form.setVa05d(form.va05d.equals(`1`)?``:`1`)}"
+                                    android:text="@string/va05d" />
+
+                                <CheckBox
+                                    android:id="@+id/va05e"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="55sp"
+                                    android:checked="@{form.va05e.equals(`1`)}"
+                                    android:onClick="@{()->form.setVa05e(form.va05e.equals(`1`)?``:`1`)}"
+                                    android:text="@string/va05e" />
+
+                                <CheckBox
+                                    android:id="@+id/va05f"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="55sp"
+                                    android:checked="@{form.va05f.equals(`1`)}"
+                                    android:onClick="@{()->form.setVa05f(form.va05f.equals(`1`)?``:`1`)}"
+                                    android:text="@string/va05f" />
+
+                                <CheckBox
+                                    android:id="@+id/va05g"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="55sp"
+                                    android:checked="@{form.va05g.equals(`1`)}"
+                                    android:onClick="@{()->form.setVa05g(form.va05g.equals(`1`)?``:`1`)}"
+                                    android:text="@string/va05g" />
+
+                                <CheckBox
+                                    android:id="@+id/va05h"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="55sp"
+                                    android:checked="@{form.va05h.equals(`1`)}"
+                                    android:onClick="@{()->form.setVa05h(form.va05h.equals(`1`)?``:`1`)}"
+                                    android:text="@string/va05h" />
+
+                                <CheckBox
+                                    android:id="@+id/va05i"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="55sp"
+                                    android:checked="@{form.va05i.equals(`1`)}"
+                                    android:onClick="@{()->form.setVa05i(form.va05i.equals(`1`)?``:`1`)}"
+                                    android:text="@string/va05i" />
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:id="@+id/va05check77"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="2"
+                                android:orientation="vertical"
+                                android:tag="-1"
+                                android:visibility="gone">
+
+                                <CheckBox
+                                    android:id="@+id/va05acheck"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="55sp"
+                                    android:checked="@{form.va05acheck.equals(`77`)}"
+                                    android:enabled="@{form.va05a.equals(`1`)}"
+                                    android:onClick="@{()->form.setVa05acheck(form.va05acheck.equals(`77`)?``:`77`)}"
+                                    android:text="@string/va05acheck" />
+
+                                <CheckBox
+                                    android:id="@+id/va05bcheck"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="55sp"
+                                    android:checked="@{form.va05bcheck.equals(`77`)}"
+                                    android:enabled="@{form.va05b.equals(`1`)}"
+                                    android:onClick="@{()->form.setVa05bcheck(form.va05bcheck.equals(`77`)?``:`77`)}"
+                                    android:text="@string/va05bcheck" />
+
+                                <CheckBox
+                                    android:id="@+id/va05ccheck"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="55sp"
+                                    android:checked="@{form.va05ccheck.equals(`77`)}"
+                                    android:enabled="@{form.va05c.equals(`1`)}"
+                                    android:onClick="@{()->form.setVa05ccheck(form.va05ccheck.equals(`77`)?``:`77`)}"
+                                    android:text="@string/va05ccheck" />
+
+                                <CheckBox
+                                    android:id="@+id/va05dcheck"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="55sp"
+                                    android:checked="@{form.va05dcheck.equals(`77`)}"
+                                    android:enabled="@{form.va05d.equals(`1`)}"
+                                    android:onClick="@{()->form.setVa05dcheck(form.va05dcheck.equals(`77`)?``:`77`)}"
+                                    android:text="@string/va05dcheck" />
+
+                                <CheckBox
+                                    android:id="@+id/va05echeck"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="55sp"
+                                    android:checked="@{form.va05echeck.equals(`77`)}"
+                                    android:enabled="@{form.va05e.equals(`1`)}"
+                                    android:onClick="@{()->form.setVa05echeck(form.va05echeck.equals(`77`)?``:`77`)}"
+                                    android:text="@string/va05echeck" />
+
+                                <CheckBox
+                                    android:id="@+id/va05fcheck"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="55sp"
+                                    android:checked="@{form.va05fcheck.equals(`77`)}"
+                                    android:enabled="@{form.va05f.equals(`1`)}"
+                                    android:onClick="@{()->form.setVa05fcheck(form.va05fcheck.equals(`77`)?``:`77`)}"
+                                    android:text="@string/va05fcheck" />
+
+                                <CheckBox
+                                    android:id="@+id/va05gcheck"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="55sp"
+                                    android:checked="@{form.va05gcheck.equals(`77`)}"
+                                    android:enabled="@{form.va05g.equals(`1`)}"
+                                    android:onClick="@{()->form.setVa05gcheck(form.va05gcheck.equals(`77`)?``:`77`)}"
+                                    android:text="@string/va05gcheck" />
+
+                                <CheckBox
+                                    android:id="@+id/va05hcheck"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="55sp"
+                                    android:checked="@{form.va05hcheck.equals(`77`)}"
+                                    android:enabled="@{form.va05h.equals(`1`)}"
+                                    android:onClick="@{()->form.setVa05hcheck(form.va05hcheck.equals(`77`)?``:`77`)}"
+                                    android:text="@string/va05hcheck" />
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <EditText
+                                    android:id="@+id/va05ax"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="63sp"
+                                    android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789,. "
+                                    android:enabled="@{form.va05a.equals(`1`)}"
+                                    android:gravity="center"
+                                    android:hint="@string/va05a"
+                                    android:inputType="textCapCharacters"
+                                    android:text="@={form.va05ax}" />
+
+                                <EditText
+                                    android:id="@+id/va05bx"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="55sp"
+                                    android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789,. "
+                                    android:enabled="@{form.va05b.equals(`1`)}"
+                                    android:gravity="center"
+                                    android:hint="@string/va05b"
+                                    android:inputType="textCapCharacters"
+                                    android:text="@={form.va05bx}" />
+
+                                <EditText
+                                    android:id="@+id/va05cx"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="55sp"
+                                    android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789,. "
+                                    android:enabled="@{form.va05c.equals(`1`)}"
+                                    android:gravity="center"
+                                    android:hint="@string/va05c"
+                                    android:inputType="textCapCharacters"
+                                    android:text="@={form.va05cx}" />
+
+                                <EditText
+                                    android:id="@+id/va05dx"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="55sp"
+                                    android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789,. "
+                                    android:enabled="@{form.va05d.equals(`1`)}"
+                                    android:gravity="center"
+                                    android:hint="@string/va05d"
+                                    android:inputType="textCapCharacters"
+                                    android:text="@={form.va05dx}" />
+
+                                <EditText
+                                    android:id="@+id/va05ex"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="55sp"
+                                    android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789,. "
+                                    android:enabled="@{form.va05e.equals(`1`)}"
+                                    android:gravity="center"
+                                    android:hint="@string/va05e"
+                                    android:inputType="textCapCharacters"
+                                    android:text="@={form.va05ex}" />
+
+                                <EditText
+                                    android:id="@+id/va05fx"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="55sp"
+                                    android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789,. "
+                                    android:enabled="@{form.va05f.equals(`1`)}"
+                                    android:gravity="center"
+                                    android:hint="@string/va05f"
+                                    android:inputType="textCapCharacters"
+                                    android:text="@={form.va05fx}" />
+
+                                <EditText
+                                    android:id="@+id/va05gx"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="55sp"
+                                    android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789,. "
+                                    android:enabled="@{form.va05g.equals(`1`)}"
+                                    android:gravity="center"
+                                    android:hint="@string/va05g"
+                                    android:inputType="textCapCharacters"
+                                    android:text="@={form.va05gx}" />
+
+                                <EditText
+                                    android:id="@+id/va05hx"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="55sp"
+                                    android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789,. "
+                                    android:enabled="@{form.va05h.equals(`1`)}"
+                                    android:gravity="center"
+                                    android:hint="@string/va05h"
+                                    android:inputType="textCapCharacters"
+                                    android:text="@={form.va05hx}" />
+
+                                <EditText
+                                    android:id="@+id/va05ix"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="55sp"
+                                    android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789,. "
+                                    android:enabled="@{form.va05i.equals(`1`)}"
+                                    android:gravity="center"
+                                    android:hint="@string/va05i"
+                                    android:inputType="textCapCharacters"
+                                    android:text="@={form.va05ix}" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <!--EndButton LinearLayout-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="24dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_Continue"
+                        android:layout_width="130dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="12dp"
+                        android:background="@drawable/all_round_corners"
+                        android:backgroundTint="@color/greenOverlay"
+                        android:elevation="20dp"
+                        android:onClick="btnContinue"
+                        android:text="@string/btnSave"
+                        android:textColor="@color/white" />
+
+                    <Button
+                        android:id="@+id/btn_End"
+                        android:layout_width="130dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="12dp"
+                        android:background="@drawable/all_round_corners"
+                        android:backgroundTint="@color/redOverlay"
+                        android:elevation="20dp"
+                        android:onClick="btnEnd"
+                        android:text="@string/cancel"
+                        android:textColor="@color/white" />
+
+                </LinearLayout>
+                <!--EndButton LinearLayout-->
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</layout>
