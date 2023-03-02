@@ -260,8 +260,9 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:minHeight">36dp</item>
-        <item name="android:textSize">14sp</item>
         <item name="android:radius">2dp</item>
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
         <item name="android:elevation">1dp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:typeface">sans</item>
@@ -272,7 +273,6 @@
     <style name="spinner" parent="Widget.AppCompat.Spinner">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">18sp</item>
         <item name="android:textColor">#ff0000</item>
         <item name="android:spinnerItemStyle">@style/spinnerItemStyle</item>
         <item name="android:spinnerDropDownItemStyle">@style/spinnerDropDownItemStyle</item>
@@ -282,7 +282,6 @@
 
     <style name="spinnerDropDownItemStyle">
         <item name="android:padding">4dp</item>
-        <item name="android:textSize">18sp</item>
         <item name="android:textColor">#FFFF00</item>
         <item name="android:background">@null</item>
 
@@ -301,13 +300,15 @@
     <style name="cardView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_margin">8dp</item>
-        <item name="android:padding">6dp</item>
-        <item name="android:background">@color/grayLight</item>
+        <item name="android:layout_margin">@dimen/_4sdp</item>
+        <!--        <item name="android:padding">6dp</item>-->
+        <!--        <item name="android:background">@color/whiteOverlay</item>-->
+        <item name="android:padding">@dimen/_3sdp</item>
+        <item name="android:background">@drawable/bg_rounded_app_color_bordered</item>
         <!-- <item name="android:layout_marginRight">15dp</item>
          <item name="android:layout_marginLeft">15dp</item>-->
-        <item name="cardCornerRadius">7dp</item>
-        <item name="cardElevation">2dp</item>
+        <item name="cardCornerRadius">@dimen/border_radius</item>
+        <!--        <item name="cardElevation">2dp</item>-->
     </style>
 
     <style name="quesNum">

@@ -1393,14 +1393,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return insertCount;
     }
 
+    // Delete Table
+    public void deleteTable(String tableName) {
+        SQLiteDatabase db = this.getWritableDatabase(DATABASE_PASSWORD);
+        db.delete(tableName, null, null);
+    }
+
     // Sync VACCINESDATA
     public int syncvaccinesFollowUp(JSONArray vaccinesdata) throws JSONException {
         Log.e("HERE", "syncvaccinesFollowUp");
         if (isSyncVaccDB) return vaccinesdata.length();
         isSyncVaccDB = true;
         SQLiteDatabase db = this.getWritableDatabase(DATABASE_PASSWORD);
-        int deleted = db.delete(TableVaccinesData.TABLE_NAME, null, null);
-        Log.e("DELETED_vaccFollowUp", Integer.toString(deleted));
+        db.delete(TableVaccinesData.TABLE_NAME, null, null);
+        /*int deleted = db.delete(TableVaccinesData.TABLE_NAME, null, null);
+        Log.e("DELETED_vaccFollowUp", Integer.toString(deleted));*/
 
         int insertCount = 0;
 
@@ -1414,7 +1421,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             values.put(TableVaccinesData.COLUMN_AID, vaccinesData.getAID());
             values.put(TableVaccinesData.COLUMN_UID, vaccinesData.getUID());
             //values.put(TableVaccinesData.COLUMN_UUID, vaccinesData.getUID());
-            values.put(TableVaccinesData.COLUMN_VILLAGE_CODE, vaccinesData.getVillageCode());
+//            values.put(TableVaccinesData.COLUMN_VILLAGE_CODE, vaccinesData.getVillageCode());
             //values.put(TableVaccinesData.COLUMN_FACILITY_CODE, vaccinesData.getFacilityCode());
             //values.put(TableVaccinesData.COLUMN_VILLAGE_NAME, vaccinesData.getVillageName());
             values.put(TableVaccinesData.COLUMN_VB02, vaccinesData.getVBO2());

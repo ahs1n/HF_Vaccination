@@ -53,7 +53,6 @@ class VaccinesData {
         ucCode = jsonObject.getString(TableVaccinesData.COLUMN_UC_CODE)
         aID = jsonObject.getString(TableVaccinesData.COLUMN_AID)
         uID = jsonObject.getString(TableVaccinesData.COLUMN_UID)
-        villageCode = jsonObject.getString(TableVaccinesData.COLUMN_VILLAGE_CODE)
         vBO2 = jsonObject.getString(TableVaccinesData.COLUMN_VB02)
         vBO3 = jsonObject.getString(TableVaccinesData.COLUMN_VB03)
         vB04 = jsonObject.getString(TableVaccinesData.COLUMN_VB04)
@@ -93,8 +92,6 @@ class VaccinesData {
             cursor.getString(cursor.getColumnIndexOrThrow(TableVaccinesData.COLUMN_AID))
         uID =
             cursor.getString(cursor.getColumnIndexOrThrow(TableVaccinesData.COLUMN_UID))
-        villageCode =
-            cursor.getString(cursor.getColumnIndexOrThrow(TableVaccinesData.COLUMN_VILLAGE_CODE))
         vBO2 =
             cursor.getString(cursor.getColumnIndexOrThrow(TableVaccinesData.COLUMN_VB02))
         vBO3 =
@@ -151,10 +148,6 @@ class VaccinesData {
             cursor.getString(cursor.getColumnIndexOrThrow(TableVaccinesData.COLUMN_MEASLES2))
         Typhoid =
             cursor.getString(cursor.getColumnIndexOrThrow(TableVaccinesData.COLUMN_TYPHOID))
-
-
         return this
     }
-
-
 }

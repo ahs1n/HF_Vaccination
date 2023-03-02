@@ -258,7 +258,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@drawable/capsule"
-                        android:backgroundTint="@color/colorAccent"
+                        android:backgroundTint="@color/colorPrimary"
                         android:backgroundTintMode="src_atop"
                         android:onClick="btnContinue"
                         android:text="Create New Location"

@@ -536,6 +536,11 @@ public class SyncActivity extends AppCompatActivity {
                     downloadTables.get(position).setmessage(message);
                     syncListAdapter.updatesyncList(downloadTables);
 
+                    /*Delete table if no record found */
+                    if (message != null && message.contains("No record found")) {
+                        db.deleteTable(TableContracts.TableVaccinesData.TABLE_NAME);
+                    }
+
                     if (position == 0 && workInfo.getOutputData().getString("deviceTime") != null) {
 
                         String serverTime = workInfo.getOutputData().getString("serverTime");

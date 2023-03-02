@@ -50,10 +50,11 @@ public class CreateLocationActivity extends AppCompatActivity {
         workLocation = new WorkLocation();
         bi.setWorkLoc(workLocation);
         setGPS();
+        populateFacilitySpinner();
 
-        bi.attendat.setOnCheckedChangeListener((radioGroup, i) -> {
+/*        bi.attendat.setOnCheckedChangeListener((radioGroup, i) -> {
             if (i == bi.attendat01.getId()) {
-                populateFacilitySpinner();
+
                 villageCodes = new ArrayList<>();
                 villageNames = new ArrayList<>();
 
@@ -67,7 +68,7 @@ public class CreateLocationActivity extends AppCompatActivity {
                 facilityNames = new ArrayList<>();
                 bi.wlFacilityName.setAdapter(null);
             }
-        });
+        });*/
 
 
     }
