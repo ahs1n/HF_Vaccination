@@ -235,6 +235,7 @@ public class SectionVBActivity extends AppCompatActivity {
         bi.vb08cg.setOnCheckedChangeListener((radioGroup, i) -> Clear.clearAllFields(bi.vb08cgdt));
         bi.vb08ch.setOnCheckedChangeListener((radioGroup, i) -> Clear.clearAllFields(bi.vb08chdt));
         bi.vb08ci.setOnCheckedChangeListener((radioGroup, i) -> Clear.clearAllFields(bi.vb08cidt));
+        bi.vb08cj.setOnCheckedChangeListener((radioGroup, i) -> Clear.clearAllFields(bi.vb08cjdt));
 
         // OnCheckChange Listeners
         onCheckChanged(bi.vb08cb, bi.vb08cbdt);
@@ -1850,6 +1851,13 @@ public class SectionVBActivity extends AppCompatActivity {
             insertVaccineRecord("Typhoid", caAntigen, bi.vb08cidt.getText().toString());
         }
 
+        // DPT
+        if (bi.vb08cj98.isChecked()) {
+            caAntigen = bi.vb08cja.isChecked() ? "1"
+                    : "-1";
+            insertVaccineRecord("DPT", caAntigen, bi.vb08cjdt.getText().toString());
+        }
+
         if (flag) {
             if (updateDB()) {
                 MainApp.flag = false;
@@ -1961,6 +1969,9 @@ public class SectionVBActivity extends AppCompatActivity {
 
         if (bi.vb08ci98.isChecked() && formVB.getVb08ci().equals("") || bi.vb08ci98.isChecked() && formVB.getVb08cidt().equals(""))
             return Validator.emptyCheckingContainer(this, bi.fldGrpVB08ci, false);
+
+        if (bi.vb08cj98.isChecked() && formVB.getVb08cj().equals("") || bi.vb08cj98.isChecked() && formVB.getVb08cjdt().equals(""))
+            return Validator.emptyCheckingContainer(this, bi.fldGrpVB08cj, false);
 
 
         return true;

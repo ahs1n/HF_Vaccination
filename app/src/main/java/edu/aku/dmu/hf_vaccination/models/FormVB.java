@@ -114,6 +114,7 @@ public class FormVB extends BaseObservable implements Observable {
     private String vb08cgdt = _EMPTY_;
     private String vb08chdt = _EMPTY_;
     private String vb08cidt = _EMPTY_;
+    private String vb08cjdt = _EMPTY_;
 
 
     // Additional variables
@@ -453,6 +454,7 @@ public class FormVB extends BaseObservable implements Observable {
         setVb08cg(vb03.equals("2") ? this.vb08cg : "");
         setVb08ch(vb03.equals("2") ? this.vb08ch : "");
         setVb08ci(vb03.equals("2") ? this.vb08ci : "");
+        setVb08cj(vb03.equals("2") ? this.vb08cj : "");
         setVb08cadt(vb03.equals("2") ? this.vb08cadt : "");
         setVb08cbdt(vb03.equals("2") ? this.vb08cbdt : "");
         setVb08ccdt(vb03.equals("2") ? this.vb08ccdt : "");
@@ -462,6 +464,7 @@ public class FormVB extends BaseObservable implements Observable {
         setVb08cgdt(vb03.equals("2") ? this.vb08cgdt : "");
         setVb08chdt(vb03.equals("2") ? this.vb08chdt : "");
         setVb08cidt(vb03.equals("2") ? this.vb08cidt : "");
+        setVb08cjdt(vb03.equals("2") ? this.vb08cjdt : "");
 
         setVb05a(vb03.equals("2") ? this.vb05a : "");
         setVb09(vb03.equals("2") ? this.vb09 : "");
@@ -993,6 +996,16 @@ public class FormVB extends BaseObservable implements Observable {
     }
 
     @Bindable
+    public String getVb08cjdt() {
+        return vb08cjdt;
+    }
+
+    public void setVb08cjdt(String vb08cjdt) {
+        this.vb08cjdt = vb08cjdt;
+        notifyPropertyChanged(BR.vb08cjdt);
+    }
+
+    @Bindable
     public String getUcCode() {
         return ucCode;
     }
@@ -1465,6 +1478,8 @@ public class FormVB extends BaseObservable implements Observable {
             this.vb08ch02dt = json.getString("vb08ch02dt");
             this.vb08ci = json.getString("vb08ci");
             this.vb08cidt = json.getString("vb08cidt");
+            this.vb08cj = json.getString("vb08cj");
+            this.vb08cjdt = json.getString("vb08cjdt");
             this.vb08w = json.getString("vb08w");
             this.vb08wdt = json.getString("vb08wdt");
             this.backfilename = json.getString("backfilename");
@@ -1550,6 +1565,8 @@ public class FormVB extends BaseObservable implements Observable {
                 .put("vb08ch02dt", vb08ch02dt)
                 .put("vb08ci", vb08ci)
                 .put("vb08cidt", vb08cidt)
+                .put("vb08cj", vb08cj)
+                .put("vb08cjdt", vb08cjdt)
                 .put("vb08w", vb08w)
                 .put("vb08wdt", vb08wdt)
                 .put("backfilename", backfilename)
