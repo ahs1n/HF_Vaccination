@@ -2351,7 +2351,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             while (c.moveToNext()) {
                 vaccinesByUID = new VaccDueDates().Hydrate(c);
             }
-
             if (!c.isClosed()) {
                 c.close();
             }
