@@ -307,6 +307,7 @@ public class TableContracts {
         public static final String COLUMN_MEASLES1 = "Measles1";
         public static final String COLUMN_MEASLES2 = "Measles2";
         public static final String COLUMN_TYPHOID = "Typhoid";
+        public static final String COLUMN_DPT = "dpt";
     }
 
 

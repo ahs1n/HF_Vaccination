@@ -314,7 +314,8 @@ object CreateTable {
             + TableVaccinesData.COLUMN_ROTA2 + " TEXT,"
             + TableVaccinesData.COLUMN_MEASLES1 + " TEXT,"
             + TableVaccinesData.COLUMN_MEASLES2 + " TEXT,"
-            + TableVaccinesData.COLUMN_TYPHOID + " TEXT"
+            + TableVaccinesData.COLUMN_TYPHOID + " TEXT,"
+            + TableVaccinesData.COLUMN_DPT + " TEXT"
             /*+ TableVaccinesData.COLUMN_VB08C_CODE + " TEXT,"
             + TableVaccinesData.COLUMN_VB08C_ANT + " TEXT,"
             + TableVaccinesData.COLUMN_VB08C_DT + " TEXT,"
@@ -353,4 +354,8 @@ object CreateTable {
     const val SQL_ALTER_ADD_DOB = ("ALTER TABLE "
             + TableVaccinesData.TABLE_NAME + " ADD COLUMN "
             + TableVaccinesData.COLUMN_DOB + " TEXT;")
+
+    const val SQL_ALTER_ADD_DPT = ("ALTER TABLE "
+            + TableVaccinesData.TABLE_NAME + " ADD COLUMN "
+            + TableVaccinesData.COLUMN_DPT + " TEXT;")
 }

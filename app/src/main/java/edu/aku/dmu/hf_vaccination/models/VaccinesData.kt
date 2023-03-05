@@ -47,6 +47,7 @@ class VaccinesData {
     var Measles1: String = _EMPTY_
     var Measles2: String = _EMPTY_
     var Typhoid: String = _EMPTY_
+    var dpt: String = _EMPTY_
 
 
     fun sync(jsonObject: JSONObject): VaccinesData {
@@ -81,6 +82,7 @@ class VaccinesData {
         Measles1 = jsonObject.getString(TableVaccinesData.COLUMN_MEASLES1)
         Measles2 = jsonObject.getString(TableVaccinesData.COLUMN_MEASLES2)
         Typhoid = jsonObject.getString(TableVaccinesData.COLUMN_TYPHOID)
+        dpt = jsonObject.getString(TableVaccinesData.COLUMN_DPT)
 
         return this
     }
@@ -148,6 +150,9 @@ class VaccinesData {
             cursor.getString(cursor.getColumnIndexOrThrow(TableVaccinesData.COLUMN_MEASLES2))
         Typhoid =
             cursor.getString(cursor.getColumnIndexOrThrow(TableVaccinesData.COLUMN_TYPHOID))
+
+        dpt =
+            cursor.getString(cursor.getColumnIndexOrThrow(TableVaccinesData.COLUMN_DPT))
         return this
     }
 }

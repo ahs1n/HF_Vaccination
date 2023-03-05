@@ -9,6 +9,7 @@ import static edu.aku.dmu.hf_vaccination.core.MainApp.vaccDueDates;
 import static edu.aku.dmu.hf_vaccination.core.MainApp.vaccines;
 import static edu.aku.dmu.hf_vaccination.core.UserAuth.checkPassword;
 import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_ALTER_ADD_DOB;
+import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_ALTER_ADD_DPT;
 import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_CREATE_ATTENDANCE;
 import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_CREATE_DUE_VACCINE;
 import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_CREATE_ENTRYLOGS;
@@ -95,7 +96,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = PROJECT_NAME + ".db";
     public static final String DATABASE_COPY = PROJECT_NAME + "_copy.db";
     public static final String DATABASE_PASSWORD = IBAHC;
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 5;
     private static final String SQL_DELETE_VACCINESDATA = "DROP TABLE IF EXISTS " + TableContracts.TableVaccinesData.TABLE_NAME;
     private static final String SQL_DELETE_WOMEN_FOLLOWUP = "DROP TABLE IF EXISTS " + TableContracts.TableWomenFollowUP.TABLE_NAME;
     private static final String SQL_DELETE_VACCINESSCHEDULE = "DROP TABLE IF EXISTS " + TableVaccineSchedule.TABLE_NAME;
@@ -151,6 +152,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 db.execSQL(SQL_CREATE_WOMENFOLLOWUP);
                 db.execSQL(SQL_CREATE_DUE_VACCINE);
             case 4:
+                db.execSQL(SQL_ALTER_ADD_DPT);
         }
     }
 
@@ -1452,6 +1454,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             values.put(TableVaccinesData.COLUMN_MEASLES1, vaccinesData.getMeasles1());
             values.put(TableVaccinesData.COLUMN_MEASLES2, vaccinesData.getMeasles2());
             values.put(TableVaccinesData.COLUMN_TYPHOID, vaccinesData.getTyphoid());
+            values.put(TableVaccinesData.COLUMN_DPT, vaccinesData.getDpt());
 
             long rowID = db.insert(TableVaccinesData.TABLE_NAME, null, values);
             if (rowID != -1) insertCount++;

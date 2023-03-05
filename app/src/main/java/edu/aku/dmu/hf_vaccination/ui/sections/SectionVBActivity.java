@@ -198,6 +198,15 @@ public class SectionVBActivity extends AppCompatActivity {
                 results.add(showHideDoneCheckWithText(vaccines.getTyphoid(), baseId, "a"));     // Group 4
                 verifyCrossTicks(results, baseId);
                 groupBundle = calculateNextDoseDate(results, baseId, groupBundle);
+
+                // Typhoid
+                baseId = "vb08cj";
+                results.clear();
+                results.add(showHideDoneCheckWithText(vaccines.getDpt(), baseId, "a"));     // Group 4
+                verifyCrossTicks(results, baseId);
+                groupBundle = calculateNextDoseDate(results, baseId, groupBundle);
+
+
             }
 
         } catch (JSONException e) {
@@ -1446,6 +1455,11 @@ public class SectionVBActivity extends AppCompatActivity {
             case "vb08ci":
                 vaccineName = "Typhoid";
                 break;
+            case "vb08cj":
+                vaccineName = "DPT";
+                break;
+
+
         }
         return vaccineName;
     }
@@ -1558,6 +1572,17 @@ public class SectionVBActivity extends AppCompatActivity {
                     group = 4;
                 }
                 break;
+
+            case "vb08cj":  // DPT
+                // DPT at 18 months
+
+                if(currentDose == -1)
+                {
+                    days = 504;
+                    group = 6;
+                }
+
+
 
 
         }
