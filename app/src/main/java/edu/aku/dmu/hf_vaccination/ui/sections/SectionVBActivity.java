@@ -1049,7 +1049,7 @@ public class SectionVBActivity extends AppCompatActivity {
                 if (currentSelectedRadioButtonId != -1) {
                     String userSelectedDate = editable.toString();
                     String baseId = "vb08ch";
-                    String[] nextBaseId = {"vb08ch", "vh08ci"};
+                    String[] nextBaseId = {"vh08ci"};
                     int doseNumber = -1;
                     int previousGroup = 3;
                     int currentGroup = 0;

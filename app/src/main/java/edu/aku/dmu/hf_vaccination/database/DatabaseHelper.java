@@ -2329,7 +2329,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
         Cursor c = null;
         String[] columns = null;
-        String whereClause = VaccinesDueTable.COLUMN_VB02 + "=? AND " + VaccinesDueTable.COLUMN_VB04A + "=? AND " + VaccinesDueTable.COLUMN_VB04 + "=? AND "
+        String whereClause = VaccinesDueTable.COLUMN_VB02 + "=? AND " + VaccinesDueTable.COLUMN_VB04A + "=? AND "
+                + VaccinesDueTable.COLUMN_VB04 + "=? AND "
                 + VaccinesDueTable.COLUMN_VB08C_CODE + "=? AND " + VaccinesDueTable.COLUMN_VB08C_ANTIGEN + "=?";
         String[] whereArgs = {cardNo, childName, fatherName, vaccineName, doseNumber};
         String groupBy = null;
