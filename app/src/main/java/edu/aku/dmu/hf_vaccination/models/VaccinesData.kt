@@ -150,7 +150,6 @@ class VaccinesData {
             cursor.getString(cursor.getColumnIndexOrThrow(TableVaccinesData.COLUMN_MEASLES2))
         Typhoid =
             cursor.getString(cursor.getColumnIndexOrThrow(TableVaccinesData.COLUMN_TYPHOID))
-
         dpt =
             cursor.getString(cursor.getColumnIndexOrThrow(TableVaccinesData.COLUMN_DPT))
         return this

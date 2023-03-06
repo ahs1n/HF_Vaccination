@@ -1049,7 +1049,7 @@ public class SectionVBActivity extends AppCompatActivity {
                 if (currentSelectedRadioButtonId != -1) {
                     String userSelectedDate = editable.toString();
                     String baseId = "vb08ch";
-                    String[] nextBaseId = {"vh08ci"};
+                    String nextBaseId = "vb08cj";
                     int doseNumber = -1;
                     int previousGroup = 3;
                     int currentGroup = 0;
@@ -1078,10 +1078,10 @@ public class SectionVBActivity extends AppCompatActivity {
                                             DateTime prevDate = fmt.parseDateTime(prevDateStr);
 
                                             int[] days = getDaysAndGroupOfVaccineType(baseId, doseNumber);
-                                            DateTime nextDate = prevDate.plusDays(days[0]);
+                                            //DateTime nextDate = prevDate.plusDays(days[0]);
                                             //previousGroup = days[1];
                                             if (doseNumber < 2) {
-                                                txtVaccineDate.setText(nextDate.toString("yyyy-MM-dd"));
+                                                //txtVaccineDate.setText(nextDate.toString("yyyy-MM-dd"));
                                                 txtVaccineDate.setVisibility(View.VISIBLE);
                                             } else {
                                                 txtVaccineDate.setText("");
@@ -1110,6 +1110,61 @@ public class SectionVBActivity extends AppCompatActivity {
                                                     updateDueVaccines();
                                                 }
                                             }
+
+                                            String letter = String.valueOf(getChar(0));
+
+                                            //for (String s : nextBaseId) {
+
+                                                int currentDose = -1;
+                                                DateTime nextDate1 = null;
+
+                                                RadioButton radioButton = (RadioButton) getViewDynamically(nextBaseId + letter);
+                                                nextVaccineDate = (TextView) getViewDynamically(nextBaseId + letter + "txt");
+
+                                                //if (nextVaccineDate.getText().toString().equals("")) {
+                                                int[] groupDays = new int[0];
+
+                                                if (radioButton != null && nextVaccineDate != null) {
+                                                    //groupDays = getDaysAndGroupOfVaccineType(nextBaseId, -1);
+
+                                                    //DateTimeFormatter fmt1 = DateTimeFormat.forPattern("yyyy-MM-dd");
+                                                    DateTime prevDate1 = fmt.parseDateTime(prevDateStr);
+
+                                                    groupDays = getDaysAndGroupOfVaccineType(nextBaseId, -1);
+                                                    nextDate1 = prevDate1.plusDays(groupDays[0]);
+                                                }
+
+                                                currentGroup = groupDays[1];
+
+                                                if (currentGroup == previousGroup) {
+                                                    nextVaccineDate.setText(nextDate1.toString("yyyy-MM-dd"));
+                                                    nextVaccineDate.setVisibility(View.VISIBLE);
+                                                    /*Saving Vaccines Due Dates*/
+                                                    if (flag) {
+                                                        vaccDueDates.populateMeta();
+                                                    } else {
+                                                        vaccDueDates.populateMetaFollowUp();
+                                                    }
+                                                    MainApp.vaccDueDates.setVb08CDueDate(nextVaccineDate.getText().toString());
+                                                    MainApp.vaccDueDates.setVb08CDueCode(getVaccineNameFromBaseID(nextBaseId));
+                                                    MainApp.vaccDueDates.setVb08CDueAntigen(String.valueOf(currentDose + 2));
+                                                    try {
+                                                        MainApp.dueDates = db.getDueVaccinesBYAntigen(vaccDueDates.getVb02(), vaccDueDates.getVb04a(), vaccDueDates.getVb04(),
+                                                                vaccDueDates.getVb08CDueCode(), vaccDueDates.getVb08CDueAntigen());
+                                                    } catch (JSONException e) {
+                                                        e.printStackTrace();
+                                                    }
+
+                                                    if (!nextVaccineDate.getText().toString().equals("")) {
+                                                        if (dueDates.getUid().equals("")) {
+                                                            insertDueVaccines();
+                                                        } else {
+                                                            updateDueVaccines();
+                                                        }
+                                                   // }
+                                                }
+                                            }
+
                                             break;
                                         }
                                     }
@@ -1575,10 +1630,9 @@ public class SectionVBActivity extends AppCompatActivity {
 
             case "vb08cj":  // DPT
                 // DPT at 18 months
-
                 if(currentDose == -1)
                 {
-                    days = 504;
+                    days = 90;
                     group = 6;
                 }
 
