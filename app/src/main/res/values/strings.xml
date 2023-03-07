@@ -426,6 +426,10 @@
     <string name="vb05a"> بچے کی جنس </string>
     <string name="vb05aa">لڑکا</string>
     <string name="vb05ab">لڑکی </string>
+    <string name="vb05b"> بچے کا سٹیٹس </string>
+    <string name="vb05ba">ریفیوزل</string>
+    <string name="vb05bb">مسڈ چائلڈ</string>
+    <string name="vb05bc">زیرو ڈوزر</string>
     <string name="vb06">  مکمل پتہ </string>
     <string name="vb07">  فون نمبر </string>
     <string name="vb08c">بچے کے ٹیکہ جات</string>
@@ -482,6 +486,7 @@
     <string name='Q_vb04c'>vb04c</string>
     <string name='Q_vb05'>vb05</string>
     <string name='Q_vb05a'>vb05a</string>
+    <string name='Q_vb05b'>vb05b</string>
     <string name='Q_vb06'>vb06</string>
     <string name='Q_vb06a'>vb06a</string>
     <string name='Q_vb07'>vb07</string>

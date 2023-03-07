@@ -616,6 +616,72 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
+                <!-- vb05b  Radio   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVvb05b"
+                    style="@style/cardView"
+                    android:visibility="@{form.vb03.equals(`1`) ? View.GONE : View.VISIBLE}">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_vb05b" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/vb05b" />
+
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/vb05b"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/vb05ba"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.vb05b.equals(`1`)}"
+                                android:onClick="@{()->form.setVb05b(`1`)}"
+                                android:text="@string/vb05ba" />
+
+                            <RadioButton
+                                android:id="@+id/vb05bb"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.vb05b.equals(`2`)}"
+                                android:onClick="@{()->form.setVb05b(`2`)}"
+                                android:text="@string/vb05bb" />
+
+                            <RadioButton
+                                android:id="@+id/vb05bc"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.vb05b.equals(`3`)}"
+                                android:onClick="@{()->form.setVb05b(`3`)}"
+                                android:text="@string/vb05bc" />
+                        </RadioGroup>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
                 <!-- vb06  Input   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVvb06"
