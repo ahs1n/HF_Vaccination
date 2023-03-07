@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
@@ -23,6 +24,7 @@ import org.json.JSONException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
+import java.util.List;
 
 import edu.aku.dmu.hf_vaccination.MainActivity;
 import edu.aku.dmu.hf_vaccination.R;
@@ -31,6 +33,7 @@ import edu.aku.dmu.hf_vaccination.core.MainApp;
 import edu.aku.dmu.hf_vaccination.database.DatabaseHelper;
 import edu.aku.dmu.hf_vaccination.databinding.ActivityMemberInfoBinding;
 import edu.aku.dmu.hf_vaccination.models.FormVB;
+import edu.aku.dmu.hf_vaccination.models.VaccinesData;
 import edu.aku.dmu.hf_vaccination.models.Villages;
 import edu.aku.dmu.hf_vaccination.ui.lists.VaccinatedChildListActivity;
 import edu.aku.dmu.hf_vaccination.ui.lists.VaccinatedWomenListActivity;
@@ -390,5 +393,37 @@ public class MemberInfoActivity extends AppCompatActivity {
             Log.e(TAG, "setPoints: " + e.getMessage());
         }*/
 
+    }
+
+    public void checkMember(View view) {
+
+        List<VaccinesData> vaccinesDataArrayList = new ArrayList<>();
+        try {
+            vaccinesDataArrayList = db.getSyncedVaccinatedChildBYCardNo(bi.vb02.getText().toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        if (vaccinesDataArrayList.size() > 0) {
+            Snackbar.make(bi.toolbar, R.string.alreadyExistMember, Snackbar.LENGTH_LONG).show();
+            bi.fldGrpInfo.setVisibility(View.GONE);
+            bi.villageName.setSelection(0);
+            bi.vb04by.setText("");
+            bi.vb04bm.setText("");
+            bi.vb04bd.setText("");
+            bi.ageY.setText("");
+            bi.vb05m.setText("");
+            bi.vb05d.setText("");
+            bi.vb05a.clearCheck();
+            bi.vb05ba.setChecked(false);
+            bi.vb05bb.setChecked(false);
+            bi.vb05bc.setChecked(false);
+            bi.vb06.setText("");
+            bi.vb06a.setText("");
+            bi.vb07.setText("");
+            bi.vb09.clearCheck();
+        } else {
+            bi.fldGrpInfo.setVisibility(View.VISIBLE);
+        }
     }
 }

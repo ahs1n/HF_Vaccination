@@ -78,7 +78,9 @@ public class FormVB extends BaseObservable implements Observable {
     private String vb05m = _EMPTY_;
     private String vb05d = _EMPTY_;
     private String vb05a = _EMPTY_;
-    private String vb05b = _EMPTY_;
+    private String refusal = _EMPTY_;
+    private String missed = _EMPTY_;
+    private String zeerodoze = _EMPTY_;
     private String vb06 = _EMPTY_;
     private String vb06a = _EMPTY_;
     private String vb07 = _EMPTY_;
@@ -468,7 +470,9 @@ public class FormVB extends BaseObservable implements Observable {
         setVb08cjdt(vb03.equals("2") ? this.vb08cjdt : "");
 
         setVb05a(vb03.equals("2") ? this.vb05a : "");
-        setVb05b(vb03.equals("2") ? this.vb05b : "");
+        setRefusal(vb03.equals("2") ? this.refusal : "");
+        setMissed(vb03.equals("2") ? this.missed : "");
+        setZeerodoze(vb03.equals("2") ? this.zeerodoze : "");
         setVb09(vb03.equals("2") ? this.vb09 : "");
 
         setFrontfilename(vb03.equals("2") ? this.frontfilename : "");
@@ -593,13 +597,36 @@ public class FormVB extends BaseObservable implements Observable {
     }
 
     @Bindable
-    public String getVb05b() {
-        return vb05b;
+    public String getRefusal() {
+        return refusal;
     }
 
-    public void setVb05b(String vb05b) {
-        this.vb05b = vb05b;
-        notifyPropertyChanged(BR.vb05b);
+    public void setRefusal(String refusal) {
+        if (this.refusal.equals(refusal)) return; // for all checkboxes
+        this.refusal = refusal;
+        notifyPropertyChanged(BR.refusal);
+    }
+
+    @Bindable
+    public String getMissed() {
+        return missed;
+    }
+
+    public void setMissed(String missed) {
+        if (this.missed.equals(missed)) return; // for all checkboxes
+        this.missed = missed;
+        notifyPropertyChanged(BR.missed);
+    }
+
+    @Bindable
+    public String getZeerodoze() {
+        return zeerodoze;
+    }
+
+    public void setZeerodoze(String zeerodoze) {
+        if (this.zeerodoze.equals(zeerodoze)) return; // for all checkboxes
+        this.zeerodoze = zeerodoze;
+        notifyPropertyChanged(BR.zeerodoze);
     }
 
     @Bindable
@@ -1427,7 +1454,9 @@ public class FormVB extends BaseObservable implements Observable {
             this.vb05m = json.getString("vb05m");
             this.vb05d = json.getString("vb05d");
             this.vb05a = json.getString("vb05a");
-            this.vb05b = json.getString("vb05b");
+            this.refusal = json.getString("refusal");
+            this.missed = json.getString("missed");
+            this.zeerodoze = json.getString("zeerodoze");
             this.vb06 = json.getString("vb06");
             this.vb06a = json.getString("vb06a");
             this.vb07 = json.getString("vb07");
@@ -1518,7 +1547,9 @@ public class FormVB extends BaseObservable implements Observable {
                 .put("vb05m", vb05m)
                 .put("vb05d", vb05d)
                 .put("vb05a", vb05a)
-                .put("vb05b", vb05b)
+                .put("refusal", refusal)
+                .put("missed", missed)
+                .put("zeerodoze", zeerodoze)
                 .put("vb06", vb06)
                 .put("vb06a", vb06a)
                 .put("vb07", vb07)

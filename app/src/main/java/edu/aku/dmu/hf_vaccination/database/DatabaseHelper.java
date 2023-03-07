@@ -2293,6 +2293,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return vaccinesByUID;
     }
 
+    public List<VaccinesData> getSyncedVaccinatedChildBYCardNo(String cardNo) throws JSONException {
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+        Cursor c = null;
+        String[] columns = null;
+        String whereClause = TableVaccinesData.COLUMN_VB02 + "=?";
+        String[] whereArgs = {cardNo};
+        String groupBy = null;
+        String having = null;
+        String orderBy = TableVaccinesData.COLUMN_ID + " ASC";
+
+        List<VaccinesData> vaccinesByUID = new ArrayList<>();
+        c = db.query(
+                TableVaccinesData.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            vaccinesByUID.add(new VaccinesData().hydrate(c));
+        }
+
+        if (c != null && !c.isClosed()) {
+            c.close();
+        }
+        c.close();
+        return vaccinesByUID;
+    }
+
 
     public List<VaccinesData> getSyncedVaccinatedMembersBYUID(String uid, String cardNo) throws JSONException {
         SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);

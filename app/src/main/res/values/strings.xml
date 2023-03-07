@@ -512,4 +512,5 @@
     <string name="by_date">Search by Date</string>
     <string name="todays_vaccinations">Today\'s Vaccinations</string>
     <string name="total_child_vaccinated">بچوں کی تعداد</string>
+    <string name="alreadyExistMember">This child is already registered, please do followup from followups List</string>
 </resources>
