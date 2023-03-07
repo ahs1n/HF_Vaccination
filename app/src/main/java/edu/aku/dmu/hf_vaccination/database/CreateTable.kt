@@ -287,6 +287,7 @@ object CreateTable {
             + TableVaccinesData.COLUMN_UID + " TEXT,"
             + TableVaccinesData.COLUMN_UUID + " TEXT,"
             + TableVaccinesData.COLUMN_FACILITY_CODE + " TEXT,"
+            + TableVaccinesData.COLUMN_USERNAME + " TEXT,"
             + TableVaccinesData.COLUMN_VB02 + " TEXT,"
             + TableVaccinesData.COLUMN_VB03 + " TEXT,"
             + TableVaccinesData.COLUMN_VB04 + " TEXT,"
@@ -358,4 +359,8 @@ object CreateTable {
     const val SQL_ALTER_ADD_DPT = ("ALTER TABLE "
             + TableVaccinesData.TABLE_NAME + " ADD COLUMN "
             + TableVaccinesData.COLUMN_DPT + " TEXT;")
+
+    const val SQL_ALTER_ADD_USERNAME = ("ALTER TABLE "
+            + TableVaccinesData.TABLE_NAME + " ADD COLUMN "
+            + TableVaccinesData.COLUMN_USERNAME + " TEXT;")
 }

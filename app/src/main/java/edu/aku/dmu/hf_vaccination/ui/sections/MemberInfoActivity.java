@@ -397,33 +397,35 @@ public class MemberInfoActivity extends AppCompatActivity {
 
     public void checkMember(View view) {
 
-        List<VaccinesData> vaccinesDataArrayList = new ArrayList<>();
-        try {
-            vaccinesDataArrayList = db.getSyncedVaccinatedChildBYCardNo(bi.vb02.getText().toString());
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        if (!bi.vb02.getText().toString().equals("") && bi.vb04.length() > 0) {
+            List<VaccinesData> vaccinesDataArrayList = new ArrayList<>();
+            try {
+                vaccinesDataArrayList = db.getSyncedVaccinatedChildBYCardNo(bi.vb02.getText().toString(), MainApp.user.getUserName());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
 
-        if (vaccinesDataArrayList.size() > 0) {
-            Snackbar.make(bi.toolbar, R.string.alreadyExistMember, Snackbar.LENGTH_LONG).show();
-            bi.fldGrpInfo.setVisibility(View.GONE);
-            bi.villageName.setSelection(0);
-            bi.vb04by.setText("");
-            bi.vb04bm.setText("");
-            bi.vb04bd.setText("");
-            bi.ageY.setText("");
-            bi.vb05m.setText("");
-            bi.vb05d.setText("");
-            bi.vb05a.clearCheck();
-            bi.vb05ba.setChecked(false);
-            bi.vb05bb.setChecked(false);
-            bi.vb05bc.setChecked(false);
-            bi.vb06.setText("");
-            bi.vb06a.setText("");
-            bi.vb07.setText("");
-            bi.vb09.clearCheck();
-        } else {
-            bi.fldGrpInfo.setVisibility(View.VISIBLE);
+            if (vaccinesDataArrayList.size() > 0) {
+                Snackbar.make(bi.toolbar, R.string.alreadyExistMember, Snackbar.LENGTH_LONG).show();
+                bi.fldGrpInfo.setVisibility(View.GONE);
+                bi.villageName.setSelection(0);
+                bi.vb04by.setText("");
+                bi.vb04bm.setText("");
+                bi.vb04bd.setText("");
+                bi.ageY.setText("");
+                bi.vb05m.setText("");
+                bi.vb05d.setText("");
+                bi.vb05a.clearCheck();
+                bi.vb05ba.setChecked(false);
+                bi.vb05bb.setChecked(false);
+                bi.vb05bc.setChecked(false);
+                bi.vb06.setText("");
+                bi.vb06a.setText("");
+                bi.vb07.setText("");
+                bi.vb09.clearCheck();
+            } else {
+                bi.fldGrpInfo.setVisibility(View.VISIBLE);
+            }
         }
     }
 }

@@ -17,6 +17,7 @@ class VaccinesData {
     var uID: String = _EMPTY_
     var villageCode: String = _EMPTY_
     var villageName: String = _EMPTY_
+    var username: String = _EMPTY_
 
     //var facilityCode: String = _EMPTY_
     var vBO2: String = _EMPTY_
@@ -54,6 +55,7 @@ class VaccinesData {
         ucCode = jsonObject.getString(TableVaccinesData.COLUMN_UC_CODE)
         aID = jsonObject.getString(TableVaccinesData.COLUMN_AID)
         uID = jsonObject.getString(TableVaccinesData.COLUMN_UID)
+        username = jsonObject.getString(TableVaccinesData.COLUMN_USERNAME)
         vBO2 = jsonObject.getString(TableVaccinesData.COLUMN_VB02)
         vBO3 = jsonObject.getString(TableVaccinesData.COLUMN_VB03)
         vB04 = jsonObject.getString(TableVaccinesData.COLUMN_VB04)
@@ -94,6 +96,8 @@ class VaccinesData {
             cursor.getString(cursor.getColumnIndexOrThrow(TableVaccinesData.COLUMN_AID))
         uID =
             cursor.getString(cursor.getColumnIndexOrThrow(TableVaccinesData.COLUMN_UID))
+        username =
+            cursor.getString(cursor.getColumnIndexOrThrow(TableVaccinesData.COLUMN_USERNAME))
         vBO2 =
             cursor.getString(cursor.getColumnIndexOrThrow(TableVaccinesData.COLUMN_VB02))
         vBO3 =
