@@ -9,6 +9,10 @@
         <variable
             name="form"
             type="edu.aku.dmu.hf_vaccination.models.FormVB" />
+
+        <variable
+            name="callback"
+            type="edu.aku.dmu.hf_vaccination.ui.sections.MemberInfoActivity" />
     </data>
 
     <LinearLayout
@@ -120,6 +124,7 @@
                                 android:layout_weight="1"
                                 android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
                                 android:hint="@string/vb02"
+                                android:onTextChanged="@{callback::checkCard}"
                                 android:text="@={form.vb02}" />
 
                         </LinearLayout>

@@ -10,11 +10,15 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.edittextpicker.aliazaz.EditTextPicker;
 import com.google.android.material.snackbar.Snackbar;
 import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
@@ -22,6 +26,7 @@ import com.validatorcrawler.aliazaz.Validator;
 import org.json.JSONException;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.List;
@@ -50,6 +55,7 @@ public class MemberInfoActivity extends AppCompatActivity {
         setTheme(R.style.AppThemeUrdu);
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_member_info);
+        bi.setCallback(this);
         setSupportActionBar(bi.toolbar);
         db = MainApp.appInfo.dbHelper;
         setupListeners();
@@ -395,9 +401,30 @@ public class MemberInfoActivity extends AppCompatActivity {
 
     }
 
+    public void clearChecks() {
+        bi.fldGrpInfo.setVisibility(View.GONE);
+        bi.villageName.setSelection(0);
+        for (EditTextPicker et : Arrays.asList(bi.vb04by, bi.vb04bm, bi.vb04bd, bi.ageY, bi.vb05m, bi.vb05d)) {
+            et.setText("");
+        }
+        for (EditText editText : Arrays.asList(bi.vb06, bi.vb06a, bi.vb07)) {
+            editText.setText("");
+        }
+        for (CheckBox checkBox : Arrays.asList(bi.vb05ba, bi.vb05bb, bi.vb05bc)) {
+            checkBox.setChecked(false);
+        }
+        for (RadioGroup radioGroup : Arrays.asList(bi.vb05a, bi.vb09)) {
+            radioGroup.clearCheck();
+        }
+    }
+
+    public void checkCard(CharSequence s, int start, int before, int count) {
+        clearChecks();
+    }
+
     public void checkMember(View view) {
 
-        if (!bi.vb02.getText().toString().equals("") && bi.vb04.length() > 0) {
+        if (!bi.vb02.getText().toString().trim().equals("")) {
             List<VaccinesData> vaccinesDataArrayList = new ArrayList<>();
             try {
                 vaccinesDataArrayList = db.getSyncedVaccinatedChildBYCardNo(bi.vb02.getText().toString(), MainApp.user.getUserName());
@@ -407,22 +434,7 @@ public class MemberInfoActivity extends AppCompatActivity {
 
             if (vaccinesDataArrayList.size() > 0) {
                 Snackbar.make(bi.toolbar, R.string.alreadyExistMember, Snackbar.LENGTH_LONG).show();
-                bi.fldGrpInfo.setVisibility(View.GONE);
-                bi.villageName.setSelection(0);
-                bi.vb04by.setText("");
-                bi.vb04bm.setText("");
-                bi.vb04bd.setText("");
-                bi.ageY.setText("");
-                bi.vb05m.setText("");
-                bi.vb05d.setText("");
-                bi.vb05a.clearCheck();
-                bi.vb05ba.setChecked(false);
-                bi.vb05bb.setChecked(false);
-                bi.vb05bc.setChecked(false);
-                bi.vb06.setText("");
-                bi.vb06a.setText("");
-                bi.vb07.setText("");
-                bi.vb09.clearCheck();
+                clearChecks();
             } else {
                 bi.fldGrpInfo.setVisibility(View.VISIBLE);
             }
