@@ -121,157 +121,11 @@
                                 android:id="@+id/vb02"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
+                                android:layout_weight="1.3"
                                 android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
                                 android:hint="@string/vb02"
                                 android:onTextChanged="@{callback::checkCard}"
                                 android:text="@={form.vb02}" />
-
-                        </LinearLayout>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <!-- vb03  Radio -->
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/fldGrpCVvb03"
-                    style="@style/cardView"
-                    android:visibility="gone">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/bottom"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                style="@style/quesNum"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:text="@string/Q_vb03" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text="@string/vb03" />
-
-                        </LinearLayout>
-
-                        <RadioGroup
-                            android:id="@+id/vb03"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <RadioButton
-                                android:id="@+id/vb03a"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:checked="@{form.vb03.equals(`1`)}"
-                                android:enabled="false"
-                                android:onClick="@{()->form.setVb03(`1`) + vb05a.clearCheck() + vb09.clearCheck()}"
-                                android:text="@string/vb03a" />
-
-                            <RadioButton
-                                android:id="@+id/vb03b"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:checked="@{form.vb03.equals(`2`)}"
-                                android:enabled="false"
-                                android:onClick="@{()->form.setVb03(`2`)}"
-                                android:text="@string/vb03b" />
-                        </RadioGroup>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <!-- vb04a  Input -->
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/fldGrpCVvb04a"
-                    style="@style/cardView">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/bottom"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                style="@style/quesNum"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:text="@string/Q_vb04a" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text="@string/vb04a" />
-
-                        </LinearLayout>
-
-                        <EditText
-                            android:id="@+id/vb04a"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz "
-                            android:hint="@string/vb04a"
-                            android:text="@={form.vb04a}" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <!-- vb04  Input -->
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/fldGrpCVvb04"
-                    style="@style/cardView">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/bottom"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                style="@style/quesNum"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:text="@string/Q_vb04" />
-
-                            <TextView
-                                android:id="@+id/vb04Name"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text="@string/vb04" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <EditText
-                                android:id="@+id/vb04"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz "
-                                android:hint="@string/vb04"
-                                android:text="@={form.vb04}" />
 
                             <Button
                                 android:layout_width="56dp"
@@ -290,6 +144,144 @@
                     android:orientation="vertical"
                     android:visibility="gone"
                     tools:visibility="visible">
+
+                    <!-- vb03  Radio -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/fldGrpCVvb03"
+                        style="@style/cardView"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bottom"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/quesNum"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/Q_vb03" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/vb03" />
+
+                            </LinearLayout>
+
+                            <RadioGroup
+                                android:id="@+id/vb03"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:id="@+id/vb03a"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:checked="@{form.vb03.equals(`1`)}"
+                                    android:enabled="false"
+                                    android:onClick="@{()->form.setVb03(`1`) + vb05a.clearCheck() + vb09.clearCheck()}"
+                                    android:text="@string/vb03a" />
+
+                                <RadioButton
+                                    android:id="@+id/vb03b"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:checked="@{form.vb03.equals(`2`)}"
+                                    android:enabled="false"
+                                    android:onClick="@{()->form.setVb03(`2`)}"
+                                    android:text="@string/vb03b" />
+                            </RadioGroup>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- vb04a  Input -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/fldGrpCVvb04a"
+                        style="@style/cardView">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bottom"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/quesNum"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/Q_vb04a" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/vb04a" />
+
+                            </LinearLayout>
+
+                            <EditText
+                                android:id="@+id/vb04a"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz "
+                                android:hint="@string/vb04a"
+                                android:text="@={form.vb04a}" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- vb04  Input -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/fldGrpCVvb04"
+                        style="@style/cardView">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bottom"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/quesNum"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/Q_vb04" />
+
+                                <TextView
+                                    android:id="@+id/vb04Name"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/vb04" />
+
+                            </LinearLayout>
+
+                            <EditText
+                                android:id="@+id/vb04"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz "
+                                android:hint="@string/vb04"
+                                android:text="@={form.vb04}" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
 
                     <!-- wlVillageName  Spinner   -->
                     <androidx.cardview.widget.CardView
@@ -926,6 +918,7 @@
                         android:background="@drawable/all_round_corners"
                         android:backgroundTint="@color/greenOverlay"
                         android:elevation="20dp"
+                        android:enabled="false"
                         android:onClick="btnContinue"
                         android:text="@string/btnSave"
                         android:textColor="@color/white" />

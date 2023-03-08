@@ -403,11 +403,12 @@ public class MemberInfoActivity extends AppCompatActivity {
 
     public void clearChecks() {
         bi.fldGrpInfo.setVisibility(View.GONE);
+        bi.btnContinue.setEnabled(false);
         bi.villageName.setSelection(0);
         for (EditTextPicker et : Arrays.asList(bi.vb04by, bi.vb04bm, bi.vb04bd, bi.ageY, bi.vb05m, bi.vb05d)) {
             et.setText("");
         }
-        for (EditText editText : Arrays.asList(bi.vb06, bi.vb06a, bi.vb07)) {
+        for (EditText editText : Arrays.asList(bi.vb04, bi.vb04a, bi.vb06, bi.vb06a, bi.vb07)) {
             editText.setText("");
         }
         for (CheckBox checkBox : Arrays.asList(bi.vb05ba, bi.vb05bb, bi.vb05bc)) {
@@ -437,6 +438,7 @@ public class MemberInfoActivity extends AppCompatActivity {
                 clearChecks();
             } else {
                 bi.fldGrpInfo.setVisibility(View.VISIBLE);
+                bi.btnContinue.setEnabled(true);
             }
         }
     }
