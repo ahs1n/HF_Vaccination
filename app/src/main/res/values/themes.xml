@@ -585,7 +585,7 @@
     <style name="MaterialSnackbarTheme" parent="@style/Widget.MaterialComponents.Snackbar">
         <!-- <item name="backgroundTint">#00cc77</item>-->
         <!-- <item name="android:background">@drawable/snackbar_background</item>-->
-        <item name="android:background">@color/redOverlay</item>
+        <item name="android:background">@color/colorAccentLightOverlay</item>
         <item name="cornerRadius">0dp</item>
         <item name="android:layout_margin">0dp</item>
         <item name="actionTextColorAlpha">1.0</item>
