@@ -1078,10 +1078,10 @@ public class SectionVBActivity extends AppCompatActivity {
                                             DateTime prevDate = fmt.parseDateTime(prevDateStr);
 
                                             int[] days = getDaysAndGroupOfVaccineType(baseId, doseNumber);
-                                            //DateTime nextDate = prevDate.plusDays(days[0]);
-                                            //previousGroup = days[1];
+                                            DateTime nextDate = prevDate.plusDays(days[0]);
+                                            previousGroup = days[1];
                                             if (doseNumber < 2) {
-                                                //txtVaccineDate.setText(nextDate.toString("yyyy-MM-dd"));
+                                                txtVaccineDate.setText(nextDate.toString("yyyy-MM-dd"));
                                                 txtVaccineDate.setVisibility(View.VISIBLE);
                                             } else {
                                                 txtVaccineDate.setText("");
