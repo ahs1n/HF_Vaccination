@@ -320,7 +320,7 @@
     <string name='Q_wr_ttd5ds'>wr_ttd5ds</string>
 
 
-    <!--EPI_Register_Daily-->
+    <!--HF_Vaccination-->
     <string name="va_mainheading">وی-اے: روزانہ   کارکردگی رجسٹر برائے ٹیکہ جات</string>
     <string name="vb_mainheading">وی-بی: ویکسین کی معلومات</string>
     <string name="app_name">HF Vaccination</string>
