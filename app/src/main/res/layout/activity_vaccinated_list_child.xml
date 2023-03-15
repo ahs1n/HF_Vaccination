@@ -106,6 +106,7 @@
                         android:inputType="text" />
 
                     <Button
+                        android:visibility="gone"
                         android:layout_width="56dp"
                         android:layout_height="match_parent"
                         android:drawableStart="@drawable/search"
