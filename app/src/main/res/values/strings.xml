@@ -177,6 +177,7 @@
     <string name="cr_measles2_d2">تاریخ پڑھی نہیں جا رہی</string>
     <!--    <string name="cr_measles2_na">تاریخ نہیں لکھی </string>-->
     <string name="cr_typhoid">ٹائیفائیڈ</string>
+    <string name="cr_dpt">ڈی پی ٹی</string>
     <string name="cr_birth_status">کیا پیدائش پر بچہ محفوظ تھا</string>
     <string name="cr_birth_status1">ہاں</string>
     <string name="cr_birth_status2">نہیں</string>

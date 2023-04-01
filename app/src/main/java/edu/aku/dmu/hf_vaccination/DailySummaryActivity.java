@@ -109,6 +109,11 @@ public class DailySummaryActivity extends AppCompatActivity implements View.OnCl
         bi.typhoidAnt.setText(String.valueOf(typhoid.size()));
         total += typhoid.size();
 
+        // Dpt
+        List<String> dpt = db.getVaccinesByAntigenCodeAndDate("DPT", selectedDate);
+        bi.dptAnt.setText(String.valueOf(dpt.size()));
+        total += dpt.size();
+
         // Total
         bi.totalAnt.setText(String.valueOf(total));
 
