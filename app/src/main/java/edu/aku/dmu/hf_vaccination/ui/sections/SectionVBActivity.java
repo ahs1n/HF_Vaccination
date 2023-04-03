@@ -1713,7 +1713,9 @@ public class SectionVBActivity extends AppCompatActivity {
             vaccines.setUid(vaccines.getDeviceId() + vaccines.getId());
             vaccDueDates.setUuid(vaccines.getUid());
             db.updatesVaccineColumn(TableContracts.VaccinesTable.COLUMN_UID, vaccines.getUid());
-            db.updatesDueVaccineColumn(TableContracts.VaccinesDueTable.COLUMN_UUID, vaccDueDates.getUuid());
+            if(!bi.vb08cja.isChecked()) {
+                db.updatesDueVaccineColumn(TableContracts.VaccinesDueTable.COLUMN_UUID, vaccDueDates.getUuid());
+            }
             return true;
         } else {
             Toast.makeText(this, R.string.upd_db_error, Toast.LENGTH_SHORT).show();
