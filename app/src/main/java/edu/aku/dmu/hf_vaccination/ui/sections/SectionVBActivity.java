@@ -1307,7 +1307,12 @@ public class SectionVBActivity extends AppCompatActivity {
             txtVaccineDate = (TextView) getViewDynamically(baseId + letter + "txt");
 
             if (radioButton != null && txtVaccineDate != null) {
-                int[] groupDays = getDaysAndGroupOfVaccineType(baseId, -1);
+                int[] groupDays;
+                if(baseId.equals("vb08cb")){
+                    groupDays = getDaysAndGroupOfVaccineType(baseId, 0);
+                }else {
+                    groupDays = getDaysAndGroupOfVaccineType(baseId, -1);
+                }
                 group = groupDays[1];
 
                 if (group == previousGroup) {
@@ -1648,7 +1653,6 @@ public class SectionVBActivity extends AppCompatActivity {
 
         return new int[]{days, group};
     }
-
 
     private boolean showHideDoneCheckWithText(
             String conditionText,
