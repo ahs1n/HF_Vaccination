@@ -81,6 +81,9 @@ public class FormVB extends BaseObservable implements Observable {
     private String refusal = _EMPTY_;
     private String missed = _EMPTY_;
     private String zeerodoze = _EMPTY_;
+    private String due = _EMPTY_;
+    private String defaulter = _EMPTY_;
+    private String guest = _EMPTY_;
     private String vb06 = _EMPTY_;
     private String vb06a = _EMPTY_;
     private String vb07 = _EMPTY_;
@@ -627,6 +630,39 @@ public class FormVB extends BaseObservable implements Observable {
         if (this.zeerodoze.equals(zeerodoze)) return; // for all checkboxes
         this.zeerodoze = zeerodoze;
         notifyPropertyChanged(BR.zeerodoze);
+    }
+
+    @Bindable
+    public String getDue() {
+        return due;
+    }
+
+    public void setDue(String due) {
+        if (this.due.equals(due)) return; // for all checkboxes
+        this.due = due;
+        notifyPropertyChanged(BR.due);
+    }
+
+    @Bindable
+    public String getDefaulter() {
+        return defaulter;
+    }
+
+    public void setDefaulter(String defaulter) {
+        if (this.defaulter.equals(defaulter)) return; // for all checkboxes
+        this.defaulter = defaulter;
+        notifyPropertyChanged(BR.defaulter);
+    }
+
+    @Bindable
+    public String getGuest() {
+        return guest;
+    }
+
+    public void setGuest(String guest) {
+        if (this.guest.equals(guest)) return; // for all checkboxes
+        this.guest = guest;
+        notifyPropertyChanged(BR.guest);
     }
 
     @Bindable
@@ -1457,6 +1493,9 @@ public class FormVB extends BaseObservable implements Observable {
             this.refusal = json.getString("refusal");
             this.missed = json.getString("missed");
             this.zeerodoze = json.getString("zeerodoze");
+            this.due = json.getString("due");
+            this.defaulter = json.getString("defaulter");
+            this.guest = json.getString("guest");
             this.vb06 = json.getString("vb06");
             this.vb06a = json.getString("vb06a");
             this.vb07 = json.getString("vb07");
@@ -1550,6 +1589,9 @@ public class FormVB extends BaseObservable implements Observable {
                 .put("refusal", refusal)
                 .put("missed", missed)
                 .put("zeerodoze", zeerodoze)
+                .put("due", due)
+                .put("defaulter", defaulter)
+                .put("guest", guest)
                 .put("vb06", vb06)
                 .put("vb06a", vb06a)
                 .put("vb07", vb07)

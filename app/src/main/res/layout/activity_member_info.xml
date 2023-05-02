@@ -667,12 +667,12 @@
                                 android:id="@+id/vb05bcheck"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="horizontal"
+                                android:orientation="vertical"
                                 android:tag="0">
 
                                 <CheckBox
                                     android:id="@+id/vb05ba"
-                                    android:layout_width="0dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:checked="@{form.refusal.equals(`1`)}"
@@ -681,7 +681,7 @@
 
                                 <CheckBox
                                     android:id="@+id/vb05bb"
-                                    android:layout_width="0dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:checked="@{form.missed.equals(`2`)}"
@@ -690,12 +690,41 @@
 
                                 <CheckBox
                                     android:id="@+id/vb05bc"
-                                    android:layout_width="0dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:checked="@{form.zeerodoze.equals(`3`)}"
                                     android:onClick="@{()->form.setZeerodoze(form.zeerodoze.equals(`3`)?``:`3`)}"
                                     android:text="@string/vb05bc" />
+
+                                <CheckBox
+                                    android:id="@+id/vb05bd"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:checked="@{form.due.equals(`1`)}"
+                                    android:onClick="@{()->form.setDue(form.due.equals(`1`)?``:`1`)}"
+                                    android:text="@string/vb05bd" />
+
+                                <CheckBox
+                                    android:id="@+id/vb05be"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:checked="@{form.defaulter.equals(`1`)}"
+                                    android:onClick="@{()->form.setDefaulter(form.defaulter.equals(`1`)?``:`1`)}"
+                                    android:text="@string/vb05be" />
+
+                                <CheckBox
+                                    android:id="@+id/vb05bf"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:checked="@{form.guest.equals(`1`)}"
+                                    android:onClick="@{()->form.setGuest(form.guest.equals(`1`)?``:`1`)}"
+                                    android:text="@string/vb05bf" />
+
+
                             </LinearLayout>
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
