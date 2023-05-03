@@ -1242,6 +1242,7 @@ public class SectionVBActivity extends AppCompatActivity {
         RadioButton radioButton;
         TextView txtVaccineDatePrevious;
         TextView txtVaccineDate;
+        CheckBox checkBox;
 
         if (firstTrue > -1) {
             String prevLetter = String.valueOf(getChar(firstTrue));
@@ -1254,8 +1255,11 @@ public class SectionVBActivity extends AppCompatActivity {
             radioButton = (RadioButton) getViewDynamically(baseId + letter);
             txtVaccineDatePrevious = (TextView) getViewDynamically(baseId + prevLetter + "txt");
             txtVaccineDate = (TextView) getViewDynamically(baseId + letter + "txt");
+            checkBox =  (CheckBox) getViewDynamically(baseId + "98");
+
 
             if (radioButton != null && txtVaccineDate != null && txtVaccineDatePrevious != null) {
+                checkBox.setEnabled(true);
                 String prevDateStr = txtVaccineDatePrevious.getText().toString();
 
                 DateTimeFormatter fmt = DateTimeFormat.forPattern("yyyy-MM-dd");
@@ -1302,6 +1306,8 @@ public class SectionVBActivity extends AppCompatActivity {
                 prevBundle.putInt("group", daysGroup[1]);
                 prevBundle.putString("date", nextDate.toString("yyyy-MM-dd"));
                 return prevBundle;
+            }else{
+                checkBox.setEnabled(false);
             }
         } else {
             String letter = String.valueOf(getChar(0));
@@ -1673,12 +1679,8 @@ public class SectionVBActivity extends AppCompatActivity {
                 txtVaccine.setText(conditionText);
             }
 
-            if (radioButton != null) {
+            if (radioButton != null)
                 radioButton.setVisibility(View.GONE);
-                checkBox.setEnabled(false);
-            } else {
-                checkBox.setEnabled(true);
-            }
 
             if (imgDone != null)
                 imgDone.setVisibility(View.VISIBLE);
@@ -1687,7 +1689,6 @@ public class SectionVBActivity extends AppCompatActivity {
         }
         return false;
     }
-
 
     private boolean insertVaccineRecord(String vaccCode, String antigen, String vaccDate) {
         setGPS();
