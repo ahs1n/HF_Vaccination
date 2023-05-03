@@ -73,7 +73,7 @@ public class Vaccines extends BaseObservable implements Observable {
     public void populateMeta() {
         setUserName(MainApp.formVB.getUserName());
         setUcCode(MainApp.user.getUccode());
-        setDeviceId(MainApp.formVB.getDeviceId());
+        setDeviceId(MainApp.deviceid);
         setUuid(MainApp.formVB.getUid());
         setAid(MainApp.attendance.getUid());
         setVb02(MainApp.formVB.getVb02());
@@ -91,7 +91,7 @@ public class Vaccines extends BaseObservable implements Observable {
     public void populateMetaFollowUp() {
         setUserName(MainApp.user.getUserName());
         setUcCode(MainApp.user.getUccode());
-        setDeviceId(MainApp.attendance.getDeviceId());
+        setDeviceId(MainApp.deviceid);
         setUuid(MainApp.vaccinesData.getUID());
         setAid(MainApp.attendance.getUid());
         setVb02(MainApp.vaccinesData.getVBO2());
@@ -108,7 +108,7 @@ public class Vaccines extends BaseObservable implements Observable {
     public void populateMetaFollowUpWoman() {
         setUserName(MainApp.user.getUserName());
         setUcCode(MainApp.user.getUccode());
-        setDeviceId(MainApp.attendance.getDeviceId());
+        setDeviceId(MainApp.deviceid);
         setUuid(MainApp.womenFollowUP.getUID());
         setAid(MainApp.attendance.getUid());
         setVb02(MainApp.womenFollowUP.getVBO2());
