@@ -18,6 +18,7 @@ import android.text.TextWatcher;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -1649,10 +1650,6 @@ public class SectionVBActivity extends AppCompatActivity {
                     days = 90;
                     group = 6;
                 }
-
-
-
-
         }
 
         return new int[]{days, group};
@@ -1667,6 +1664,7 @@ public class SectionVBActivity extends AppCompatActivity {
         RadioButton radioButton = (RadioButton) getViewDynamically(baseId + letter);
         ImageView imgDone = (ImageView) getViewDynamically(baseId + letter + "tick");
         TextView txtVaccine = (TextView) getViewDynamically(baseId + letter + "txt");
+        CheckBox checkBox = (CheckBox) getViewDynamically(baseId + "98");
 
         if (!conditionText.equals("")) {
             if (txtVaccine != null) {
@@ -1675,8 +1673,12 @@ public class SectionVBActivity extends AppCompatActivity {
                 txtVaccine.setText(conditionText);
             }
 
-            if (radioButton != null)
+            if (radioButton != null) {
                 radioButton.setVisibility(View.GONE);
+                checkBox.setEnabled(false);
+            } else {
+                checkBox.setEnabled(true);
+            }
 
             if (imgDone != null)
                 imgDone.setVisibility(View.VISIBLE);
