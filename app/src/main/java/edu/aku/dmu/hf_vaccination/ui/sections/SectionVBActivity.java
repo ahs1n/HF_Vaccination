@@ -1279,8 +1279,8 @@ public class SectionVBActivity extends AppCompatActivity {
                     }
                     MainApp.vaccDueDates.setVb08CDueDate(txtVaccineDate.getText().toString());
                     MainApp.vaccDueDates.setVb08CDueCode(getVaccineNameFromBaseID(baseId));
-                    MainApp.vaccDueDates.setVb08CDueAntigen(String.valueOf(doseNumber));
-                    /*if (firstTrue < 0) {
+                    MainApp.vaccDueDates.setVb08CDueAntigen(String.valueOf(doseNumber + 1));
+                    /*if (doseNumber < 1) {
                         MainApp.vaccDueDates.setVb08CDueAntigen(String.valueOf(doseNumber + 2));
                     } else {
                         MainApp.vaccDueDates.setVb08CDueAntigen(String.valueOf(doseNumber + 1));
@@ -1332,7 +1332,7 @@ public class SectionVBActivity extends AppCompatActivity {
                         MainApp.vaccDueDates.setVb08CDueDate(txtVaccineDate.getText().toString());
                         MainApp.vaccDueDates.setVb08CDueCode(getVaccineNameFromBaseID(baseId));
                         // As current dose is initially -1 so dosenumber +2 will give 1st dose.
-                        MainApp.vaccDueDates.setVb08CDueAntigen(String.valueOf(doseNumber + 2));
+                        MainApp.vaccDueDates.setVb08CDueAntigen(String.valueOf(doseNumber + 1));
                         try {
                             MainApp.dueDates = db.getDueVaccinesBYAntigen(vaccDueDates.getVb02(), vaccDueDates.getVb04a(), vaccDueDates.getVb04(),
                                     vaccDueDates.getVb08CDueCode(), vaccDueDates.getVb08CDueAntigen());
