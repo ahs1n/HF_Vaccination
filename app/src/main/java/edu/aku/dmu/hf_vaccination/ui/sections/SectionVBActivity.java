@@ -38,6 +38,7 @@ import org.joda.time.format.DateTimeFormatter;
 import org.json.JSONException;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import edu.aku.dmu.hf_vaccination.MainActivity;
 import edu.aku.dmu.hf_vaccination.R;
@@ -423,7 +424,7 @@ public class SectionVBActivity extends AppCompatActivity {
                                                 }
                                             }
 
-                                            if(bi.vb08cdatxt.getText().toString().equals("") || bi.vb08ceatxt.getText().toString().equals("") || bi.vb08cfatxt.getText().toString().equals("")) {
+                                            if (bi.vb08cdatxt.getText().toString().equals("") || bi.vb08ceatxt.getText().toString().equals("") || bi.vb08cfatxt.getText().toString().equals("")) {
                                                 String letter = String.valueOf(getChar(0));
 
                                                 for (String s : nextBaseId) {
@@ -1119,53 +1120,53 @@ public class SectionVBActivity extends AppCompatActivity {
 
                                             //for (String s : nextBaseId) {
 
-                                                int currentDose = -1;
-                                                DateTime nextDate1 = null;
+                                            int currentDose = -1;
+                                            DateTime nextDate1 = null;
 
-                                                RadioButton radioButton = (RadioButton) getViewDynamically(nextBaseId + letter);
-                                                nextVaccineDate = (TextView) getViewDynamically(nextBaseId + letter + "txt");
+                                            RadioButton radioButton = (RadioButton) getViewDynamically(nextBaseId + letter);
+                                            nextVaccineDate = (TextView) getViewDynamically(nextBaseId + letter + "txt");
 
-                                                //if (nextVaccineDate.getText().toString().equals("")) {
-                                                int[] groupDays = new int[0];
+                                            //if (nextVaccineDate.getText().toString().equals("")) {
+                                            int[] groupDays = new int[0];
 
-                                                if (radioButton != null && nextVaccineDate != null) {
-                                                    //groupDays = getDaysAndGroupOfVaccineType(nextBaseId, -1);
+                                            if (radioButton != null && nextVaccineDate != null) {
+                                                //groupDays = getDaysAndGroupOfVaccineType(nextBaseId, -1);
 
-                                                    //DateTimeFormatter fmt1 = DateTimeFormat.forPattern("yyyy-MM-dd");
-                                                    DateTime prevDate1 = fmt.parseDateTime(prevDateStr);
+                                                //DateTimeFormatter fmt1 = DateTimeFormat.forPattern("yyyy-MM-dd");
+                                                DateTime prevDate1 = fmt.parseDateTime(prevDateStr);
 
-                                                    groupDays = getDaysAndGroupOfVaccineType(nextBaseId, -1);
-                                                    nextDate1 = prevDate1.plusDays(groupDays[0]);
+                                                groupDays = getDaysAndGroupOfVaccineType(nextBaseId, -1);
+                                                nextDate1 = prevDate1.plusDays(groupDays[0]);
+                                            }
+
+                                            currentGroup = groupDays[1];
+
+                                            if (currentGroup == previousGroup) {
+                                                nextVaccineDate.setText(nextDate1.toString("yyyy-MM-dd"));
+                                                nextVaccineDate.setVisibility(View.VISIBLE);
+                                                /*Saving Vaccines Due Dates*/
+                                                if (flag) {
+                                                    vaccDueDates.populateMeta();
+                                                } else {
+                                                    vaccDueDates.populateMetaFollowUp();
+                                                }
+                                                MainApp.vaccDueDates.setVb08CDueDate(nextVaccineDate.getText().toString());
+                                                MainApp.vaccDueDates.setVb08CDueCode(getVaccineNameFromBaseID(nextBaseId));
+                                                MainApp.vaccDueDates.setVb08CDueAntigen(String.valueOf(currentDose + 2));
+                                                try {
+                                                    MainApp.dueDates = db.getDueVaccinesBYAntigen(vaccDueDates.getVb02(), vaccDueDates.getVb04a(), vaccDueDates.getVb04(),
+                                                            vaccDueDates.getVb08CDueCode(), vaccDueDates.getVb08CDueAntigen());
+                                                } catch (JSONException e) {
+                                                    e.printStackTrace();
                                                 }
 
-                                                currentGroup = groupDays[1];
-
-                                                if (currentGroup == previousGroup) {
-                                                    nextVaccineDate.setText(nextDate1.toString("yyyy-MM-dd"));
-                                                    nextVaccineDate.setVisibility(View.VISIBLE);
-                                                    /*Saving Vaccines Due Dates*/
-                                                    if (flag) {
-                                                        vaccDueDates.populateMeta();
+                                                if (!nextVaccineDate.getText().toString().equals("")) {
+                                                    if (dueDates.getUid().equals("")) {
+                                                        insertDueVaccines();
                                                     } else {
-                                                        vaccDueDates.populateMetaFollowUp();
+                                                        updateDueVaccines();
                                                     }
-                                                    MainApp.vaccDueDates.setVb08CDueDate(nextVaccineDate.getText().toString());
-                                                    MainApp.vaccDueDates.setVb08CDueCode(getVaccineNameFromBaseID(nextBaseId));
-                                                    MainApp.vaccDueDates.setVb08CDueAntigen(String.valueOf(currentDose + 2));
-                                                    try {
-                                                        MainApp.dueDates = db.getDueVaccinesBYAntigen(vaccDueDates.getVb02(), vaccDueDates.getVb04a(), vaccDueDates.getVb04(),
-                                                                vaccDueDates.getVb08CDueCode(), vaccDueDates.getVb08CDueAntigen());
-                                                    } catch (JSONException e) {
-                                                        e.printStackTrace();
-                                                    }
-
-                                                    if (!nextVaccineDate.getText().toString().equals("")) {
-                                                        if (dueDates.getUid().equals("")) {
-                                                            insertDueVaccines();
-                                                        } else {
-                                                            updateDueVaccines();
-                                                        }
-                                                   // }
+                                                    // }
                                                 }
                                             }
 
@@ -1238,7 +1239,7 @@ public class SectionVBActivity extends AppCompatActivity {
         }
 
         String vaccineType = baseId;
-        int doseNumber = firstTrue +1;
+        int doseNumber = firstTrue + 1;
         RadioButton radioButton;
         TextView txtVaccineDatePrevious;
         TextView txtVaccineDate;
@@ -1255,7 +1256,7 @@ public class SectionVBActivity extends AppCompatActivity {
             radioButton = (RadioButton) getViewDynamically(baseId + letter);
             txtVaccineDatePrevious = (TextView) getViewDynamically(baseId + prevLetter + "txt");
             txtVaccineDate = (TextView) getViewDynamically(baseId + letter + "txt");
-            checkBox =  (CheckBox) getViewDynamically(baseId + "98");
+            checkBox = (CheckBox) getViewDynamically(baseId + "98");
 
 
             if (radioButton != null && txtVaccineDate != null && txtVaccineDatePrevious != null) {
@@ -1306,7 +1307,7 @@ public class SectionVBActivity extends AppCompatActivity {
                 prevBundle.putInt("group", daysGroup[1]);
                 prevBundle.putString("date", nextDate.toString("yyyy-MM-dd"));
                 return prevBundle;
-            }else{
+            } else {
                 checkBox.setEnabled(false);
             }
         } else {
@@ -1319,9 +1320,9 @@ public class SectionVBActivity extends AppCompatActivity {
 
             if (radioButton != null && txtVaccineDate != null) {
                 int[] groupDays;
-                if(baseId.equals("vb08cb")){
+                if (baseId.equals("vb08cb")) {
                     groupDays = getDaysAndGroupOfVaccineType(baseId, 0);
-                }else {
+                } else {
                     groupDays = getDaysAndGroupOfVaccineType(baseId, -1);
                 }
                 group = groupDays[1];
@@ -1651,8 +1652,7 @@ public class SectionVBActivity extends AppCompatActivity {
 
             case "vb08cj":  // DPT
                 // DPT at 18 months
-                if(currentDose == -1)
-                {
+                if (currentDose == -1) {
                     days = 90;
                     group = 6;
                 }
@@ -1724,7 +1724,7 @@ public class SectionVBActivity extends AppCompatActivity {
             vaccines.setUid(vaccines.getDeviceId() + vaccines.getId());
             vaccDueDates.setUuid(vaccines.getUid());
             db.updatesVaccineColumn(TableContracts.VaccinesTable.COLUMN_UID, vaccines.getUid());
-            if(!bi.vb08cja.isChecked()) {
+            if (!bi.vb08cja.isChecked()) {
                 db.updatesDueVaccineColumn(TableContracts.VaccinesDueTable.COLUMN_UUID, vaccDueDates.getUuid());
             }
             return true;
@@ -2020,54 +2020,57 @@ public class SectionVBActivity extends AppCompatActivity {
             }*/
         } else {
 
+            // Check front photo taken
+            if (vaccinesData.getVBO3().equals("2") && bi.frontFileName.getText().toString().equals("")) {
+                return Validator.emptyCustomTextBox(this, bi.frontFileName, "Please take front photo of Vaccination Card.");
+            }
+
+            // Check back photo taken
+            if (vaccinesData.getVBO3().equals("2") && bi.backFileName.getText().toString().equals("")) {
+                return Validator.emptyCustomTextBox(this, bi.backFileName, "Please take back photo of Vaccination Card.");
+
+            }
+
         }
 
-        // Check front photo taken
-        if (vaccinesData.getVBO3().equals("2") && bi.frontFileName.getText().toString().equals("")) {
-            return Validator.emptyCustomTextBox(this, bi.frontFileName, "Please take front photo of Vaccination Card.");
-        }
+            if (bi.vb08ca98.isChecked() && bi.vb08ca.getCheckedRadioButtonId() == -1 || bi.vb08ca98.isChecked() && Objects.requireNonNull(bi.vb08cadt.getText()).toString().equals(""))
+//            return Validator.emptyRadioButton(this, bi.vb08ca, bi.vb08caa);
+                return Validator.emptyCheckingContainer(this, bi.fldGrpVB08ca, false);
 
-        // Check back photo taken
-        if (vaccinesData.getVBO3().equals("2") && bi.backFileName.getText().toString().equals("")) {
-            return Validator.emptyCustomTextBox(this, bi.backFileName, "Please take back photo of Vaccination Card.");
+            if (bi.vb08cb98.isChecked() && bi.vb08cb.getCheckedRadioButtonId() == -1 || bi.vb08cb98.isChecked() && Objects.requireNonNull(bi.vb08cbdt.getText()).toString().equals(""))
+                return Validator.emptyCheckingContainer(this, bi.fldGrpVB08cb, false);
 
-        }
+            if (bi.vb08cc98.isChecked() && bi.vb08cc.getCheckedRadioButtonId() == -1 || bi.vb08cc98.isChecked() && Objects.requireNonNull(bi.vb08ccdt.getText()).toString().equals(""))
+                return Validator.emptyCheckingContainer(this, bi.fldGrpVB08cc, false);
 
-        // Check child photo taken
+            if (bi.vb08cd98.isChecked() && bi.vb08cd.getCheckedRadioButtonId() == -1 || bi.vb08cd98.isChecked() && Objects.requireNonNull(bi.vb08cddt.getText()).toString().equals(""))
+                return Validator.emptyCheckingContainer(this, bi.fldGrpVB08cd, false);
+
+            if (bi.vb08ce98.isChecked() && bi.vb08ce.getCheckedRadioButtonId() == -1 || bi.vb08ce98.isChecked() && Objects.requireNonNull(bi.vb08cedt.getText()).toString().equals(""))
+                return Validator.emptyCheckingContainer(this, bi.fldGrpVB08ce, false);
+
+            if (bi.vb08cf98.isChecked() && bi.vb08cf.getCheckedRadioButtonId() == -1 || bi.vb08cf98.isChecked() && Objects.requireNonNull(bi.vb08cfdt.getText()).toString().equals(""))
+                return Validator.emptyCheckingContainer(this, bi.fldGrpVB08cf, false);
+
+            if (bi.vb08cg98.isChecked() && bi.vb08cg.getCheckedRadioButtonId() == -1 || bi.vb08cg98.isChecked() && Objects.requireNonNull(bi.vb08cgdt.getText()).toString().equals(""))
+                return Validator.emptyCheckingContainer(this, bi.fldGrpVB08cg, false);
+
+            if (bi.vb08ch98.isChecked() && bi.vb08ch.getCheckedRadioButtonId() == -1 || bi.vb08ch98.isChecked() && Objects.requireNonNull(bi.vb08chdt.getText()).toString().equals(""))
+                return Validator.emptyCheckingContainer(this, bi.fldGrpVB08ch, false);
+
+            if (bi.vb08ci98.isChecked() && bi.vb08ci.getCheckedRadioButtonId() == -1 || bi.vb08ci98.isChecked() && Objects.requireNonNull(bi.vb08cidt.getText()).toString().equals(""))
+                return Validator.emptyCheckingContainer(this, bi.fldGrpVB08ci, false);
+
+            if (bi.vb08cj98.isChecked() && bi.vb08cj.getCheckedRadioButtonId() == -1 || bi.vb08cj98.isChecked() && Objects.requireNonNull(bi.vb08cjdt.getText()).toString().equals(""))
+                return Validator.emptyCheckingContainer(this, bi.fldGrpVB08cj, false);
+
+            // Check child photo taken
 /*        if (vaccinesData.getVBO3().equals("2") && bi.childFileName.getText().toString().equals("")) {
             return Validator.emptyCustomTextBox(this, bi.childFileName, "Please take photo of Child.");
         }*/
 
-        if (bi.vb08ca98.isChecked() && formVB.getVb08ca().equals("") || bi.vb08ca98.isChecked() && formVB.getVb08cadt().equals(""))
-//            return Validator.emptyRadioButton(this, bi.vb08ca, bi.vb08caa);
-            return Validator.emptyCheckingContainer(this, bi.fldGrpVB08ca, false);
 
-        if (bi.vb08cb98.isChecked() && formVB.getVb08cb().equals("") || bi.vb08cb98.isChecked() && formVB.getVb08cbdt().equals(""))
-            return Validator.emptyCheckingContainer(this, bi.fldGrpVB08cb, false);
 
-        if (bi.vb08cc98.isChecked() && formVB.getVb08cc().equals("") || bi.vb08cc98.isChecked() && formVB.getVb08ccdt().equals(""))
-            return Validator.emptyCheckingContainer(this, bi.fldGrpVB08cc, false);
-
-        if (bi.vb08cd98.isChecked() && formVB.getVb08cd().equals("") || bi.vb08cd98.isChecked() && formVB.getVb08cddt().equals(""))
-            return Validator.emptyCheckingContainer(this, bi.fldGrpVB08cd, false);
-
-        if (bi.vb08ce98.isChecked() && formVB.getVb08ce().equals("") || bi.vb08ce98.isChecked() && formVB.getVb08cedt().equals(""))
-            return Validator.emptyCheckingContainer(this, bi.fldGrpVB08ce, false);
-
-        if (bi.vb08cf98.isChecked() && formVB.getVb08cf().equals("") || bi.vb08cf98.isChecked() && formVB.getVb08cfdt().equals(""))
-            return Validator.emptyCheckingContainer(this, bi.fldGrpVB08cf, false);
-
-        if (bi.vb08cg98.isChecked() && formVB.getVb08cg().equals("") || bi.vb08cg98.isChecked() && formVB.getVb08cgdt().equals(""))
-            return Validator.emptyCheckingContainer(this, bi.fldGrpVB08cg, false);
-
-        if (bi.vb08ch98.isChecked() && formVB.getVb08ch().equals("") || bi.vb08ch98.isChecked() && formVB.getVb08chdt().equals(""))
-            return Validator.emptyCheckingContainer(this, bi.fldGrpVB08ch, false);
-
-        if (bi.vb08ci98.isChecked() && formVB.getVb08ci().equals("") || bi.vb08ci98.isChecked() && formVB.getVb08cidt().equals(""))
-            return Validator.emptyCheckingContainer(this, bi.fldGrpVB08ci, false);
-
-        if (bi.vb08cj98.isChecked() && formVB.getVb08cj().equals("") || bi.vb08cj98.isChecked() && formVB.getVb08cjdt().equals(""))
-            return Validator.emptyCheckingContainer(this, bi.fldGrpVB08cj, false);
 
 
         return true;
