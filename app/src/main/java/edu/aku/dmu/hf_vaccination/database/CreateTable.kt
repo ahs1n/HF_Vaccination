@@ -7,7 +7,7 @@ object CreateTable {
 
     const val DATABASE_NAME = "$PROJECT_NAME.db"
     const val DATABASE_COPY = "${PROJECT_NAME}_copy.db"
-    const val DATABASE_VERSION = 3
+    const val DATABASE_VERSION = 4
 
     const val SQL_CREATE_FORMSVA = ("CREATE TABLE "
             + FormsVATable.TABLE_NAME + "("
@@ -86,6 +86,7 @@ object CreateTable {
             + VaccinesTable.COLUMN_VB02 + " TEXT,"
             + VaccinesTable.COLUMN_VB04A + " TEXT,"
             + VaccinesTable.COLUMN_VB04 + " TEXT,"
+            + VaccinesTable.COLUMN_VB07 + " TEXT,"
             + VaccinesTable.COLUMN_VB08C_CODE + " TEXT,"
             + VaccinesTable.COLUMN_VB08C_ANTIGEN + " TEXT,"
             + VaccinesTable.COLUMN_VB08C_DATE + " TEXT,"
@@ -363,4 +364,8 @@ object CreateTable {
     const val SQL_ALTER_ADD_USERNAME = ("ALTER TABLE "
             + TableVaccinesData.TABLE_NAME + " ADD COLUMN "
             + TableVaccinesData.COLUMN_USERNAME + " TEXT;")
+
+    const val SQL_ALTER_ADD_VB07 = ("ALTER TABLE "
+            + VaccinesTable.TABLE_NAME + " ADD COLUMN "
+            + VaccinesTable.COLUMN_VB07 + " TEXT;")
 }

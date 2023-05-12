@@ -55,6 +55,7 @@ public class Vaccines extends BaseObservable implements Observable {
     private String vb02 = _EMPTY_;
     private String vb04a = _EMPTY_;
     private String vb04 = _EMPTY_;
+    private String vb07 = _EMPTY_;
     private String vb08CCode = _EMPTY_;
     private String vb08CAntigen = _EMPTY_;
     private String vb08CDate = _EMPTY_;
@@ -79,6 +80,7 @@ public class Vaccines extends BaseObservable implements Observable {
         setVb02(MainApp.formVB.getVb02());
         setVb04a(MainApp.formVB.getVb04a());
         setVb04(MainApp.formVB.getVb04());
+        setVb07(MainApp.formVB.getVb07());
         setVillageCode(MainApp.workLocation.getWlVillageCode());
         setFacilityCode(MainApp.workLocation.getWlFacilityCode());
         setWlArea(MainApp.workLocation.getWlArea());
@@ -292,6 +294,16 @@ public class Vaccines extends BaseObservable implements Observable {
     }
 
     @Bindable
+    public String getVb07() {
+        return vb07;
+    }
+
+    public void setVb07(String vb07) {
+        this.vb07 = vb07;
+        notifyPropertyChanged(BR.vb07);
+    }
+
+    @Bindable
     public String getVb08CCode() {
         return vb08CCode;
     }
@@ -492,6 +504,7 @@ public class Vaccines extends BaseObservable implements Observable {
         this.vb02 = cursor.getString(cursor.getColumnIndexOrThrow(VaccinesTable.COLUMN_VB02));
         this.vb04a = cursor.getString(cursor.getColumnIndexOrThrow(VaccinesTable.COLUMN_VB04A));
         this.vb04 = cursor.getString(cursor.getColumnIndexOrThrow(VaccinesTable.COLUMN_VB04));
+        this.vb07 = cursor.getString(cursor.getColumnIndexOrThrow(VaccinesTable.COLUMN_VB07));
         this.vb08CCode = cursor.getString(cursor.getColumnIndexOrThrow(VaccinesTable.COLUMN_VB08C_CODE));
         this.vb08CAntigen = cursor.getString(cursor.getColumnIndexOrThrow(VaccinesTable.COLUMN_VB08C_ANTIGEN));
         this.vb08CDate = cursor.getString(cursor.getColumnIndexOrThrow(VaccinesTable.COLUMN_VB08C_DATE));
@@ -557,6 +570,7 @@ public class Vaccines extends BaseObservable implements Observable {
         json.put(VaccinesTable.COLUMN_VB02, this.vb02);
         json.put(VaccinesTable.COLUMN_VB04A, this.vb04a);
         json.put(VaccinesTable.COLUMN_VB04, this.vb04);
+        json.put(VaccinesTable.COLUMN_VB07, this.vb07);
         json.put(VaccinesTable.COLUMN_VB08C_CODE, this.vb08CCode);
         json.put(VaccinesTable.COLUMN_VB08C_ANTIGEN, this.vb08CAntigen);
         json.put(VaccinesTable.COLUMN_VB08C_DATE, this.vb08CDate);

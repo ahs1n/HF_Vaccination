@@ -90,12 +90,14 @@ public class SectionVBActivity extends AppCompatActivity {
             bi.hName.setText(formVB.getVb04());
             bi.cardNo.setText(formVB.getVb02());
             bi.dob.setText(String.format("%s-%s-%s", formVB.getVb04by(), formVB.getVb04bm(), formVB.getVb04bd()));
+            bi.vb07.setText(formVB.getVb07());
 
         } else {
             bi.pName.setText(vaccinesData.getVB04A());
             bi.hName.setText(vaccinesData.getVB04());
             bi.cardNo.setText(vaccinesData.getVBO2());
             bi.dob.setText(vaccinesData.getDob());
+
         }
 
 

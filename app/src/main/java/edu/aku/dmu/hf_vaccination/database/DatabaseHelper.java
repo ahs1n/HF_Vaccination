@@ -11,6 +11,7 @@ import static edu.aku.dmu.hf_vaccination.core.UserAuth.checkPassword;
 import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_ALTER_ADD_DOB;
 import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_ALTER_ADD_DPT;
 import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_ALTER_ADD_USERNAME;
+import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_ALTER_ADD_VB07;
 import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_CREATE_ATTENDANCE;
 import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_CREATE_DUE_VACCINE;
 import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_CREATE_ENTRYLOGS;
@@ -97,7 +98,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = PROJECT_NAME + ".db";
     public static final String DATABASE_COPY = PROJECT_NAME + "_copy.db";
     public static final String DATABASE_PASSWORD = IBAHC;
-    private static final int DATABASE_VERSION = 5;
+    private static final int DATABASE_VERSION = 6;
     private static final String SQL_DELETE_VACCINESDATA = "DROP TABLE IF EXISTS " + TableContracts.TableVaccinesData.TABLE_NAME;
     private static final String SQL_DELETE_WOMEN_FOLLOWUP = "DROP TABLE IF EXISTS " + TableContracts.TableWomenFollowUP.TABLE_NAME;
     private static final String SQL_DELETE_VACCINESSCHEDULE = "DROP TABLE IF EXISTS " + TableVaccineSchedule.TABLE_NAME;
@@ -155,7 +156,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             case 4:
                 db.execSQL(SQL_ALTER_ADD_DPT);
                 db.execSQL(SQL_ALTER_ADD_USERNAME);
+            case 5:
+                db.execSQL(SQL_ALTER_ADD_VB07);
+
         }
+
     }
 
     //ADDITION in DB
@@ -248,6 +253,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(VaccinesTable.COLUMN_VB02, vaccines.getVb02());
         values.put(VaccinesTable.COLUMN_VB04A, vaccines.getVb04a());
         values.put(VaccinesTable.COLUMN_VB04, vaccines.getVb04());
+        values.put(VaccinesTable.COLUMN_VB07, vaccines.getVb07());
         values.put(VaccinesTable.COLUMN_VB08C_CODE, vaccines.getVb08CCode());
         values.put(VaccinesTable.COLUMN_VB08C_ANTIGEN, vaccines.getVb08CAntigen());
         values.put(VaccinesTable.COLUMN_VB08C_DATE, vaccines.getVb08CDate());

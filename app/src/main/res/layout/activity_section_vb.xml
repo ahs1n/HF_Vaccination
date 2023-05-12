@@ -162,6 +162,47 @@
                     </TableRow>-->
                 </TableLayout>
 
+                <!-- vb07  Input -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVvb07"
+                    style="@style/cardView"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_vb07" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/vb07" />
+
+                        </LinearLayout>
+
+                        <EditText
+                            android:id="@+id/vb07"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="###########"
+                            android:inputType="number"
+                            android:maxLength="11"
+                            android:text="@={form.vb07}" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
 
                 <!-- vb08c  Radio   -->
                 <androidx.cardview.widget.CardView
