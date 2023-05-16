@@ -198,8 +198,7 @@
                             android:layout_height="wrap_content"
                             android:hint="###########"
                             android:inputType="number"
-                            android:maxLength="11"
-                            android:text="@={form.vb07}" />
+                            android:maxLength="11" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
