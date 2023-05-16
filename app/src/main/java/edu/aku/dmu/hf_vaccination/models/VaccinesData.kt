@@ -60,7 +60,7 @@ class VaccinesData {
         vBO2 = jsonObject.getString(TableVaccinesData.COLUMN_VB02)
         vBO3 = jsonObject.getString(TableVaccinesData.COLUMN_VB03)
         vB04 = jsonObject.getString(TableVaccinesData.COLUMN_VB04)
-        vB04 = jsonObject.getString(TableVaccinesData.COLUMN_VB07)
+        vB07 = jsonObject.getString(TableVaccinesData.COLUMN_VB07)
         vB04A = jsonObject.getString(TableVaccinesData.COLUMN_VB04A)
         vBO5A = jsonObject.getString(TableVaccinesData.COLUMN_VB05A)
         vBO5D = jsonObject.getString(TableVaccinesData.COLUMN_VB05D)
