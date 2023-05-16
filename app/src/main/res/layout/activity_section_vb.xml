@@ -10,6 +10,10 @@
         <variable
             name="form"
             type="edu.aku.dmu.hf_vaccination.models.FormVB" />
+
+        <variable
+            name="formVacc"
+            type="edu.aku.dmu.hf_vaccination.models.Vaccines" />
     </data>
 
     <LinearLayout

@@ -86,6 +86,7 @@ public class SectionVBActivity extends AppCompatActivity {
         if (btn) bi.btnEnd.setVisibility(View.VISIBLE);
 
         if (MainApp.flag) {
+            vaccines.populateMeta();
             bi.pName.setText(formVB.getVb04a());
             bi.hName.setText(formVB.getVb04());
             bi.cardNo.setText(formVB.getVb02());
@@ -93,6 +94,7 @@ public class SectionVBActivity extends AppCompatActivity {
             bi.vb07.setText(formVB.getVb07());
 
         } else {
+            vaccines.populateMetaFollowUp();
             bi.pName.setText(vaccinesData.getVB04A());
             bi.hName.setText(vaccinesData.getVB04());
             bi.cardNo.setText(vaccinesData.getVBO2());
@@ -1870,10 +1872,13 @@ public class SectionVBActivity extends AppCompatActivity {
         if (!formValidation()) return;
 //        if (b) if (!insertNewRecord()) return;
 
+        vaccines.setVb07(bi.vb07.getText().toString());
         if (flag) {
             vaccines.populateMeta();
+
         } else {
             vaccines.populateMetaFollowUp();
+
         }
 
         String caAntigen = null;
