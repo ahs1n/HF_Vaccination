@@ -12,6 +12,7 @@ import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_ALTER_ADD_DOB;
 import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_ALTER_ADD_DPT;
 import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_ALTER_ADD_USERNAME;
 import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_ALTER_ADD_VB07;
+import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_ALTER_ADD_vB07;
 import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_CREATE_ATTENDANCE;
 import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_CREATE_DUE_VACCINE;
 import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_CREATE_ENTRYLOGS;
@@ -158,6 +159,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 db.execSQL(SQL_ALTER_ADD_USERNAME);
             case 5:
                 db.execSQL(SQL_ALTER_ADD_VB07);
+                db.execSQL(SQL_ALTER_ADD_vB07);
 
         }
 
@@ -1438,6 +1440,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             values.put(TableVaccinesData.COLUMN_VB02, vaccinesData.getVBO2());
             values.put(TableVaccinesData.COLUMN_VB03, vaccinesData.getVBO3());
             values.put(TableVaccinesData.COLUMN_VB04, vaccinesData.getVB04());
+            values.put(TableVaccinesData.COLUMN_VB07, vaccinesData.getVB07());
             values.put(TableVaccinesData.COLUMN_VB04A, vaccinesData.getVB04A());
             values.put(TableVaccinesData.COLUMN_VB05A, vaccinesData.getVBO5A());
             values.put(TableVaccinesData.COLUMN_VB05D, vaccinesData.getVBO5D());

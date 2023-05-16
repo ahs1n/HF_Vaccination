@@ -99,6 +99,7 @@ public class Vaccines extends BaseObservable implements Observable {
         setVb02(MainApp.vaccinesData.getVBO2());
         setVb04a(MainApp.vaccinesData.getVB04A());
         setVb04(MainApp.vaccinesData.getVB04());
+        setVb07(MainApp.vaccinesData.getVB07());
         setVillageCode(MainApp.workLocation.getWlVillageCode());
         setFacilityCode(MainApp.workLocation.getWlFacilityCode());
         setWlArea(MainApp.workLocation.getWlArea());

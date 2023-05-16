@@ -292,6 +292,7 @@ object CreateTable {
             + TableVaccinesData.COLUMN_VB02 + " TEXT,"
             + TableVaccinesData.COLUMN_VB03 + " TEXT,"
             + TableVaccinesData.COLUMN_VB04 + " TEXT,"
+            + TableVaccinesData.COLUMN_VB07 + " TEXT,"
             + TableVaccinesData.COLUMN_VB04A + " TEXT,"
             + TableVaccinesData.COLUMN_VB05A + " TEXT,"
             + TableVaccinesData.COLUMN_VB05D + " TEXT,"
@@ -368,4 +369,9 @@ object CreateTable {
     const val SQL_ALTER_ADD_VB07 = ("ALTER TABLE "
             + VaccinesTable.TABLE_NAME + " ADD COLUMN "
             + VaccinesTable.COLUMN_VB07 + " TEXT;")
+
+    const val SQL_ALTER_ADD_vB07 = ("ALTER TABLE "
+            + TableVaccinesData.TABLE_NAME + " ADD COLUMN "
+            + TableVaccinesData.COLUMN_VB07 + " TEXT;")
+
 }

@@ -97,6 +97,7 @@ public class SectionVBActivity extends AppCompatActivity {
             bi.hName.setText(vaccinesData.getVB04());
             bi.cardNo.setText(vaccinesData.getVBO2());
             bi.dob.setText(vaccinesData.getDob());
+            bi.vb07.setText(vaccinesData.getVB07());
 
         }
 

@@ -87,6 +87,7 @@ public class VaccDueDates extends BaseObservable implements Observable {
         setSysDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime()));
         setAppver(MainApp.appInfo.getAppVersion());
         setProjectName(PROJECT_NAME);
+
     }
 
 
