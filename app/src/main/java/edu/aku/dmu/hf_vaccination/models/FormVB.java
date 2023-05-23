@@ -1475,6 +1475,7 @@ public class FormVB extends BaseObservable implements Observable {
 
     public void vBHydrate(String string) throws JSONException {
         Log.d(TAG, "vBHydrate: " + string);
+
         if (string != null) {
             JSONObject json = null;
             json = new JSONObject(string);
@@ -1493,9 +1494,9 @@ public class FormVB extends BaseObservable implements Observable {
             this.refusal = json.getString("refusal");
             this.missed = json.getString("missed");
             this.zeerodoze = json.getString("zeerodoze");
-            this.due = json.getString("due");
-            this.defaulter = json.getString("defaulter");
-            this.guest = json.getString("guest");
+            this.due = json.has("due") ? json.getString("due") : "";
+            this.defaulter = json.has("defaulter") ? json.getString("defaulter") : "";
+            this.guest = json.has("guest") ? json.getString("guest") : "";
             this.vb06 = json.getString("vb06");
             this.vb06a = json.getString("vb06a");
             this.vb07 = json.getString("vb07");
@@ -1507,8 +1508,7 @@ public class FormVB extends BaseObservable implements Observable {
     public void vACHydrate(String string) throws JSONException {
         Log.d(TAG, "vACHydrate: " + string);
         if (string != null) {
-            JSONObject json = null;
-            json = new JSONObject(string);
+            JSONObject json = new JSONObject(string);
             this.vb08ca = json.getString("vb08ca");
             this.vb08cadt = json.getString("vb08cadt");
             this.vb08cb = json.getString("vb08cb");
