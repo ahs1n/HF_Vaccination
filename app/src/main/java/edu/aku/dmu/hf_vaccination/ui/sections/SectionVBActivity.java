@@ -2021,11 +2021,6 @@ public class SectionVBActivity extends AppCompatActivity {
 
             }
 
-            // Check child photo taken
-/*            if (formVB.getVb03().equals("2") && formVB.getChildfilename().equals("")) {
-                return Validator.emptyCustomTextBox(this, bi.childFileName, "Please take photo of Child.");
-
-            }*/
         } else {
 
             // Check front photo taken
@@ -2071,15 +2066,6 @@ public class SectionVBActivity extends AppCompatActivity {
 
             if (bi.vb08cj98.isChecked() && bi.vb08cj.getCheckedRadioButtonId() == -1 || bi.vb08cj98.isChecked() && Objects.requireNonNull(bi.vb08cjdt.getText()).toString().equals(""))
                 return Validator.emptyCheckingContainer(this, bi.fldGrpVB08cj, false);
-
-            // Check child photo taken
-/*        if (vaccinesData.getVBO3().equals("2") && bi.childFileName.getText().toString().equals("")) {
-            return Validator.emptyCustomTextBox(this, bi.childFileName, "Please take photo of Child.");
-        }*/
-
-
-
-
 
         return true;
     }
