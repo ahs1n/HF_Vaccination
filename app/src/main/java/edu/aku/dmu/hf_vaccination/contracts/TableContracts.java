@@ -80,6 +80,7 @@ public class TableContracts {
         public static final String COLUMN_VB02 = "vb02";
         public static final String COLUMN_VB04A = "vb04a";
         public static final String COLUMN_VB04 = "vb04";
+        public static final String COLUMN_VB06 = "vb06";
         public static final String COLUMN_VB07 = "vb07";
         public static final String COLUMN_VB08C_CODE = "vb08cCode";
         public static final String COLUMN_VB08C_ANTIGEN = "vb08cAnt";
@@ -284,6 +285,7 @@ public class TableContracts {
         public static final String COLUMN_VB02 = "vb02";
         public static final String COLUMN_VB03 = "vb03";
         public static final String COLUMN_VB04 = "vb04";
+        public static final String COLUMN_VB06 = "vb06";
         public static final String COLUMN_VB07 = "vb07";
         public static final String COLUMN_VB04A = "vb04a";
         public static final String COLUMN_VB05A = "vb05a";

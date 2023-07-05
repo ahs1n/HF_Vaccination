@@ -11,8 +11,10 @@ import static edu.aku.dmu.hf_vaccination.core.UserAuth.checkPassword;
 import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_ALTER_ADD_DOB;
 import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_ALTER_ADD_DPT;
 import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_ALTER_ADD_USERNAME;
+import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_ALTER_ADD_VB06;
 import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_ALTER_ADD_VB07;
 import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_ALTER_ADD_vB07;
+import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_ALTER_ADD_vB06;
 import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_CREATE_ATTENDANCE;
 import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_CREATE_DUE_VACCINE;
 import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_CREATE_ENTRYLOGS;
@@ -99,7 +101,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = PROJECT_NAME + ".db";
     public static final String DATABASE_COPY = PROJECT_NAME + "_copy.db";
     public static final String DATABASE_PASSWORD = IBAHC;
-    private static final int DATABASE_VERSION = 6;
+    private static final int DATABASE_VERSION = 7;
     private static final String SQL_DELETE_VACCINESDATA = "DROP TABLE IF EXISTS " + TableContracts.TableVaccinesData.TABLE_NAME;
     private static final String SQL_DELETE_WOMEN_FOLLOWUP = "DROP TABLE IF EXISTS " + TableContracts.TableWomenFollowUP.TABLE_NAME;
     private static final String SQL_DELETE_VACCINESSCHEDULE = "DROP TABLE IF EXISTS " + TableVaccineSchedule.TABLE_NAME;
@@ -160,6 +162,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             case 5:
                 db.execSQL(SQL_ALTER_ADD_VB07);
                 db.execSQL(SQL_ALTER_ADD_vB07);
+            case 6:
+                db.execSQL(SQL_ALTER_ADD_VB06);
+                db.execSQL(SQL_ALTER_ADD_vB06);
 
         }
 
@@ -255,6 +260,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(VaccinesTable.COLUMN_VB02, vaccines.getVb02());
         values.put(VaccinesTable.COLUMN_VB04A, vaccines.getVb04a());
         values.put(VaccinesTable.COLUMN_VB04, vaccines.getVb04());
+        values.put(VaccinesTable.COLUMN_VB06, vaccines.getVb06());
         values.put(VaccinesTable.COLUMN_VB07, vaccines.getVb07());
         values.put(VaccinesTable.COLUMN_VB08C_CODE, vaccines.getVb08CCode());
         values.put(VaccinesTable.COLUMN_VB08C_ANTIGEN, vaccines.getVb08CAntigen());
@@ -597,26 +603,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 selectionArgs);
     }
 
-    /*public int updateTemp(String assessNo, String temp) {
-        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
-
-        ContentValues values = new ContentValues();
-        values.put(FormsTable.COLUMN_TSF305, temp);
-        values.put(FormsTable.COLUMN_SYSDATE, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime()) + "-Updated");
-        values.put(FormsTable.COLUMN_ISTATUS, "1");
-        values.put(FormsTable.COLUMN_SYNCED, (byte[]) null);
-
-        String selection = FormsTable.COLUMN_ASSESMENT_NO + " =? AND " + FormsTable.COLUMN_ISTATUS + " =? ";
-        // String selection = FormsTable.COLUMN_ASSESMENT_NO + " =? ";
-        String[] selectionArgs = {assessNo, "9"};
-        // String[] selectionArgs = {assessNo};
-
-        return db.update(FormsTable.TABLE_NAME,
-                values,
-                selection,
-                selectionArgs);
-    }*/
-
     public int updateEnding() {
         SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
 
@@ -668,70 +654,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return false;
         }
     }
-/*
-
-    public int syncClusters(JSONArray clusterList) {
-        SQLiteDatabase db = this.getWritableDatabase(DATABASE_PASSWORD);
-        db.delete(ClustersTable.TABLE_NAME, null, null);
-        int insertCount = 0;
-        try {
-            for (int i = 0; i < clusterList.length(); i++) {
-
-                JSONObject json = clusterList.getJSONObject(i);
-
-                Clusters cluster = new Clusters();
-                cluster.sync(json);
-                ContentValues values = new ContentValues();
-
-                values.put(ClustersTable.COLUMN_DISTRICT_NAME, cluster.getDistrictName());
-                values.put(ClustersTable.COLUMN_DISTRICT_CODE, cluster.getDistrictCode());
-                values.put(ClustersTable.COLUMN_CITY_NAME, cluster.getCityName());
-                values.put(ClustersTable.COLUMN_CITY_CODE, cluster.getCityCode());
-                values.put(ClustersTable.COLUMN_CLUSTER_NO, cluster.getClusterNo());
-                long rowID = db.insert(ClustersTable.TABLE_NAME, null, values);
-                if (rowID != -1) insertCount++;
-            }
-
-        } catch (Exception e) {
-            Log.d(TAG, "syncClusters(e): " + e);
-            db.close();
-        } finally {
-            db.close();
-        }
-        return insertCount;
-    }
-
-    public int syncRandom(JSONArray list) {
-        SQLiteDatabase db = this.getWritableDatabase(DATABASE_PASSWORD);
-        db.delete(RandomTable.TABLE_NAME, null, null);
-        int insertCount = 0;
-        try {
-            for (int i = 0; i < list.length(); i++) {
-
-                JSONObject json = list.getJSONObject(i);
-
-                RandomHH ran = new RandomHH();
-                ran.sync(json);
-                ContentValues values = new ContentValues();
-                values.put(RandomTable.COLUMN_ID, ran.getID());
-                values.put(RandomTable.COLUMN_SNO, ran.getSno());
-                values.put(RandomTable.COLUMN_CLUSTER_NO, ran.getClusterNo());
-                values.put(RandomTable.COLUMN_HH_NO, ran.getHhno());
-                values.put(RandomTable.COLUMN_HEAD_HH, ran.getHeadhh());
-                long rowID = db.insert(RandomTable.TABLE_NAME, null, values);
-                if (rowID != -1) insertCount++;
-            }
-
-        } catch (Exception e) {
-            Log.d(TAG, "syncRandom(e): " + e);
-            db.close();
-        } finally {
-            db.close();
-        }
-        return insertCount;
-    }
-
-*/
 
     public ArrayList<FormCR> getFormsByDate(String sysdate) {
 
@@ -1440,6 +1362,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             values.put(TableVaccinesData.COLUMN_VB02, vaccinesData.getVBO2());
             values.put(TableVaccinesData.COLUMN_VB03, vaccinesData.getVBO3());
             values.put(TableVaccinesData.COLUMN_VB04, vaccinesData.getVB04());
+            values.put(TableVaccinesData.COLUMN_VB06, vaccinesData.getVB06());
             values.put(TableVaccinesData.COLUMN_VB07, vaccinesData.getVB07());
             values.put(TableVaccinesData.COLUMN_VB04A, vaccinesData.getVB04A());
             values.put(TableVaccinesData.COLUMN_VB05A, vaccinesData.getVBO5A());

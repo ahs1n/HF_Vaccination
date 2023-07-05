@@ -732,8 +732,7 @@
                     <!-- vb06  Input -->
                     <androidx.cardview.widget.CardView
                         android:id="@+id/fldGrpCVvb06"
-                        style="@style/cardView"
-                        android:visibility="gone">
+                        style="@style/cardView">
 
                         <LinearLayout
                             android:layout_width="match_parent"

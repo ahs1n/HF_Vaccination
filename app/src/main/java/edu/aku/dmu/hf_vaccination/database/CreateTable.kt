@@ -86,6 +86,7 @@ object CreateTable {
             + VaccinesTable.COLUMN_VB02 + " TEXT,"
             + VaccinesTable.COLUMN_VB04A + " TEXT,"
             + VaccinesTable.COLUMN_VB04 + " TEXT,"
+            + VaccinesTable.COLUMN_VB06 + " TEXT,"
             + VaccinesTable.COLUMN_VB07 + " TEXT,"
             + VaccinesTable.COLUMN_VB08C_CODE + " TEXT,"
             + VaccinesTable.COLUMN_VB08C_ANTIGEN + " TEXT,"
@@ -292,6 +293,7 @@ object CreateTable {
             + TableVaccinesData.COLUMN_VB02 + " TEXT,"
             + TableVaccinesData.COLUMN_VB03 + " TEXT,"
             + TableVaccinesData.COLUMN_VB04 + " TEXT,"
+            + TableVaccinesData.COLUMN_VB06 + " TEXT,"
             + TableVaccinesData.COLUMN_VB07 + " TEXT,"
             + TableVaccinesData.COLUMN_VB04A + " TEXT,"
             + TableVaccinesData.COLUMN_VB05A + " TEXT,"
@@ -370,8 +372,16 @@ object CreateTable {
             + VaccinesTable.TABLE_NAME + " ADD COLUMN "
             + VaccinesTable.COLUMN_VB07 + " TEXT;")
 
+    const val SQL_ALTER_ADD_VB06 = ("ALTER TABLE "
+            + VaccinesTable.TABLE_NAME + " ADD COLUMN "
+            + VaccinesTable.COLUMN_VB06 + " TEXT;")
+
     const val SQL_ALTER_ADD_vB07 = ("ALTER TABLE "
             + TableVaccinesData.TABLE_NAME + " ADD COLUMN "
             + TableVaccinesData.COLUMN_VB07 + " TEXT;")
+
+    const val SQL_ALTER_ADD_vB06 = ("ALTER TABLE "
+            + TableVaccinesData.TABLE_NAME + " ADD COLUMN "
+            + TableVaccinesData.COLUMN_VB06 + " TEXT;")
 
 }

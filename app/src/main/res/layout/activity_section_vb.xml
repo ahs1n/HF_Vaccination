@@ -117,6 +117,41 @@
                             android:textColor="@color/gray" />
                     </TableRow>
 
+                    <TableRow>
+
+                        <TextView
+                            android:layout_column="1"
+                            android:background="@color/white"
+                            android:text="@string/vb06"
+                            android:textColor="@color/colorPrimaryDark" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:padding="@dimen/_1sdp"
+                            android:textSize="@dimen/_10sdp"
+                            android:id="@+id/vb06"
+                            android:background="@drawable/all_round_corners"
+                            android:text="xxx"
+                            android:textAlignment="center"
+                            android:textColor="@color/black" />
+                    </TableRow>
+
+                    <TableRow>
+                    <TextView
+                        android:layout_column="1"
+                        android:background="@color/white"
+                        android:text="@string/vb07"
+                        android:textColor="@color/colorPrimaryDark" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:padding="@dimen/_1sdp"
+                        android:textSize="@dimen/_10sdp"
+                        android:id="@+id/vb07"
+                        android:background="@drawable/all_round_corners"
+                        android:text="xxx"
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
+                </TableRow>
+
                     <TableRow
                         android:id="@+id/wraVACINFO"
                         android:visibility="gone"
@@ -156,17 +191,50 @@
                         </LinearLayout>
                     </TableRow>
 
-                    <!--<TableRow>
 
-                        <TextView
-                            android:layout_column="1"
-                            android:background="@color/white"
-                            android:text="پچھلے ٹیکہ کی تاریخ"
-                            android:textColor="@color/black" />
-                    </TableRow>-->
                 </TableLayout>
 
-                <!-- vb07  Input -->
+               <!-- &lt;!&ndash; vb06  Input &ndash;&gt;
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVvb06"
+                    style="@style/cardView"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_vb06" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/vb06" />
+
+                        </LinearLayout>
+
+                        <EditText
+                            android:id="@+id/vb06"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/vb06"
+                            android:inputType="text" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+-->
+
+                <!--&lt;!&ndash; vb07  Input &ndash;&gt;
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVvb07"
                     style="@style/cardView"
@@ -205,7 +273,7 @@
                             android:maxLength="11" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
-
+-->
 
                 <!-- vb08c  Radio   -->
                 <androidx.cardview.widget.CardView

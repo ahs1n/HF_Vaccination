@@ -92,6 +92,7 @@ public class SectionVBActivity extends AppCompatActivity {
             bi.cardNo.setText(formVB.getVb02());
             bi.dob.setText(String.format("%s-%s-%s", formVB.getVb04by(), formVB.getVb04bm(), formVB.getVb04bd()));
             bi.vb07.setText(formVB.getVb07());
+            bi.vb06.setText(formVB.getVb06());
 
         } else {
             vaccines.populateMetaFollowUp();
@@ -100,6 +101,7 @@ public class SectionVBActivity extends AppCompatActivity {
             bi.cardNo.setText(vaccinesData.getVBO2());
             bi.dob.setText(vaccinesData.getDob());
             bi.vb07.setText(vaccinesData.getVB07());
+            bi.vb06.setText(vaccinesData.getVB06());
 
         }
 
@@ -1873,6 +1875,7 @@ public class SectionVBActivity extends AppCompatActivity {
 //        if (b) if (!insertNewRecord()) return;
 
         vaccines.setVb07(bi.vb07.getText().toString());
+        vaccines.setVb06(bi.vb06.getText().toString());
         if (flag) {
             vaccines.populateMeta();
 

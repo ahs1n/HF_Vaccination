@@ -55,6 +55,7 @@ public class Vaccines extends BaseObservable implements Observable {
     private String vb02 = _EMPTY_;
     private String vb04a = _EMPTY_;
     private String vb04 = _EMPTY_;
+    private String vb06 = _EMPTY_;
     private String vb07 = _EMPTY_;
     private String vb08CCode = _EMPTY_;
     private String vb08CAntigen = _EMPTY_;
@@ -305,6 +306,16 @@ public class Vaccines extends BaseObservable implements Observable {
     }
 
     @Bindable
+    public String getVb06() {
+        return vb06;
+    }
+
+    public void setVb06(String vb06) {
+        this.vb06 = vb06;
+        notifyPropertyChanged(BR.vb06);
+    }
+
+    @Bindable
     public String getVb08CCode() {
         return vb08CCode;
     }
@@ -505,6 +516,7 @@ public class Vaccines extends BaseObservable implements Observable {
         this.vb02 = cursor.getString(cursor.getColumnIndexOrThrow(VaccinesTable.COLUMN_VB02));
         this.vb04a = cursor.getString(cursor.getColumnIndexOrThrow(VaccinesTable.COLUMN_VB04A));
         this.vb04 = cursor.getString(cursor.getColumnIndexOrThrow(VaccinesTable.COLUMN_VB04));
+        this.vb06 = cursor.getString(cursor.getColumnIndexOrThrow(VaccinesTable.COLUMN_VB06));
         this.vb07 = cursor.getString(cursor.getColumnIndexOrThrow(VaccinesTable.COLUMN_VB07));
         this.vb08CCode = cursor.getString(cursor.getColumnIndexOrThrow(VaccinesTable.COLUMN_VB08C_CODE));
         this.vb08CAntigen = cursor.getString(cursor.getColumnIndexOrThrow(VaccinesTable.COLUMN_VB08C_ANTIGEN));
@@ -571,6 +583,7 @@ public class Vaccines extends BaseObservable implements Observable {
         json.put(VaccinesTable.COLUMN_VB02, this.vb02);
         json.put(VaccinesTable.COLUMN_VB04A, this.vb04a);
         json.put(VaccinesTable.COLUMN_VB04, this.vb04);
+        json.put(VaccinesTable.COLUMN_VB06, this.vb06);
         json.put(VaccinesTable.COLUMN_VB07, this.vb07);
         json.put(VaccinesTable.COLUMN_VB08C_CODE, this.vb08CCode);
         json.put(VaccinesTable.COLUMN_VB08C_ANTIGEN, this.vb08CAntigen);

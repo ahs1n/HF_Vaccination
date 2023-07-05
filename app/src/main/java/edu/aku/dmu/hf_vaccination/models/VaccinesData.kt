@@ -23,6 +23,7 @@ class VaccinesData {
     var vBO2: String = _EMPTY_
     var vBO3: String = _EMPTY_
     var vB04: String = _EMPTY_
+    var vB06: String = _EMPTY_
     var vB07: String = _EMPTY_
     var vB04A: String = _EMPTY_
     var vBO5A: String = _EMPTY_
@@ -60,6 +61,7 @@ class VaccinesData {
         vBO2 = jsonObject.getString(TableVaccinesData.COLUMN_VB02)
         vBO3 = jsonObject.getString(TableVaccinesData.COLUMN_VB03)
         vB04 = jsonObject.getString(TableVaccinesData.COLUMN_VB04)
+        vB06 = jsonObject.getString(TableVaccinesData.COLUMN_VB06)
         vB07 = jsonObject.getString(TableVaccinesData.COLUMN_VB07)
         vB04A = jsonObject.getString(TableVaccinesData.COLUMN_VB04A)
         vBO5A = jsonObject.getString(TableVaccinesData.COLUMN_VB05A)
@@ -106,6 +108,8 @@ class VaccinesData {
             cursor.getString(cursor.getColumnIndexOrThrow(TableVaccinesData.COLUMN_VB03))
         vB04 =
             cursor.getString(cursor.getColumnIndexOrThrow(TableVaccinesData.COLUMN_VB04))
+        vB06 =
+                cursor.getString(cursor.getColumnIndexOrThrow(TableVaccinesData.COLUMN_VB06))
         vB07 =
             cursor.getString(cursor.getColumnIndexOrThrow(TableVaccinesData.COLUMN_VB07))
         vB04A =
