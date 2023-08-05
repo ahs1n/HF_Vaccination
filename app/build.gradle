@@ -148,7 +148,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.3.1'
 
 // Debug Database
-    debugImplementation 'com.amitshekhar.android:debug-db-encrypt:1.0.6'
+//    debugImplementation 'com.amitshekhar.android:debug-db-encrypt:1.0.6'
 
     //implementation 'com.github.jodaorg:joda-time:2.12.1'
 

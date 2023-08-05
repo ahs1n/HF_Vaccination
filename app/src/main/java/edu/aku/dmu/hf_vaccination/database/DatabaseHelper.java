@@ -13,8 +13,8 @@ import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_ALTER_ADD_DPT;
 import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_ALTER_ADD_USERNAME;
 import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_ALTER_ADD_VB06;
 import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_ALTER_ADD_VB07;
-import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_ALTER_ADD_vB07;
 import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_ALTER_ADD_vB06;
+import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_ALTER_ADD_vB07;
 import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_CREATE_ATTENDANCE;
 import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_CREATE_DUE_VACCINE;
 import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_CREATE_ENTRYLOGS;
@@ -1486,15 +1486,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 // New value for one column
         ContentValues values = new ContentValues();
-        values.put(TableContracts.WorkLocationTable.COLUMN_SYNCED, true);
-        values.put(TableContracts.WorkLocationTable.COLUMN_SYNC_DATE, new Date().toString());
+        values.put(TableContracts.AttendanceTable.COLUMN_SYNCED, true);
+        values.put(TableContracts.AttendanceTable.COLUMN_SYNC_DATE, new Date().toString());
 
 // Which row to update, based on the title
-        String where = TableContracts.WorkLocationTable.COLUMN_ID + " = ?";
+        String where = TableContracts.AttendanceTable.COLUMN_ID + " = ?";
         String[] whereArgs = {id};
 
         int count = db.update(
-                WorkLocationTable.TABLE_NAME,
+                AttendanceTable.TABLE_NAME,
                 values,
                 where,
                 whereArgs);

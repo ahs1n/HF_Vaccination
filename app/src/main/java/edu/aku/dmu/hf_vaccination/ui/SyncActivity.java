@@ -723,7 +723,7 @@ public class SyncActivity extends AppCompatActivity {
                 if (workInfo.getState() != null &&
                         workInfo.getState() == WorkInfo.State.FAILED) {
                     String message = workInfo.getOutputData().getString("error");
-                    if (message.equals("No new records to upload")) {
+                    if (message != null && message.equals("No new records to upload")) {
                         uploadTables.get(position).setmessage(message);
                         uploadTables.get(position).setstatus("Not processed");
                         uploadTables.get(position).setstatusID(4);

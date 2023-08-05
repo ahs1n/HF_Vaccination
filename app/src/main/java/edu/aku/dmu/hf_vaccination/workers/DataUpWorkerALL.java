@@ -303,7 +303,7 @@ public class DataUpWorkerALL extends Worker {
 
                 Log.d(TAG, "Upload Begins Length: " + jsonParam.length());
                 Log.d(TAG, "Upload Begins: " + jsonParam);
-                longInfo(String.valueOf(jsonParam));
+//                longInfo(String.valueOf(jsonParam));
 
                 String cipheredRequest = CipherSecure.encryptGCM(jsonParam.toString());
                 requestLength = cipheredRequest.length();
@@ -311,7 +311,7 @@ public class DataUpWorkerALL extends Worker {
 
                 String writeEnc = CipherSecure.encryptGCM(jsonParam.toString());
 
-                longInfo("Encrypted: " + writeEnc);
+//                longInfo("Encrypted: " + writeEnc);
 
                 //     wr.writeBytes(jsonParam.toString());
 
@@ -338,7 +338,7 @@ public class DataUpWorkerALL extends Worker {
 
                     }
                     displayNotification(nTitle, "Received Data");
-                    longInfo("result-server: " + writeEnc);
+//                    longInfo("result-server: " + writeEnc);
 
                 } else {
 
