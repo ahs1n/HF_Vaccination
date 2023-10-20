@@ -1,5 +1,7 @@
 package edu.aku.dmu.hf_vaccination.adapters;
 
+import static edu.aku.dmu.hf_vaccination.core.MainApp.formVBList;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.view.View;
@@ -10,9 +12,13 @@ import androidx.core.util.Predicate;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import edu.aku.dmu.hf_vaccination.models.FormVB;
 
 public abstract class GenericRVAdapter<T> extends RecyclerView.Adapter<GenericRVAdapter<T>.ViewHolder> {
     private final Activity activity;
@@ -31,6 +37,8 @@ public abstract class GenericRVAdapter<T> extends RecyclerView.Adapter<GenericRV
         this.recyclerView = recyclerView;
         this.onItemClickListener = onItemClickListener;
         this.isMultiSelect = isMultiSelect;
+
+
     }
 
     // Add filter

@@ -1,6 +1,7 @@
 
 package edu.aku.dmu.hf_vaccination.ui.lists;
 
+import static edu.aku.dmu.hf_vaccination.core.MainApp.selectedUCCode;
 import static edu.aku.dmu.hf_vaccination.core.MainApp.vaccinesData;
 import static edu.aku.dmu.hf_vaccination.core.MainApp.vaccinesDataList;
 
@@ -28,6 +29,9 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import org.json.JSONException;
+
+import java.util.Collections;
+import java.util.Comparator;
 
 import edu.aku.dmu.hf_vaccination.MainActivity;
 import edu.aku.dmu.hf_vaccination.R;
@@ -59,6 +63,15 @@ public class VaccinatedChildListActivity extends AppCompatActivity {
                         Intent data = result.getData();
 
                         vaccinesDataList.add(MainApp.vaccinesData);
+
+
+                        Collections.sort(vaccinesDataList, new Comparator<VaccinesData>(){
+                            @Override
+                            public int compare(VaccinesData o1, VaccinesData o2) {
+                                return o1.getVB04A().compareTo(o2.getVB04A());
+                            }
+                        });
+
 
                     }
 
@@ -149,6 +162,13 @@ public class VaccinatedChildListActivity extends AppCompatActivity {
         };
 
 
+        Collections.sort(vaccinesDataList, new Comparator<VaccinesData>(){
+            @Override
+            public int compare(VaccinesData o1, VaccinesData o2) {
+                return o1.getVB04A().compareTo(o2.getVB04A());
+            }
+        });
+
         bi.rvMember.setTag(VACC_CHILD_RV);
         bi.rvMember.setAdapter(genericRVAdapter);
     }
@@ -206,8 +226,16 @@ public class VaccinatedChildListActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                genericRVAdapter.filter(s.toString(), vaccinesData -> (vaccinesData.getVBO2().toLowerCase().contains(s.toString())
-                        || vaccinesData.getVB04A().toLowerCase().contains(s.toString())));
+                if(bi.searchByCard.isChecked())
+                {
+                    genericRVAdapter.filter(s.toString(), vaccinesData -> (vaccinesData.getVBO2().toLowerCase().startsWith(s.toString())));
+                }else if(bi.searchByName.isChecked()){
+                    genericRVAdapter.filter(s.toString(), vaccinesData -> (vaccinesData.getVB04A().toLowerCase().startsWith(s.toString())));
+                }else{
+                    genericRVAdapter.filter(s.toString(), vaccinesData -> (vaccinesData.getVBO2().toLowerCase().startsWith(s.toString())
+                            || vaccinesData.getVB04A().toLowerCase().startsWith(s.toString())));
+                }
+
             }
         });
 
@@ -219,4 +247,6 @@ public class VaccinatedChildListActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }

@@ -1,5 +1,7 @@
 package edu.aku.dmu.hf_vaccination.adapters;
 
+import static edu.aku.dmu.hf_vaccination.core.MainApp.formVBList;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
@@ -11,6 +13,8 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import edu.aku.dmu.hf_vaccination.R;
@@ -43,6 +47,13 @@ public class VaccinatedMembersAdapter extends RecyclerView.Adapter<VaccinatedMem
         this.mContext = mContext;
         completeCount = 0;
         this.onItemClickListener = onItemClickListener;
+
+        Collections.sort(formVBList, new Comparator<FormVB>(){
+            @Override
+            public int compare(FormVB o1, FormVB o2) {
+                return o1.getVb04a().compareTo(o2.getVb04a());
+            }
+        });
 
     }
 
