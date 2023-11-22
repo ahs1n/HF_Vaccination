@@ -166,4 +166,5 @@ class VaccinesData {
             cursor.getString(cursor.getColumnIndexOrThrow(TableVaccinesData.COLUMN_DPT))
         return this
     }
+
 }

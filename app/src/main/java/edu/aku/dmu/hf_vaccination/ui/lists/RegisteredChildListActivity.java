@@ -3,6 +3,7 @@ package edu.aku.dmu.hf_vaccination.ui.lists;
 import static edu.aku.dmu.hf_vaccination.core.MainApp.formVA;
 import static edu.aku.dmu.hf_vaccination.core.MainApp.formVB;
 import static edu.aku.dmu.hf_vaccination.core.MainApp.formVBList;
+import static edu.aku.dmu.hf_vaccination.core.MainApp.vaccinesDataList;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -20,6 +21,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import org.json.JSONException;
 
+import java.util.Collections;
+import java.util.Comparator;
+
 import edu.aku.dmu.hf_vaccination.MainActivity;
 import edu.aku.dmu.hf_vaccination.R;
 import edu.aku.dmu.hf_vaccination.adapters.VaccinatedMembersAdapter;
@@ -27,6 +31,8 @@ import edu.aku.dmu.hf_vaccination.core.MainApp;
 import edu.aku.dmu.hf_vaccination.database.DatabaseHelper;
 import edu.aku.dmu.hf_vaccination.databinding.ActivityRegisteredListChildBinding;
 import edu.aku.dmu.hf_vaccination.models.FormVA;
+import edu.aku.dmu.hf_vaccination.models.FormVB;
+import edu.aku.dmu.hf_vaccination.models.VaccinesData;
 import edu.aku.dmu.hf_vaccination.ui.sections.MemberInfoActivity;
 import edu.aku.dmu.hf_vaccination.ui.sections.SectionVBActivity;
 
