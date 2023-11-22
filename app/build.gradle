@@ -152,7 +152,7 @@ dependencies {
 
     //implementation 'com.github.jodaorg:joda-time:2.12.1'
 
-    implementation 'joda-time:joda-time:2.12.1'
+    implementation 'joda-time:joda-time:2.12.5'
 
     debugImplementation 'com.facebook.flipper:flipper:0.173.0'
     debugImplementation 'com.facebook.soloader:soloader:0.10.4'

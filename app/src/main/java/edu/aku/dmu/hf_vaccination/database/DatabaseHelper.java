@@ -1089,6 +1089,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String groupBy = null;
         String having = null;
         String orderBy = TableContracts.VaccinesDueTable.COLUMN_ID + " ASC";
+        String limit = "100";
 
         JSONArray vaccinesDue = new JSONArray();
         c = db.query(
@@ -1098,7 +1099,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 whereArgs,                 // The values for the WHERE clause
                 groupBy,                   // don't group the rows
                 having,                    // don't filter by row groups
-                orderBy                    // The sort order
+                orderBy,                    // The sort order
+                limit
         );
         while (c.moveToNext()) {
             Log.d(TAG, "getUnsyncedVaccines: " + c.getCount());
