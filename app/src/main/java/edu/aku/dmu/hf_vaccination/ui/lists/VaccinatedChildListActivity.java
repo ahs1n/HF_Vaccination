@@ -122,8 +122,10 @@ public class VaccinatedChildListActivity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (bi.searchByName.isChecked()) {
                     bi.memberId.setHint("Name");
-                } else {
+                } else if(bi.searchByCard.isChecked()){
                     bi.memberId.setHint("Card No.");
+                }else if(bi.searchByDOB.isChecked()){
+                    bi.memberId.setHint("Date of Birth");
                 }
             }
         });
@@ -231,6 +233,9 @@ public class VaccinatedChildListActivity extends AppCompatActivity {
                     genericRVAdapter.filter(s.toString(), vaccinesData -> (vaccinesData.getVBO2().toLowerCase().startsWith(s.toString())));
                 }else if(bi.searchByName.isChecked()){
                     genericRVAdapter.filter(s.toString(), vaccinesData -> (vaccinesData.getVB04A().toLowerCase().startsWith(s.toString())));
+                }else if(bi.searchByDOB.isChecked()){
+                    genericRVAdapter.filter(s.toString(), vaccinesData -> (vaccinesData.getDob().toLowerCase().contains(s.toString())
+                            || vaccinesData.getDob().toLowerCase().contains(s.toString())));
                 }else{
                     genericRVAdapter.filter(s.toString(), vaccinesData -> (vaccinesData.getVBO2().toLowerCase().startsWith(s.toString())
                             || vaccinesData.getVB04A().toLowerCase().startsWith(s.toString())));
