@@ -509,7 +509,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(column, value);
 
-        String selection = VaccinesDueTable._ID + " =? ";
+        String selection = VaccinesDueTable.COLUMN_ID + " =? ";
         String[] selectionArgs;
         if (!vaccDueDates.getId().equals("")) {
             selectionArgs = new String[]{String.valueOf(vaccDueDates.getId())};
