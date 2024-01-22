@@ -1492,7 +1492,7 @@ public class SectionVBActivity extends AppCompatActivity {
                 if (currentDose == -1) {
                     days = 252;
                 }
-                // Measles 2 at 15 months       Group 5
+                // Measles 2 at  15 months       Group 5
                 else {
                     days = 168;
                 }
