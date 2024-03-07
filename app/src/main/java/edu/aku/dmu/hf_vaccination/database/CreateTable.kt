@@ -100,7 +100,8 @@ object CreateTable {
             + VaccinesTable.COLUMN_GPSLAT + " TEXT,"
             + VaccinesTable.COLUMN_GPSLNG + " TEXT,"
             + VaccinesTable.COLUMN_GPSACC + " TEXT,"
-            + VaccinesTable.COLUMN_GPSDATE + " TEXT"
+            + VaccinesTable.COLUMN_GPSDATE + " TEXT,"
+            + VaccinesTable.COLUMN_SITE_ID + " TEXT"
             + " );"
             )
 
@@ -383,5 +384,9 @@ object CreateTable {
     const val SQL_ALTER_ADD_vB06 = ("ALTER TABLE "
             + TableVaccinesData.TABLE_NAME + " ADD COLUMN "
             + TableVaccinesData.COLUMN_VB06 + " TEXT;")
+
+    const val SQL_ALTER_ADD_SITE_ID = ("ALTER TABLE "
+            + VaccinesTable.TABLE_NAME + " ADD COLUMN "
+            + VaccinesTable.COLUMN_SITE_ID + " TEXT;")
 
 }

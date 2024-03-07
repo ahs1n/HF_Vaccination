@@ -129,6 +129,7 @@ public class MainApp extends Application {
     public static CountDownTimer timer;
     protected static LocationManager locationManager;
     static ToneGenerator toneGen1;
+    public static String SITE_ID = "";
 
 
     public static void hideSystemUI(View decorView) {

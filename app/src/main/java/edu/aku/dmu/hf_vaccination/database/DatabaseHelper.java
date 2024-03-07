@@ -10,6 +10,7 @@ import static edu.aku.dmu.hf_vaccination.core.MainApp.vaccines;
 import static edu.aku.dmu.hf_vaccination.core.UserAuth.checkPassword;
 import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_ALTER_ADD_DOB;
 import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_ALTER_ADD_DPT;
+import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_ALTER_ADD_SITE_ID;
 import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_ALTER_ADD_USERNAME;
 import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_ALTER_ADD_VB06;
 import static edu.aku.dmu.hf_vaccination.database.CreateTable.SQL_ALTER_ADD_VB07;
@@ -101,7 +102,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = PROJECT_NAME + ".db";
     public static final String DATABASE_COPY = PROJECT_NAME + "_copy.db";
     public static final String DATABASE_PASSWORD = IBAHC;
-    private static final int DATABASE_VERSION = 7;
+    private static final int DATABASE_VERSION = 8;
     private static final String SQL_DELETE_VACCINESDATA = "DROP TABLE IF EXISTS " + TableContracts.TableVaccinesData.TABLE_NAME;
     private static final String SQL_DELETE_WOMEN_FOLLOWUP = "DROP TABLE IF EXISTS " + TableContracts.TableWomenFollowUP.TABLE_NAME;
     private static final String SQL_DELETE_VACCINESSCHEDULE = "DROP TABLE IF EXISTS " + TableVaccineSchedule.TABLE_NAME;
@@ -165,7 +166,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             case 6:
                 db.execSQL(SQL_ALTER_ADD_VB06);
                 db.execSQL(SQL_ALTER_ADD_vB06);
-
+            case 7:
+                db.execSQL(SQL_ALTER_ADD_SITE_ID);
         }
 
     }
@@ -278,6 +280,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(VaccinesTable.COLUMN_APPVERSION, vaccines.getAppver());
         values.put(VaccinesTable.COLUMN_SYNCED, vaccines.getSynced());
         values.put(VaccinesTable.COLUMN_SYNC_DATE, vaccines.getSyncDate());
+        values.put(VaccinesTable.COLUMN_SITE_ID, vaccines.getSiteID());
 
         long newRowId;
         newRowId = db.insert(

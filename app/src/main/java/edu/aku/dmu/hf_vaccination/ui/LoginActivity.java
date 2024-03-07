@@ -25,6 +25,7 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -265,6 +266,43 @@ public class LoginActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        checkSide();
+    }
+
+    private void checkSide() {
+        MainApp.SITE_ID = "";
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Select Site");
+        builder.setCancelable(false);
+        // Inflate the custom layout for the dialog
+        View dialogLayout = getLayoutInflater().inflate(R.layout.dialog_site_id, null);
+        builder.setView(dialogLayout);
+
+        // Find the radio buttons in the custom layout
+        RadioButton radioButtonA = dialogLayout.findViewById(R.id.radioButtonA);
+        RadioButton radioButtonB = dialogLayout.findViewById(R.id.radioButtonB);
+
+        // Set up the buttons
+        builder.setPositiveButton("OK", (dialog, which) -> {
+            String selectedSide;
+            if (radioButtonA.isChecked()) {
+                selectedSide = "1";
+            } else if (radioButtonB.isChecked()) {
+                selectedSide = "2";
+            } else {
+                // Handle the case where neither radio button is checked
+                selectedSide = ""; // Set a default value or handle accordingly
+            }
+
+            MainApp.SITE_ID = selectedSide;
+        });
+        // Make the dialog not cancelable
+        builder.setOnCancelListener(dialog -> {
+            // Do nothing when the cancel button is pressed
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.setCanceledOnTouchOutside(false); // This prevents clicking outside the dialog to dismiss it
+        builder.show();
     }
 
     public void onShowPasswordClick(View view) {
@@ -361,9 +399,11 @@ public class LoginActivity extends AppCompatActivity {
                         startActivity(iLogin);
                     } else if (MainApp.user.getEnabled().equals("1")) {
                         if (!MainApp.user.getNewUser().equals("1")) {
-                            recordEntry("Successful Login");
-                            iLogin = new Intent(LoginActivity.this, MainActivity.class);
-                            startActivity(iLogin);
+                            if (MainApp.SITE_ID != "") {
+                                recordEntry("Successful Login");
+                                iLogin = new Intent(LoginActivity.this, MainActivity.class);
+                                startActivity(iLogin);
+                            } else checkSide();
                         } else if (MainApp.user.getNewUser().equals("1")) {
                             recordEntry("First Login");
                             iLogin = new Intent(LoginActivity.this, ChangePasswordActivity.class);

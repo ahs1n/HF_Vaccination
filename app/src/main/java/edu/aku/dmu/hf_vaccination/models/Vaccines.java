@@ -50,6 +50,7 @@ public class Vaccines extends BaseObservable implements Observable {
     private String facilityCode = _EMPTY_;
     private String villageCode = _EMPTY_;
     private String wlArea = _EMPTY_;
+    private String siteID = _EMPTY_;
 
     // FIELD VARIABLES
     private String vb02 = _EMPTY_;
@@ -76,6 +77,7 @@ public class Vaccines extends BaseObservable implements Observable {
         setUserName(MainApp.formVB.getUserName());
         setUcCode(MainApp.user.getUccode());
         setDeviceId(MainApp.deviceid);
+        setSiteID(MainApp.SITE_ID);
         setUuid(MainApp.formVB.getUid());
         setAid(MainApp.attendance.getUid());
         setVb02(MainApp.formVB.getVb02());
@@ -95,6 +97,7 @@ public class Vaccines extends BaseObservable implements Observable {
         setUserName(MainApp.user.getUserName());
         setUcCode(MainApp.user.getUccode());
         setDeviceId(MainApp.deviceid);
+        setSiteID(MainApp.SITE_ID);
         setUuid(MainApp.vaccinesData.getUID());
         setAid(MainApp.attendance.getUid());
         setVb02(MainApp.vaccinesData.getVBO2());
@@ -113,6 +116,7 @@ public class Vaccines extends BaseObservable implements Observable {
         setUserName(MainApp.user.getUserName());
         setUcCode(MainApp.user.getUccode());
         setDeviceId(MainApp.deviceid);
+        setSiteID(MainApp.SITE_ID);
         setUuid(MainApp.womenFollowUP.getUID());
         setAid(MainApp.attendance.getUid());
         setVb02(MainApp.womenFollowUP.getVBO2());
@@ -183,6 +187,14 @@ public class Vaccines extends BaseObservable implements Observable {
 
     public void setDeviceId(String deviceId) {
         this.deviceId = deviceId;
+    }
+
+    public String getSiteID() {
+        return siteID;
+    }
+
+    public void setSiteID(String siteID) {
+        this.siteID = siteID;
     }
 
     public String getDeviceTag() {
@@ -512,6 +524,7 @@ public class Vaccines extends BaseObservable implements Observable {
         this.iStatus = cursor.getString(cursor.getColumnIndexOrThrow(VaccinesTable.COLUMN_ISTATUS));
         this.synced = cursor.getString(cursor.getColumnIndexOrThrow(VaccinesTable.COLUMN_SYNCED));
         this.syncDate = cursor.getString(cursor.getColumnIndexOrThrow(VaccinesTable.COLUMN_SYNC_DATE));
+        this.siteID = cursor.getString(cursor.getColumnIndexOrThrow(VaccinesTable.COLUMN_SITE_ID));
 
         this.vb02 = cursor.getString(cursor.getColumnIndexOrThrow(VaccinesTable.COLUMN_VB02));
         this.vb04a = cursor.getString(cursor.getColumnIndexOrThrow(VaccinesTable.COLUMN_VB04A));
@@ -579,6 +592,7 @@ public class Vaccines extends BaseObservable implements Observable {
         json.put(VaccinesTable.COLUMN_SYNCED, this.synced);
         json.put(VaccinesTable.COLUMN_SYNC_DATE, this.syncDate);
         json.put(VaccinesTable.COLUMN_APPVERSION, this.appver);
+        json.put(VaccinesTable.COLUMN_SITE_ID, this.siteID);
 
         json.put(VaccinesTable.COLUMN_VB02, this.vb02);
         json.put(VaccinesTable.COLUMN_VB04A, this.vb04a);

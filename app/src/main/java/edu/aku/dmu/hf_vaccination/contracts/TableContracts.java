@@ -97,6 +97,7 @@ public class TableContracts {
         public static final String COLUMN_SYNC_DATE = "sync_date";
         public static final String COLUMN_APPVERSION = "appversion";
         public static final String COLUMN_ISTATUS = "istatus";
+        public static final String COLUMN_SITE_ID = "site_id";
     }
 
     public static abstract class VaccinesDueTable implements BaseColumns {
